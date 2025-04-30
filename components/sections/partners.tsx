@@ -13,7 +13,7 @@ const partners = [
   { name: "Monetbil", logo: "/images/monetbil.png" },
   { name: "Curalife", logo: "/images/curalife.png" },
   { name: "Melbet", logo: "/images/melbet.png" },
-  { name: "As Vclub", logo: "/images/as.png" },
+  // { name: "As Vclub", logo: "/images/as.png" },
   { name: "X Cash", logo: "/images/xcash.png" },
 ];
 
@@ -53,7 +53,7 @@ export default function Partners() {
           whileInView={{ opacity: 1 }}
           transition={{ duration: 0.5, delay: 0.2 }}
           viewport={{ once: true }}
-          className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-6 md:gap-8 items-center justify-items-center"
+          className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6 md:gap-8 items-center justify-items-center"
         >
           {partners.map((partner, index) => (
             <motion.div
@@ -69,11 +69,11 @@ export default function Partners() {
               className="bg-white p-4 rounded-lg shadow-sm border border-gray-100 hover:border-avada-500/30 transition-all flex items-center justify-center h-24 w-full"
             >
               <Image
-                src={partner.logo || "/placeholder.svg"}
+                src={partner.logo}
                 alt={partner.name}
                 width={120}
                 height={60}
-                className="max-h-12 w-auto object-contain"
+                className="max-h-12 w-auto"
               />
             </motion.div>
           ))}
@@ -85,8 +85,7 @@ export default function Partners() {
           transition={{ duration: 0.5, delay: 0.5 }}
           viewport={{ once: true }}
           className="mt-12 text-center"
-        >
-        </motion.div>
+        ></motion.div>
       </div>
     </section>
   );

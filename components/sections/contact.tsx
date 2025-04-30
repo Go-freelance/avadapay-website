@@ -137,7 +137,7 @@ export default function Contact() {
           viewport={{ once: true }}
           className="text-center mb-16"
         >
-          <h2 className="text-3xl font-bold mb-4 text-foreground">
+          <h2 className="text-3xl font-extrabold mb-4 text-foreground">
             Prêt à{" "}
             <span className="gradient-text">simplifier vos paiements</span> ?
           </h2>

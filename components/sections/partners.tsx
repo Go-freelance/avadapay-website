@@ -39,13 +39,13 @@ export default function Partners() {
           viewport={{ once: true }}
           className="text-center mb-12"
         >
-          <h2 className="text-3xl font-bold mb-4 text-dark">
+          <h2 className="text-3xl font-extrabold mb-4 text-dark">
             Ils nous ont fait confiance
           </h2>
           <div className="w-20 h-1 avada-gradient mx-auto mb-6 rounded-full"></div>
-          <p className="text-lg text-gray-600 max-w-2xl mx-auto">
+          {/* <p className="text-lg font-light text-gray-600 max-w-2xl mx-auto">
             Infrastructure de paiement connectée à tous les opérateurs
-          </p>
+          </p> */}
         </motion.div>
 
         <motion.div

@@ -36,33 +36,24 @@ export default function Solutions() {
 
       <div className="container mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         <div className="text-center mb-16">
-          <motion.span
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.5 }}
-            viewport={{ once: true }}
-            className="inline-block px-4 py-1 rounded-full bg-primary/10 text-primary text-sm font-medium mb-4"
-          >
-            Solutions AvadaPay
-          </motion.span>
           <motion.h2
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5, delay: 0.1 }}
             viewport={{ once: true }}
-            className="text-4xl md:text-5xl font-bold mb-6 text-foreground"
+            className="section-title-wrapper"
           >
-            Nos solutions{" "}
-            <span className="bg-clip-text text-transparent bg-gradient-to-r from-primary to-primary/80">
-              Digitales
-            </span>
+            <h2 className="text-4xl md:text-5xl font-extrabold text-dark">
+
+              Nos solutions <span className="gradient-text">Digitales</span>
+            </h2>
           </motion.h2>
           <motion.p
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5, delay: 0.2 }}
             viewport={{ once: true }}
-            className="text-xl text-muted-foreground max-w-2xl mx-auto"
+            className="text-xl text-gray-600 font-bold max-w-2xl mt-6 mx-auto"
           >
             Des solutions digitales innovantes pour tous vos besoins de paiement
             et communication
@@ -224,7 +215,7 @@ export default function Solutions() {
           viewport={{ once: true }}
           className="mt-20 bg-gradient-to-r from-primary/90 to-primary/70 rounded-2xl p-8 md:p-12 text-white text-center"
         >
-          <h3 className="text-2xl md:text-3xl font-bold mb-4">
+          <h3 className="text-2xl md:text-3xl font-extrabold mb-4">
             Prêt à transformer votre système de paiement ?
           </h3>
           <p className="text-white/90 max-w-2xl mx-auto mb-8">
@@ -232,7 +223,7 @@ export default function Solutions() {
             solutions de paiement en ligne.
           </p>
           <Link href="#contact">
-            <Button className="bg-white text-primary hover:bg-white/90 group">
+            <Button className="bg-white text-primary font-bold hover:bg-white/90 group">
               Démarrer maintenant
               <ArrowRight className="ml-2 h-4 w-4 transition-transform group-hover:translate-x-1" />
             </Button>

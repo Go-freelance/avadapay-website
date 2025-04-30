@@ -67,7 +67,7 @@ export default function Hero() {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, delay: 0.4 }}
-            className="text-xl md:text-xl text-white/80 mb-10 max-w-2xl mx-auto"
+            className="text-xl md:text-xl font-light text-white/80 mb-10 max-w-2xl mx-auto"
           >
             nous offrons des solutions digitales simplifiant les transactions
             financières pour les entreprises ainsi que les consommateurs.
@@ -82,7 +82,7 @@ export default function Hero() {
             <Link href="#solutions">
               <Button
                 size="lg"
-                className="bg-primary hover:bg-primary/90 text-white px-8 py-6 h-auto text-base group"
+                className="bg-primary hover:bg-primary/90 text-white px-8 py-6 h-auto font-bold text-base group"
               >
                 Découvrir nos solutions
                 <ChevronRight className="ml-2 h-4 w-4 transition-transform group-hover:translate-x-1" />
@@ -92,7 +92,7 @@ export default function Hero() {
               <Button
                 size="lg"
                 variant="outline"
-                className="border-primary text-primary hover:bg-white/10 px-8 py-6 h-auto text-base backdrop-blur-sm"
+                className="border-primary text-primary hover:bg-white/10 px-8 py-6 h-auto text-base font-bold backdrop-blur-sm"
               >
                 Nous contacter
               </Button>

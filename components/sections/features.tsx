@@ -35,9 +35,9 @@ const features = [
   },
   {
     icon: <Smartphone className="h-6 w-6" />,
-    title: "Mobile Money Universel",
+    title: "Mobile Money",
     description:
-      "Intégration native avec M-Pesa, Orange Money, Airtel Money et AfriMoney avec réconciliation automatique.",
+      "Intégration avec M-Pesa, Orange Money, Airtel Money et AfriMoney avec réconciliation automatique.",
   },
   {
     icon: <BarChart className="h-6 w-6" />,
@@ -98,7 +98,7 @@ export default function Features() {
             transition={{ duration: 0.6 }}
             className="section-title-wrapper"
           >
-            <h2 className="text-4xl md:text-5xl font-bold text-dark">
+            <h2 className="text-4xl md:text-5xl font-extrabold text-dark">
               Pourquoi <span className="gradient-text">choisir AvadaPay</span> ?
             </h2>
           </motion.div>
@@ -107,7 +107,7 @@ export default function Features() {
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             transition={{ duration: 0.6, delay: 0.2 }}
-            className="text-xl text-gray-600 max-w-2xl mx-auto mt-6 font-light"
+            className="text-xl text-gray-600 max-w-2xl mx-auto mt-6 font-bold"
           >
             Des solutions de paiement innovantes conçues pour l'écosystème
             financier congolais

@@ -47,7 +47,7 @@ export default function Header() {
               key={link.href}
               href={link.href}
               className={cn(
-                "text-sm font-medium text-slate-300 hover:text-emerald-500 transition-colors",
+                "text-sm font-bold text-slate-300 hover:text-emerald-500 transition-colors",
                 scrolled ? "text-slate-600" : ""
               )}
             >
@@ -58,12 +58,11 @@ export default function Header() {
 
         <div className="hidden md:block">
           <Link href="#contact">
-            <Button className="bg-emerald-500 hover:bg-emerald-600 text-white">
+            <Button className="bg-emerald-500 hover:bg-emerald-600 text-white font-bold">
               Nous contacter
             </Button>
           </Link>
         </div>
-
 
         {/* Mobile Navigation */}
         <div className="md:hidden">
@@ -100,7 +99,7 @@ export default function Header() {
                 <Link
                   key={link.href}
                   href={link.href}
-                  className="text-xl font-medium hover:text-emerald-500 transition-colors"
+                  className="text-xl font-medium hover:text-emerald-500  transition-colors"
                   onClick={() => setIsOpen(false)}
                 >
                   {link.label}

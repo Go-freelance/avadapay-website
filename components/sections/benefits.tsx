@@ -146,7 +146,7 @@ export default function Benefits() {
                   alt={partner.name}
                   width={80}
                   height={40}
-                  className="h-8 w-auto"
+                  className="h-12 w-full"
                 />
               </motion.div>
             ))}

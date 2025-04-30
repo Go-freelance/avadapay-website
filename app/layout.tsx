@@ -1,12 +1,13 @@
 import type React from "react"
 import "./globals.css"
-import { Poppins } from "next/font/google"
-import { ThemeProvider } from "@/components/theme-provider"
+import { Mulish } from "next/font/google"
 
-const poppins = Poppins({
+
+const mulish = Mulish({
   subsets: ["latin"],
-  weight: ["400", "500", "600", "700"],
-  variable: "--font-poppins",
+  weight: ["300", "400", "500", "600", "700", "800"],
+  variable: "--font-mulish",
+  display: "swap",
 })
 
 export const metadata = {
@@ -21,8 +22,8 @@ export default function RootLayout({
   children: React.ReactNode
 }>) {
   return (
-    <html lang="fr" className="scroll-smooth">
-      <body className={`${poppins.variable} font-sans`}>
+    <html lang="fr"  className={`scroll-smooth ${mulish.variable}`}>
+      <body className={`${mulish.variable} font-sans`}>
           {children}
       </body>
     </html>

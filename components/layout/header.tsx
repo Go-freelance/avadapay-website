@@ -1,36 +1,42 @@
-"use client"
+"use client";
 
-import { useState, useEffect } from "react"
-import Image from "next/image"
-import Link from "next/link"
-import { Menu, X } from "lucide-react"
-import { Button } from "@/components/ui/button"
-import { navigationLinks } from "@/data/navigation"
-import { cn } from "@/lib/utils"
+import { useState, useEffect } from "react";
+import Image from "next/image";
+import Link from "next/link";
+import { Menu, X } from "lucide-react";
+import { Button } from "@/components/ui/button";
+import { navigationLinks } from "@/data/navigation";
+import { cn } from "@/lib/utils";
 
 export default function Header() {
-  const [isOpen, setIsOpen] = useState(false)
-  const [scrolled, setScrolled] = useState(false)
+  const [isOpen, setIsOpen] = useState(false);
+  const [scrolled, setScrolled] = useState(false);
 
   useEffect(() => {
     const handleScroll = () => {
-      setScrolled(window.scrollY > 10)
-    }
-    window.addEventListener("scroll", handleScroll)
-    return () => window.removeEventListener("scroll", handleScroll)
-  }, [])
+      setScrolled(window.scrollY > 10);
+    };
+    window.addEventListener("scroll", handleScroll);
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, []);
 
   return (
     <header
       className={cn(
         "fixed top-0 z-50 w-full transition-all duration-300",
-        scrolled ? "bg-white/95 shadow-sm backdrop-blur-sm" : "bg-transparent",
+        scrolled ? "bg-white/95 shadow-sm " : "bg-transparent"
       )}
     >
       <div className="container flex h-20 items-center justify-between">
         <div className="flex items-center gap-2">
           <Link href="/" className="flex items-center">
-            <Image src="/images/logo.png" alt="AvadaPay Logo" width={180} height={40} className="h-auto w-40" />
+            <Image
+              src="/images/logo.png"
+              alt="AvadaPay Logo"
+              width={180}
+              height={40}
+              className="h-auto w-40"
+            />
           </Link>
         </div>
 
@@ -42,7 +48,7 @@ export default function Header() {
               href={link.href}
               className={cn(
                 "text-sm font-medium text-slate-300 hover:text-emerald-500 transition-colors",
-                scrolled ? "text-slate-600" : "",
+                scrolled ? "text-slate-600" : ""
               )}
             >
               {link.label}
@@ -52,9 +58,12 @@ export default function Header() {
 
         <div className="hidden md:block">
           <Link href="#contact">
-            <Button className="bg-emerald-500 hover:bg-emerald-600 text-white">Nous contacter</Button>
+            <Button className="bg-emerald-500 hover:bg-emerald-600 text-white">
+              Nous contacter
+            </Button>
           </Link>
         </div>
+
 
         {/* Mobile Navigation */}
         <div className="md:hidden">
@@ -69,9 +78,19 @@ export default function Header() {
           <div className="fixed inset-0 z-50 bg-white md:hidden">
             <div className="container flex h-20 items-center justify-between">
               <div className="flex items-center gap-2">
-                <Image src="/images/logo.png" alt="AvadaPay Logo" width={180} height={40} className="h-10 w-auto" />
+                <Image
+                  src="/images/logo.png"
+                  alt="AvadaPay Logo"
+                  width={180}
+                  height={40}
+                  className="h-7 w-auto"
+                />
               </div>
-              <Button variant="ghost" size="icon" onClick={() => setIsOpen(false)}>
+              <Button
+                variant="ghost"
+                size="icon"
+                onClick={() => setIsOpen(false)}
+              >
                 <X className="h-6 w-6" />
                 <span className="sr-only">Close</span>
               </Button>
@@ -99,5 +118,5 @@ export default function Header() {
         )}
       </div>
     </header>
-  )
+  );
 }

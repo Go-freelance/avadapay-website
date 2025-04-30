@@ -1,5 +1,4 @@
-import type { Config } from "tailwindcss"
-
+import type { Config } from "tailwindcss";
 const config: Config = {
   darkMode: ["class"],
   content: [
@@ -13,7 +12,14 @@ const config: Config = {
   theme: {
     extend: {
       fontFamily: {
-        sans: ["var(--font-mulish)", "ui-sans-serif", "system-ui", "-apple-system", "BlinkMacSystemFont", "sans-serif"],
+        sans: [
+          "var(--font-mulish)",
+          "ui-sans-serif",
+          "system-ui",
+          "-apple-system",
+          "BlinkMacSystemFont",
+          "sans-serif",
+        ],
       },
       colors: {
         border: "hsl(var(--border))",
@@ -21,9 +27,6 @@ const config: Config = {
         ring: "hsl(var(--ring))",
         background: "hsl(var(--background))",
         foreground: "hsl(var(--foreground))",
-        avada: {
-          green: "rgb(var(--avada-green))",
-        },
         primary: {
           DEFAULT: "hsl(var(--primary))",
           foreground: "hsl(var(--primary-foreground))",
@@ -52,11 +55,29 @@ const config: Config = {
           DEFAULT: "hsl(var(--card))",
           foreground: "hsl(var(--card-foreground))",
         },
-      },
-      borderRadius: {
-        lg: "var(--radius)",
-        md: "calc(var(--radius) - 2px)",
-        sm: "calc(var(--radius) - 4px)",
+        avada: {
+          50: "#e6fff7",
+          100: "#ccffef",
+          200: "#99ffdf",
+          300: "#66ffcf",
+          400: "#33ffbf",
+          500: "#00C896", // Couleur principale AvadaPay
+          600: "#00a077",
+          700: "#007857",
+          800: "#005038",
+          900: "#002819",
+        },
+        dark: {
+          DEFAULT: "#1A1A1A", // Fond noir de la charte
+          100: "#2A2A2A",
+          200: "#3A3A3A",
+          300: "#4A4A4A",
+        },
+        borderRadius: {
+          lg: "var(--radius)",
+          md: "calc(var(--radius) - 2px)",
+          sm: "calc(var(--radius) - 4px)",
+        },
       },
       container: {
         center: true,
@@ -67,9 +88,12 @@ const config: Config = {
           xl: "5rem",
         },
       },
+      backgroundImage: {
+        "corner-pattern": "url('/images/brand-corner.png')",
+      },
     },
   },
   plugins: [require("tailwindcss-animate")],
-}
+};
 
-export default config
+export default config;

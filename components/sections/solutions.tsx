@@ -69,7 +69,6 @@ export default function Solutions() {
           </motion.p>
         </div>
 
-
         <div className="flex flex-col md:flex-row gap-8 mb-16">
           <div className="md:w-1/3">
             <div className="sticky top-24 space-y-2 flex flex-col">

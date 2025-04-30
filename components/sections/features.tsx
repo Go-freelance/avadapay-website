@@ -2,6 +2,7 @@
 
 import { useEffect, useRef } from "react";
 import { motion, useAnimation, useInView } from "framer-motion";
+import Link from "next/link";
 import {
   CreditCard,
   Shield,
@@ -142,13 +143,13 @@ export default function Features() {
               </p>
 
               <div className="mt-auto">
-                <a
-                  href="#"
+                <Link
+                  href="#contact"
                   className="inline-flex items-center text-avada-500 font-medium hover:underline"
                 >
                   <span>En savoir plus</span>
                   <ArrowRight className="ml-2 h-4 w-4" />
-                </a>
+                </Link>
               </div>
             </motion.div>
           ))}

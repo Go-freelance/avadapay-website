@@ -155,13 +155,7 @@ export default function Contact() {
             viewport={{ once: true }}
             className="lg:col-span-2"
           >
-            <div className="bg-card rounded-xl shadow-sm border border-border p-8 relative overflow-hidden">
-              {/* Élément graphique en haut à droite */}
-              <div
-                className="absolute top-0 right-0 w-16 h-8 bg-avada-500"
-                style={{ clipPath: "polygon(100% 0, 100% 100%, 0 0)" }}
-              ></div>
-
+            <div className="bg-card shadow-lg rounded-xl border border-border p-8 relative overflow-hidden">
               <div className="relative z-10">
                 {isSuccess ? (
                   <motion.div
@@ -338,13 +332,7 @@ export default function Contact() {
             transition={{ duration: 0.5, delay: 0.4 }}
             viewport={{ once: true }}
           >
-            <div className="bg-card rounded-xl shadow-sm border border-border p-8 relative overflow-hidden">
-              {/* Élément graphique en haut à droite */}
-              <div
-                className="absolute top-0 right-0 w-16 h-8 bg-avada-500"
-                style={{ clipPath: "polygon(100% 0, 100% 100%, 0 0)" }}
-              ></div>
-
+            <div className="bg-card shadow-lg rounded-lg border border-border p-8 relative overflow-hidden">
               <div className="relative z-10">
                 <h3 className="text-xl font-bold mb-6 text-foreground gradient-text">
                   Nos coordonnées
@@ -407,7 +395,6 @@ export default function Contact() {
                   <p className="text-muted-foreground mb-1">
                     Lundi - Vendredi: 8h00 - 17h00
                   </p>
-                  <p className="text-muted-foreground">Samedi: 9h00 - 13h00</p>
                 </div>
               </div>
             </div>

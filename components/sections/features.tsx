@@ -1,8 +1,17 @@
-"use client"
+"use client";
 
-import { useEffect, useRef } from "react"
-import { motion, useAnimation, useInView } from "framer-motion"
-import { CreditCard, Shield, BarChart, Smartphone, Clock, Users, CheckCircle, ArrowRight } from "lucide-react"
+import { useEffect, useRef } from "react";
+import { motion, useAnimation, useInView } from "framer-motion";
+import {
+  CreditCard,
+  Shield,
+  BarChart,
+  Smartphone,
+  Clock,
+  Users,
+  CheckCircle,
+  ArrowRight,
+} from "lucide-react";
 
 const features = [
   {
@@ -40,7 +49,7 @@ const features = [
   //   title: "Support Premium",
   //   description: "Équipe dédiée disponible 24/7, temps de réponse garanti de 2h et accompagnement personnalisé.",
   // },
-]
+];
 
 const containerVariants = {
   hidden: { opacity: 0 },
@@ -50,7 +59,7 @@ const containerVariants = {
       staggerChildren: 0.1,
     },
   },
-}
+};
 
 const itemVariants = {
   hidden: { y: 20, opacity: 0 },
@@ -62,18 +71,18 @@ const itemVariants = {
       ease: "easeOut",
     },
   },
-}
+};
 
 export default function Features() {
-  const controls = useAnimation()
-  const ref = useRef(null)
-  const isInView = useInView(ref, { once: true, amount: 0.2 })
+  const controls = useAnimation();
+  const ref = useRef(null);
+  const isInView = useInView(ref, { once: true, amount: 0.2 });
 
   useEffect(() => {
     if (isInView) {
-      controls.start("visible")
+      controls.start("visible");
     }
-  }, [controls, isInView])
+  }, [controls, isInView]);
 
   return (
     <section
@@ -99,7 +108,8 @@ export default function Features() {
             transition={{ duration: 0.6, delay: 0.2 }}
             className="text-xl text-gray-600 max-w-2xl mx-auto mt-6 font-light"
           >
-            Des solutions de paiement innovantes conçues pour l'écosystème financier congolais
+            Des solutions de paiement innovantes conçues pour l'écosystème
+            financier congolais
           </motion.p>
         </div>
 
@@ -127,10 +137,15 @@ export default function Features() {
                 <CheckCircle className="h-4 w-4 ml-2 text-avada-500" />
               </h3>
 
-              <p className="text-gray-600 leading-relaxed mb-6">{feature.description}</p>
+              <p className="text-gray-600 leading-relaxed mb-6">
+                {feature.description}
+              </p>
 
               <div className="mt-auto">
-                <a href="#" className="inline-flex items-center text-avada-500 font-medium hover:underline">
+                <a
+                  href="#"
+                  className="inline-flex items-center text-avada-500 font-medium hover:underline"
+                >
                   <span>En savoir plus</span>
                   <ArrowRight className="ml-2 h-4 w-4" />
                 </a>
@@ -152,5 +167,5 @@ export default function Features() {
         </motion.div>
       </div>
     </section>
-  )
+  );
 }

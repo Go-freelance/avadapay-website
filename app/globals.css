@@ -276,7 +276,7 @@ p {
 }
 
 /* Éléments angulaires de la charte */
-.angular-element {
+/* .angular-element {
   position: relative;
 }
 
@@ -299,7 +299,7 @@ p {
   bottom: 0;
   left: 0;
   transform: rotate(180deg);
-}
+} */
 
 /* Boutons stylisés selon la charte */
 .btn-avada {

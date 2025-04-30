@@ -3,10 +3,10 @@
 import { z } from "zod"
 
 const contactFormSchema = z.object({
-  name: z.string().min(2, "Le nom est requis"),
-  email: z.string().email("Email invalide"),
+  name: z.string().min(2, "Le nom est requis").trim(),
+  email: z.string().email("Email invalide").trim(),
   company: z.string().optional(),
-  message: z.string().min(10, "Le message doit contenir au moins 10 caractères"),
+  message: z.string().min(10, "Le message doit contenir au moins 10 caractères").trim(),
 })
 
 type ContactFormData = z.infer<typeof contactFormSchema>
@@ -25,9 +25,11 @@ export async function sendContactForm(formData: FormData) {
     const validatedData = contactFormSchema.safeParse(data)
 
     if (!validatedData.success) {
+      const errors = validatedData.error.format()
       return {
         success: false,
         error: "Veuillez vérifier les informations saisies",
+        errors,
       }
     }
 

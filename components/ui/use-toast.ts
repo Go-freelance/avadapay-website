@@ -1,56 +1,44 @@
-interface ToastProps {
+"use client"
+
+import type React from "react"
+
+// Hooks/use-toast.ts
+import { useState } from "react"
+
+type ToastProps = {
+  id: string
   title: string
   description?: string
   variant?: "default" | "destructive" | "success"
+  action?: React.ReactNode
 }
 
-export function toast(props: ToastProps) {
-  // Simple toast implementation for the demo
-  console.log("Toast:", props)
+type ToastOptions = Omit<ToastProps, "id">
 
-  // In a real app, you would use a proper toast library
-  const toastContainer = document.getElementById("toast-container")
+export function useToast() {
+  const [toasts, setToasts] = useState<ToastProps[]>([])
 
-  if (!toastContainer) {
-    const container = document.createElement("div")
-    container.id = "toast-container"
-    container.style.position = "fixed"
-    container.style.top = "20px"
-    container.style.right = "20px"
-    container.style.zIndex = "9999"
-    document.body.appendChild(container)
-  }
+  const toast = (options: ToastOptions) => {
+    const id = Math.random().toString(36).substring(2, 9)
+    const newToast = { id, ...options }
 
-  const toast = document.createElement("div")
-  toast.className = `p-4 mb-4 rounded-md shadow-md ${
-    props.variant === "destructive"
-      ? "bg-red-500 text-white"
-      : props.variant === "success"
-        ? "bg-green-500 text-white"
-        : "bg-white text-gray-900 border border-gray-200"
-  }`
+    setToasts((prevToasts) => [...prevToasts, newToast])
 
-  const title = document.createElement("div")
-  title.className = "font-bold"
-  title.textContent = props.title
-
-  toast.appendChild(title)
-
-  if (props.description) {
-    const description = document.createElement("div")
-    description.className = "text-sm mt-1"
-    description.textContent = props.description
-    toast.appendChild(description)
-  }
-
-  document.getElementById("toast-container")?.appendChild(toast)
-
-  setTimeout(() => {
-    toast.style.opacity = "0"
-    toast.style.transition = "opacity 0.3s ease-out"
-
+    // Auto dismiss after 5 seconds
     setTimeout(() => {
-      toast.remove()
-    }, 300)
-  }, 3000)
+      setToasts((prevToasts) => prevToasts.filter((toast) => toast.id !== id))
+    }, 5000)
+  }
+
+  const dismiss = (id: string) => {
+    setToasts((prevToasts) => prevToasts.filter((toast) => toast.id !== id))
+  }
+
+  return {
+    toast,
+    dismiss,
+    toasts,
+  }
 }
+
+export type { ToastProps }

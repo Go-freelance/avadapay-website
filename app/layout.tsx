@@ -23,8 +23,10 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="fr" className={`scroll-smooth ${mulish.variable}`}>
-      <body className={`${mulish.variable} font-sans`}>{children}</body>
-      <Toaster />
+      <body className={`${mulish.variable} font-sans`}>
+        {children}
+        <Toaster />
+      </body>
     </html>
   );
 }

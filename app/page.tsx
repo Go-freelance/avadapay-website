@@ -6,6 +6,7 @@ import Benefits from "@/components/sections/benefits";
 import Partners from "@/components/sections/partners";
 // import Testimonials from "@/components/sections/testimonials"
 import Cta from "@/components/sections/cta";
+import Contact from "@/components/sections/contact";
 import Footer from "@/components/layout/footer";
 import Header from "@/components/layout/header";
 import { LoadingSpinner } from "@/components/ui/loading-spinner";
@@ -22,7 +23,7 @@ export default function Home() {
         <Benefits />
         {/* <Testimonials /> */}
         <Suspense fallback={<LoadingSpinner />}>
-          <Cta />
+          <Contact />
         </Suspense>
       </main>
       <Footer />

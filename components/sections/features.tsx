@@ -108,7 +108,7 @@ export default function Features() {
           variants={containerVariants}
           initial="hidden"
           animate={controls}
-          className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8"
+          className="container mx-auto px-4 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8"
         >
           {features.map((feature, index) => (
             <motion.div
@@ -143,12 +143,12 @@ export default function Features() {
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6, delay: 0.8 }}
-          className="mt-16 text-center"
+          className="mt-5 text-center"
         >
-          <div className="inline-flex items-center justify-center px-6 py-3 bg-dark text-white rounded-md text-lg font-medium relative">
+          {/* <div className="inline-flex items-center justify-center px-6 py-3 bg-dark text-white rounded-md text-lg font-medium relative">
             <span className="relative z-10">Agréé par la Banque Centrale du Congo</span>
             <Shield className="ml-2 h-5 w-5 relative z-10" />
-          </div>
+          </div> */}
         </motion.div>
       </div>
     </section>

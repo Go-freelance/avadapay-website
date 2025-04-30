@@ -28,7 +28,6 @@ export default function Solutions() {
 
   return (
     <section id="solutions" className="py-24 overflow-hidden">
-      {/* Arrière-plan avec dégradé inspiré de Stripe */}
       <div className="absolute inset-0 -z-10 h-full w-full bg-white">
         <div className="absolute bottom-0 left-0 right-0 top-0 bg-[linear-gradient(to_right,#4f4f4f2e_1px,transparent_1px),linear-gradient(to_bottom,#4f4f4f2e_1px,transparent_1px)] bg-[size:14px_24px]"></div>
       </div>
@@ -70,7 +69,7 @@ export default function Solutions() {
           </motion.p>
         </div>
 
-        {/* Navigation des solutions style Stripe */}
+
         <div className="flex flex-col md:flex-row gap-8 mb-16">
           <div className="md:w-1/3">
             <div className="sticky top-24 space-y-2 flex flex-col">
@@ -152,7 +151,6 @@ export default function Solutions() {
                 </motion.button>
               ))}
 
-              {/* Élément supplémentaire pour combler l'espace vide */}
               <div className="mt-8 p-6 h-60 rounded-lg bg-primary/5 border border-primary/10 hidden md:block">
                 <h4 className="font-medium text-lg mb-2">Besoin d'aide ?</h4>
                 <p className="text-sm text-muted-foreground mb-4">
@@ -188,7 +186,6 @@ export default function Solutions() {
                 </p>
               </div>
 
-              {/* Illustration/Maquette */}
               <div className="relative h-[300px] w-full bg-muted/30">
                 <Image
                   src={`/images/${getActiveSolution().id}.jpg`}

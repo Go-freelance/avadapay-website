@@ -31,10 +31,10 @@ export default function Hero() {
         />
         <div className="absolute inset-0 bg-gradient-to-r from-black/70 via-black/60 to-black/70"></div>
         <div className="absolute inset-0 bg-primary/30 mix-blend-multiply"></div>
-        <div
+        {/* <div
           className="absolute inset-0 bg-gradient-to-t from-background via-transparent to-transparent"
           style={{ transform: `translateY(${scrollY * 0.1}px)` }}
-        ></div>
+        ></div> */}
       </div>
 
       {/* Contenu principal */}
@@ -58,7 +58,7 @@ export default function Hero() {
           >
             <span className="relative inline-block">
               <span className="relative z-10">Simplifiez</span>
-              <span className="absolute -bottom-2 left-0 w-full h-3 bg-primary/40 rounded-full -z-0"></span>
+              {/* <span className="absolute -bottom-2 left-0 w-full h-3 bg-primary/40 rounded-full -z-0"></span> */}
             </span>{" "}
             vos transactions finiancières
           </motion.h1>

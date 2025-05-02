@@ -74,7 +74,7 @@ export default function Benefits() {
             <div className="absolute inset-0 rounded-xl overflow-hidden">
               <div className="absolute inset-0 bg-gradient-to-br from-emerald-600/70 to-emerald-900/50 mix-blend-multiply z-10 rounded-xl"></div>
               <Image
-                src="/images/online-payment.jpg"
+                src="/images/payment.jpg"
                 alt="Bénéfices pour le Marchand"
                 fill
                 className="object-cover rounded-xl"

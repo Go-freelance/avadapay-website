@@ -177,13 +177,14 @@ export default function Solutions() {
               </div>
 
               <div className="relative h-[300px] w-full bg-muted/30">
+              
                 <Image
                   src={`/images/${getActiveSolution().id}.jpg`}
                   alt={getActiveSolution().title}
                   fill
                   className="object-cover"
                 />
-                <div className="absolute inset-0 bg-gradient-to-t from-card to-transparent"></div>
+                {/* <div className="absolute inset-0 bg-gradient-to-t from-card to-transparent"></div> */}
               </div>
 
               {/* Caractéristiques */}

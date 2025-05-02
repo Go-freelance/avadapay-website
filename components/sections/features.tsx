@@ -27,24 +27,24 @@ const features = [
     description:
       "Tableau de bord en temps réel avec notifications instantanées pour chaque transaction et rapports automatisés.",
   },
-  {
-    icon: <Shield className="h-6 w-6" />,
-    title: "Sécurité Maximale",
-    description:
-      "Cryptage de bout en bout, authentification à deux facteurs et conformité aux normes PCI DSS internationales.",
-  },
+  // {
+  //   icon: <Shield className="h-6 w-6" />,
+  //   title: "Sécurité Maximale",
+  //   description:
+  //     "Cryptage de bout en bout, authentification à deux facteurs et conformité aux normes PCI DSS internationales.",
+  // },
   {
     icon: <Smartphone className="h-6 w-6" />,
     title: "Mobile Money",
     description:
       "Intégration avec M-Pesa, Orange Money, Airtel Money et AfriMoney avec réconciliation automatique.",
   },
-  {
-    icon: <BarChart className="h-6 w-6" />,
-    title: "Analyses Avancées",
-    description:
-      "Visualisations interactives, segmentation client et prévisions basées sur l'IA pour optimiser vos revenus.",
-  },
+  // {
+  //   icon: <BarChart className="h-6 w-6" />,
+  //   title: "Analyses Avancées",
+  //   description:
+  //     "Visualisations interactives, segmentation client et prévisions basées sur l'IA pour optimiser vos revenus.",
+  // },
   // {
   //   icon: <Users className="h-6 w-6" />,
   //   title: "Support Premium",

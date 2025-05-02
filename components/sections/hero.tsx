@@ -92,7 +92,7 @@ export default function Hero() {
               <Button
                 size="lg"
                 variant="outline"
-                className="border-primary text-primary hover:bg-white/10 px-8 py-6 h-auto text-base font-bold backdrop-blur-sm"
+                className="border-primary text-primary hover:bg-white/10 hover:text-white px-8 py-6 h-auto text-base font-bold backdrop-blur-sm"
               >
                 Nous contacter
               </Button>

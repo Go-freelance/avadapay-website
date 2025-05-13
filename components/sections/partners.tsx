@@ -31,7 +31,7 @@ export default function Partners() {
       id="partners"
       className="py-16 bg-white relative overflow-hidden section-with-graphic graphic-top-right graphic-bottom-left"
     >
-      <div className="container mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+      <div className="container relative z-10">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}

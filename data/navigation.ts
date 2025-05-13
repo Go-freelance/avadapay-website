@@ -8,10 +8,6 @@ export const navigationLinks = [
     href: "#features",
   },
   {
-    label: "Témoignages",
-    href: "#testimonials",
-  },
-  {
     label: "Partenaires",
     href: "#partners",
   },

@@ -34,7 +34,7 @@ export default function Solutions() {
       <div className="absolute top-0 right-0 -z-10 h-[300px] w-[300px] bg-primary/20 opacity-70 blur-[100px]"></div>
       <div className="absolute bottom-0 left-0 -z-10 h-[400px] w-[400px] bg-primary/30 opacity-60 blur-[100px]"></div>
 
-      <div className="container mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+      <div className="container relative z-10">
         <div className="text-center mb-16">
           <motion.h2
             initial={{ opacity: 0, y: 20 }}
@@ -44,7 +44,6 @@ export default function Solutions() {
             className="section-title-wrapper"
           >
             <h2 className="text-4xl md:text-5xl font-extrabold text-dark">
-
               Nos solutions <span className="gradient-text">Digitales</span>
             </h2>
           </motion.h2>
@@ -177,7 +176,6 @@ export default function Solutions() {
               </div>
 
               <div className="relative h-[300px] w-full bg-muted/30">
-              
                 <Image
                   src={`/images/${getActiveSolution().id}.jpg`}
                   alt={getActiveSolution().title}

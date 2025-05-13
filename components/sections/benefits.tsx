@@ -50,7 +50,7 @@ export default function Benefits() {
       <div className="absolute top-0 right-0 w-1/3 h-1/3 bg-emerald-50 rounded-bl-full -z-10 opacity-70"></div>
       <div className="absolute bottom-0 left-0 w-1/3 h-1/3 bg-emerald-50 rounded-tr-full -z-10 opacity-70"></div>
 
-      <div className="container mx-auto px-4 sm:px-6 lg:px-8">
+      <div className="container">
         <motion.div
           initial={{ opacity: 0, y: -20 }}
           animate={{ opacity: 1, y: 0 }}

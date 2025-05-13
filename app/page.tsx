@@ -12,9 +12,9 @@ import { LoadingSpinner } from "@/components/ui/loading-spinner";
 
 export default function Home() {
   return (
-    <div className="flex flex-col min-h-screen bg-white">
+    <div className="flex flex-col min-h-screen bg-white w-full">
       <Header />
-      <main className="flex-1">
+      <main className="flex-1 w-full">
         <Hero />
         <Partners />
         <Features />

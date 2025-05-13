@@ -27,29 +27,13 @@ const features = [
     description:
       "Tableau de bord en temps réel avec notifications instantanées pour chaque transaction et rapports automatisés.",
   },
-  // {
-  //   icon: <Shield className="h-6 w-6" />,
-  //   title: "Sécurité Maximale",
-  //   description:
-  //     "Cryptage de bout en bout, authentification à deux facteurs et conformité aux normes PCI DSS internationales.",
-  // },
+
   {
     icon: <Smartphone className="h-6 w-6" />,
     title: "Mobile Money",
     description:
       "Intégration avec M-Pesa, Orange Money, Airtel Money et AfriMoney avec réconciliation automatique.",
   },
-  // {
-  //   icon: <BarChart className="h-6 w-6" />,
-  //   title: "Analyses Avancées",
-  //   description:
-  //     "Visualisations interactives, segmentation client et prévisions basées sur l'IA pour optimiser vos revenus.",
-  // },
-  // {
-  //   icon: <Users className="h-6 w-6" />,
-  //   title: "Support Premium",
-  //   description: "Équipe dédiée disponible 24/7, temps de réponse garanti de 2h et accompagnement personnalisé.",
-  // },
 ];
 
 const containerVariants = {
@@ -88,9 +72,9 @@ export default function Features() {
   return (
     <section
       id="features"
-      className="py-24 bg-white relative overflow-hidden section-with-graphic graphic-top-right graphic-bottom-left"
+      className=" bg-white relative overflow-hidden section-with-graphic graphic-top-right graphic-bottom-left"
     >
-      <div className="container mx-auto px-4 relative z-10">
+      <div className="container relative z-10">
         <div className="text-center mb-16">
           <motion.div
             initial={{ opacity: 0, y: -20 }}
@@ -119,7 +103,7 @@ export default function Features() {
           variants={containerVariants}
           initial="hidden"
           animate={controls}
-          className="container mx-auto px-4 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8"
+          className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8"
         >
           {features.map((feature, index) => (
             <motion.div

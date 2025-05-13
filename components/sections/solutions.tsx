@@ -27,7 +27,7 @@ export default function Solutions() {
   };
 
   return (
-    <section id="solutions" className="py-24 overflow-hidden">
+    <section id="solutions" className="py-16 md:py-24 overflow-hidden">
       <div className="absolute inset-0 -z-10 h-full w-full bg-white">
         <div className="absolute bottom-0 left-0 right-0 top-0 bg-[linear-gradient(to_right,#4f4f4f2e_1px,transparent_1px),linear-gradient(to_bottom,#4f4f4f2e_1px,transparent_1px)] bg-[size:14px_24px]"></div>
       </div>
@@ -35,7 +35,7 @@ export default function Solutions() {
       <div className="absolute bottom-0 left-0 -z-10 h-[400px] w-[400px] bg-primary/30 opacity-60 blur-[100px]"></div>
 
       <div className="container relative z-10">
-        <div className="text-center mb-16">
+        <div className="text-center mb-8 md:mb-16">
           <motion.h2
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
@@ -43,7 +43,7 @@ export default function Solutions() {
             viewport={{ once: true }}
             className="section-title-wrapper"
           >
-            <h2 className="text-4xl md:text-5xl font-extrabold text-dark">
+            <h2 className="text-3xl md:text-4xl lg:text-5xl font-extrabold text-dark">
               Nos solutions <span className="gradient-text">Digitales</span>
             </h2>
           </motion.h2>
@@ -52,7 +52,7 @@ export default function Solutions() {
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5, delay: 0.2 }}
             viewport={{ once: true }}
-            className="text-xl text-gray-600 font-bold max-w-2xl mt-6 mx-auto"
+            className="text-base md:text-xl text-gray-600 font-bold max-w-2xl mt-4 md:mt-6 mx-auto"
           >
             Des solutions digitales innovantes pour tous vos besoins de paiement
             et communication

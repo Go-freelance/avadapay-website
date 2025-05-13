@@ -103,26 +103,26 @@ export default function Features() {
           variants={containerVariants}
           initial="hidden"
           animate={controls}
-          className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8"
+          className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 md:gap-8"
         >
           {features.map((feature, index) => (
             <motion.div
               key={index}
               variants={itemVariants}
-              className="bg-white rounded-lg p-8 shadow-lg hover:shadow-xl transition-all duration-300 relative"
+              className="bg-white rounded-lg p-5 md:p-8 shadow-lg hover:shadow-xl transition-all duration-300 relative"
             >
-              <div className="mb-6">
-                <div className="w-14 h-14 rounded-full bg-avada-500 flex items-center justify-center text-white">
+              <div className="mb-4 md:mb-6">
+                <div className="w-12 h-12 md:w-14 md:h-14 rounded-full bg-avada-500 flex items-center justify-center text-white">
                   {feature.icon}
                 </div>
               </div>
 
-              <h3 className="text-xl font-bold mb-3 text-dark flex items-center">
+              <h3 className="text-lg md:text-xl font-bold mb-2 md:mb-3 text-dark flex items-center">
                 {feature.title}
                 <CheckCircle className="h-4 w-4 ml-2 text-avada-500" />
               </h3>
 
-              <p className="text-gray-600 leading-relaxed mb-6">
+              <p className="text-sm md:text-base text-gray-600 leading-relaxed mb-4 md:mb-6">
                 {feature.description}
               </p>
 

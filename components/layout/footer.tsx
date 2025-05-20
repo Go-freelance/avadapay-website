@@ -15,7 +15,7 @@ export default function Footer() {
               alt="AvadaPay Logo"
               width={160}
               height={40}
-              className="h-10 w-auto mb-6"
+              className="h-auto w-40 mb-6"
             />
             <p className="text-gray-400 mb-4">
               Agrégateur de paiement agréé par la Banque Centrale du Congo.

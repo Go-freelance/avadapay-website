@@ -79,17 +79,17 @@ export default function Features() {
   return (
     <section
       id="features"
-      className=" bg-white relative overflow-hidden section-with-graphic graphic-top-right graphic-bottom-left"
+      className="py-16 sm:py-20 md:py-24 bg-white relative overflow-hidden section-with-graphic graphic-top-right graphic-bottom-left"
     >
-      <div className="container relative z-10">
-        <div className="text-center mb-16">
+      <div className="container relative z-10 px-4 sm:px-6 lg:px-8">
+        <div className="text-center mb-12 sm:mb-16">
           <motion.div
             initial={{ opacity: 0, y: -20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6 }}
             className="section-title-wrapper"
           >
-            <h2 className="text-4xl md:text-5xl font-extrabold text-dark">
+            <h2 className="text-3xl sm:text-4xl md:text-5xl font-extrabold text-dark">
               Pourquoi <span className="gradient-text">choisir AvadaPay</span> ?
             </h2>
           </motion.div>
@@ -98,7 +98,7 @@ export default function Features() {
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             transition={{ duration: 0.6, delay: 0.2 }}
-            className="text-xl text-gray-600 max-w-2xl mx-auto mt-6 font-bold"
+            className="text-lg sm:text-xl text-gray-600 max-w-2xl mx-auto mt-4 sm:mt-6 font-bold px-4 sm:px-0"
           >
             Des solutions de paiement innovantes conçues pour l'écosystème
             financier congolais
@@ -110,26 +110,26 @@ export default function Features() {
           variants={containerVariants}
           initial="hidden"
           animate={controls}
-          className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4 md:gap-8"
+          className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-6 md:gap-8"
         >
           {features.map((feature, index) => (
             <motion.div
               key={index}
               variants={itemVariants}
-              className="bg-white rounded-lg p-5 md:p-8 shadow-lg hover:shadow-xl transition-all duration-300 relative"
+              className="bg-white rounded-lg p-5 sm:p-6 md:p-8 shadow-lg hover:shadow-xl transition-all duration-300 relative"
             >
-              <div className="mb-4 md:mb-6">
-                <div className="w-12 h-12 md:w-14 md:h-14 rounded-full bg-avada-500 flex items-center justify-center text-white">
+              <div className="mb-4 sm:mb-6">
+                <div className="w-12 h-12 sm:w-14 sm:h-14 rounded-full bg-avada-500 flex items-center justify-center text-white">
                   {feature.icon}
                 </div>
               </div>
 
-              <h3 className="text-lg md:text-xl font-bold mb-2 md:mb-3 text-dark flex items-center">
+              <h3 className="text-lg sm:text-xl font-bold mb-2 sm:mb-3 text-dark flex items-center">
                 {feature.title}
                 <CheckCircle className="h-4 w-4 ml-2 text-avada-500" />
               </h3>
 
-              <p className="text-sm md:text-base text-gray-600 leading-relaxed mb-4 md:mb-6">
+              <p className="text-sm sm:text-base text-gray-600 leading-relaxed mb-4 sm:mb-6">
                 {feature.description}
               </p>
 

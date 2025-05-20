@@ -28,20 +28,21 @@ export default function Hero() {
           fill
           className="object-cover"
           priority
+          sizes="100vw"
         />
         <div className="absolute inset-0 bg-gradient-to-r from-black/70 via-black/60 to-black/70"></div>
         <div className="absolute inset-0 bg-primary/30 mix-blend-multiply"></div>
       </div>
 
       {/* Contenu principal */}
-      <div className="container relative z-10 mt-16">
+      <div className="container relative z-10 mt-16 px-4 sm:px-6 lg:px-8">
         <div className="max-w-4xl mx-auto text-center">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6 }}
           >
-            <span className="inline-block px-3 py-1 rounded-full bg-primary/20 text-white text-xs sm:text-sm font-medium mb-4 sm:mb-6 backdrop-blur-sm border border-primary/20">
+            <span className="inline-block px-4 py-2 rounded-full bg-primary/30 text-white text-sm sm:text-base font-semibold mb-6 sm:mb-8 backdrop-blur-md border border-primary/40 shadow-lg">
               L'agrégateur de paiement n°1 en RDC
             </span>
           </motion.div>
@@ -50,11 +51,10 @@ export default function Hero() {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, delay: 0.2 }}
-            className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl mb-4 sm:mb-6 text-white leading-tight"
+            className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl mb-4 sm:mb-6 text-white leading-tight font-extrabold"
           >
             <span className="relative inline-block">
               <span className="relative z-10">Simplifiez</span>
-              {/* <span className="absolute -bottom-2 left-0 w-full h-3 bg-primary/40 rounded-full -z-0"></span> */}
             </span>{" "}
             vos transactions financières
           </motion.h1>
@@ -63,7 +63,7 @@ export default function Hero() {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, delay: 0.4 }}
-            className="text-base sm:text-lg md:text-xl font-light text-white/80 mb-6 sm:mb-10 max-w-2xl mx-auto"
+            className="text-base sm:text-lg md:text-xl font-light text-white/80 mb-6 sm:mb-10 max-w-2xl mx-auto px-4 sm:px-0"
           >
             nous offrons des solutions digitales simplifiant les transactions
             financières pour les entreprises ainsi que les consommateurs.
@@ -73,7 +73,7 @@ export default function Hero() {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, delay: 0.6 }}
-            className="flex flex-col sm:flex-row gap-4 justify-center"
+            className="flex flex-col sm:flex-row gap-4 justify-center px-4 sm:px-0"
           >
             <Link href="#solutions" className="w-full sm:w-auto">
               <Button

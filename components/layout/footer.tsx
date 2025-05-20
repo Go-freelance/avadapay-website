@@ -18,8 +18,7 @@ export default function Footer() {
               className="h-10 w-auto mb-6"
             />
             <p className="text-gray-400 mb-4">
-              Agrégateur de paiement en ligne agréé par la Banque Centrale du
-              Congo.
+              Agrégateur de paiement agréé par la Banque Centrale du Congo.
             </p>
             <p className="text-gray-400">N° GOUV./d.25/n°00912</p>
           </div>

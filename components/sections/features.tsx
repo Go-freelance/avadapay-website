@@ -17,22 +17,29 @@ import {
 const features = [
   {
     icon: <CreditCard className="h-6 w-6" />,
-    title: "Intégration Facile",
+    title: "Intégration Facile et Rapide",
     description:
       "API RESTful intuitive avec documentation interactive et exemples de code pour une intégration en moins de 72h.",
   },
   {
     icon: <Clock className="h-6 w-6" />,
-    title: "Temps Réel",
+    title: "Monitoring & Reporting en temps réel",
     description:
       "Tableau de bord en temps réel avec notifications instantanées pour chaque transaction et rapports automatisés.",
   },
 
   {
     icon: <Smartphone className="h-6 w-6" />,
-    title: "Mobile Money",
+    title: "Plusieres méthodes de paiement disponible",
     description:
       "Intégration avec M-Pesa, Orange Money, Airtel Money et AfriMoney avec réconciliation automatique.",
+  },
+
+  {
+    icon: <Smartphone className="h-6 w-6" />,
+    title: "Pateformes stable et robuste",
+    description:
+      "Plateforme robuste et puissante, conçu pour offrir aux marchands des performances exceptionelles et une fiabilité sans faile",
   },
 ];
 
@@ -103,7 +110,7 @@ export default function Features() {
           variants={containerVariants}
           initial="hidden"
           animate={controls}
-          className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 md:gap-8"
+          className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4 md:gap-8"
         >
           {features.map((feature, index) => (
             <motion.div

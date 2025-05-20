@@ -5,16 +5,14 @@ import Image from "next/image";
 import { motion } from "framer-motion";
 
 const partners = [
-  { name: "Fyatu", logo: "/images/fyatu.png" },
-  // { name: "Maxi Cash", logo: "/images/maxicash.png" },
-  { name: "KoboPay", logo: "/images/kobopay.png" },
-  { name: "MaishaPay", logo: "/images/maisha.png" },
-  { name: "Betika", logo: "/images/betika.png" },
+  { name: "BetWinner", logo: "/images/bet-winner.png" },
   { name: "Monetbil", logo: "/images/monetbil.png" },
-  { name: "Curalife", logo: "/images/curalife.png" },
+  { name: "1xBet", logo: "/images/1xbet.png" },
   { name: "Melbet", logo: "/images/melbet.png" },
-  // { name: "As Vclub", logo: "/images/as.png" },
-  { name: "X Cash", logo: "/images/xcash.png" },
+  { name: "Betika", logo: "/images/betika.png" },
+  { name: "Ligdicash", logo: "/images/ligdicash.png" },
+  { name: "Fyatu", logo: "/images/fyatu.png" },
+  { name: "KoboPay", logo: "/images/kobopay.png" },
 ];
 
 export default function Partners() {
@@ -66,7 +64,7 @@ export default function Partners() {
                 y: -5,
                 boxShadow: "0 10px 25px -5px rgba(0, 0, 0, 0.1)",
               }}
-              className="bg-white p-3 sm:p-4 rounded-lg shadow-sm border border-gray-100 hover:border-avada-500/30 transition-all flex items-center justify-center h-20 sm:h-24 w-full"
+              className="bg-white p-3 sm:p-4 rounded-lg shadow-sm border border-gray-100 hover:border-avada-500/30 transition-all flex items-center justify-center h-20 sm:h-24 w-52"
             >
               <Image
                 src={partner.logo}

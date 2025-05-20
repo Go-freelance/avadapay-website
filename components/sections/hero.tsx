@@ -6,9 +6,11 @@ import Link from "next/link";
 import { Button } from "@/components/ui/button";
 import { motion } from "framer-motion";
 import { ChevronRight } from "lucide-react";
+import { useI18n } from "@/locales/client";
 
 export default function Hero() {
   const [scrollY, setScrollY] = useState(0);
+  const t = useI18n();
 
   useEffect(() => {
     const handleScroll = () => {
@@ -43,7 +45,7 @@ export default function Hero() {
             transition={{ duration: 0.6 }}
           >
             <span className="inline-block px-4 py-2 rounded-full bg-primary/30 text-white text-sm sm:text-base font-semibold mb-6 sm:mb-8 backdrop-blur-md border border-primary/40 shadow-lg">
-              L'agrégateur de paiement n°1 en RDC
+              {t("hero.badge")}
             </span>
           </motion.div>
 
@@ -53,10 +55,7 @@ export default function Hero() {
             transition={{ duration: 0.6, delay: 0.2 }}
             className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl mb-4 sm:mb-6 text-white leading-tight font-extrabold"
           >
-            <span className="relative inline-block">
-              <span className="relative z-10">Simplifiez</span>
-            </span>{" "}
-            vos transactions financières
+            {t("hero.title")}
           </motion.h1>
 
           <motion.p
@@ -65,8 +64,7 @@ export default function Hero() {
             transition={{ duration: 0.6, delay: 0.4 }}
             className="text-base sm:text-lg md:text-xl font-light text-white/80 mb-6 sm:mb-10 max-w-2xl mx-auto px-4 sm:px-0"
           >
-            nous offrons des solutions digitales simplifiant les transactions
-            financières pour les entreprises ainsi que les consommateurs.
+            {t("hero.subtitle")}
           </motion.p>
 
           <motion.div
@@ -80,7 +78,7 @@ export default function Hero() {
                 size="lg"
                 className="bg-primary hover:bg-primary/90 text-white px-4 sm:px-6 lg:px-8 py-4 sm:py-5 h-auto text-sm sm:text-base font-bold w-full sm:w-auto"
               >
-                Découvrir nos solutions
+                {t("hero.cta")}
                 <ChevronRight className="ml-2 h-3 w-3 sm:h-4 sm:w-4 transition-transform group-hover:translate-x-1" />
               </Button>
             </Link>
@@ -90,7 +88,7 @@ export default function Hero() {
                 variant="outline"
                 className="border-primary text-primary hover:bg-white/10 hover:text-white px-4 sm:px-6 lg:px-8 py-4 sm:py-5 h-auto text-sm sm:text-base font-bold backdrop-blur-sm w-full sm:w-auto"
               >
-                Nous contacter
+                {t("hero.contact")}
               </Button>
             </Link>
           </motion.div>

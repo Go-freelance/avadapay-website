@@ -1,10 +1,15 @@
+"use client";
+
 import Image from "next/image";
 import Link from "next/link";
 import { contactInfo } from "@/data/contact";
 import { navigationLinks } from "@/data/navigation";
 import { solutionsData } from "@/data/solutions";
+import { useI18n } from "@/locales/client";
 
 export default function Footer() {
+  const t = useI18n();
+
   return (
     <footer className="bg-gray-900 text-white py-16">
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
@@ -17,14 +22,14 @@ export default function Footer() {
               height={40}
               className="h-auto w-40 mb-6"
             />
-            <p className="text-gray-400 mb-4">
-              Agrégateur de paiement agréé par la Banque Centrale du Congo.
-            </p>
-            <p className="text-gray-400">N° GOUV./d.25/n°00912</p>
+            <p className="text-gray-400 mb-4">{t("footer.description")}</p>
+            <p className="text-gray-400">{t("footer.license")}</p>
           </div>
 
           <div>
-            <h3 className="text-lg font-semibold mb-4">Navigation</h3>
+            <h3 className="text-lg font-semibold mb-4">
+              {t("footer.navigation.title")}
+            </h3>
             <ul className="space-y-3">
               {navigationLinks.map((link) => (
                 <li key={link.href}>
@@ -32,7 +37,7 @@ export default function Footer() {
                     href={link.href}
                     className="text-gray-400 hover:text-primary transition-colors"
                   >
-                    {link.label}
+                    {t(link.translationKey)}
                   </Link>
                 </li>
               ))}
@@ -40,7 +45,9 @@ export default function Footer() {
           </div>
 
           <div>
-            <h3 className="text-lg font-semibold mb-4">Solutions</h3>
+            <h3 className="text-lg font-semibold mb-4">
+              {t("footer.solutions.title")}
+            </h3>
             <ul className="space-y-3">
               {solutionsData.map((solution) => (
                 <li key={solution.id}>
@@ -48,7 +55,7 @@ export default function Footer() {
                     href={`#${solution.id}`}
                     className="text-gray-400 hover:text-primary transition-colors"
                   >
-                    {solution.title}
+                    {t(`solutions.items.${solution.id}.title`)}
                   </Link>
                 </li>
               ))}
@@ -56,7 +63,9 @@ export default function Footer() {
           </div>
 
           <div>
-            <h3 className="text-lg font-semibold mb-4">Contact</h3>
+            <h3 className="text-lg font-semibold mb-4">
+              {t("footer.contact.title")}
+            </h3>
             <ul className="space-y-3 text-gray-400">
               <li className="flex items-start">
                 <span className="mr-2">📍</span>
@@ -86,11 +95,11 @@ export default function Footer() {
 
         <div className="border-t border-gray-800 mt-12 pt-8 flex flex-col md:flex-row justify-between items-center">
           <p className="text-gray-500 text-sm">
-            © {new Date().getFullYear()} AvadaPay. Tous droits réservés.
+            {t("footer.copyright", { year: new Date().getFullYear() })}
           </p>
           <div className="flex space-x-6 mt-4 md:mt-0">
             <Link href="#" className="text-gray-500 hover:text-primary">
-              <span className="sr-only">Facebook</span>
+              <span className="sr-only">{t("footer.social.facebook")}</span>
               <svg
                 className="h-6 w-6"
                 fill="currentColor"
@@ -105,7 +114,7 @@ export default function Footer() {
               </svg>
             </Link>
             <Link href="#" className="text-gray-500 hover:text-primary">
-              <span className="sr-only">Instagram</span>
+              <span className="sr-only">{t("footer.social.instagram")}</span>
               <svg
                 className="h-6 w-6"
                 fill="currentColor"
@@ -120,7 +129,7 @@ export default function Footer() {
               </svg>
             </Link>
             <Link href="#" className="text-gray-500 hover:text-primary">
-              <span className="sr-only">Twitter</span>
+              <span className="sr-only">{t("footer.social.twitter")}</span>
               <svg
                 className="h-6 w-6"
                 fill="currentColor"
@@ -131,7 +140,7 @@ export default function Footer() {
               </svg>
             </Link>
             <Link href="#" className="text-gray-500 hover:text-primary">
-              <span className="sr-only">LinkedIn</span>
+              <span className="sr-only">{t("footer.social.linkedin")}</span>
               <svg
                 className="h-6 w-6"
                 fill="currentColor"

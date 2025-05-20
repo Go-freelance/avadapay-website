@@ -7,9 +7,17 @@ import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
 import { LoadingSpinner } from "@/components/ui/loading-spinner";
 import { contactInfo } from "@/data/contact";
-import { Phone, Mail, MapPin, AlertCircle, CheckCircle } from "lucide-react";
+import {
+  Phone,
+  Mail,
+  MapPin,
+  AlertCircle,
+  CheckCircle,
+  Clock,
+} from "lucide-react";
 import { motion } from "framer-motion";
 import { useToast } from "@/components/ui/use-toast";
+import { useI18n } from "@/locales/client";
 
 type FormErrors = {
   name?: string;
@@ -22,34 +30,35 @@ export default function Contact() {
   const [isSuccess, setIsSuccess] = useState(false);
   const [errors, setErrors] = useState<FormErrors>({});
   const formRef = useRef<HTMLFormElement>(null);
+  const t = useI18n();
 
   const { toast } = useToast();
 
   // Validation functions
   const validateName = (name: string) => {
     if (!name || name.trim() === "") {
-      return "Le nom est requis";
+      return t("validation.required", {});
     }
     if (name.trim().length < 2) {
-      return "Le nom doit contenir au moins 2 caractères";
+      return t("validation.minLength", { min: 2 });
     }
     return "";
   };
 
   const validateEmail = (email: string) => {
     if (!email || email.trim() === "") {
-      return "L'email est requis";
+      return t("validation.required", {});
     }
     const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
     if (!emailRegex.test(email)) {
-      return "Veuillez entrer une adresse email valide";
+      return t("validation.email", {});
     }
     return "";
   };
 
   const validateMessage = (message: string) => {
     if (!message || message.trim() === "") {
-      return "Le message est requis";
+      return t("validation.required", {});
     }
     return "";
   };
@@ -79,8 +88,8 @@ export default function Contact() {
     if (!validateForm(formData)) {
       setIsSubmitting(false);
       toast({
-        title: "Erreur de validation",
-        description: "Veuillez corriger les erreurs dans le formulaire",
+        title: t("validation.error", {}),
+        description: t("validation.error", {}),
         variant: "destructive",
       });
       return;
@@ -93,22 +102,21 @@ export default function Contact() {
         setIsSuccess(true);
         setErrors({});
         toast({
-          title: "Message envoyé !",
-          description: "Nous vous contacterons bientôt.",
+          title: t("contact.form.success.title", {}),
+          description: t("contact.form.success.message", {}),
           variant: "success",
         });
       } else {
         toast({
-          title: "Erreur",
-          description:
-            result.error || "Une erreur s'est produite. Veuillez réessayer.",
+          title: t("validation.error", {}),
+          description: result.error || t("validation.error", {}),
           variant: "destructive",
         });
       }
     } catch (error) {
       toast({
-        title: "Erreur",
-        description: "Une erreur s'est produite. Veuillez réessayer.",
+        title: t("validation.error", {}),
+        description: t("validation.error", {}),
         variant: "destructive",
       });
     } finally {
@@ -138,12 +146,12 @@ export default function Contact() {
           className="text-center mb-16"
         >
           <h2 className="text-3xl font-extrabold mb-4 text-foreground">
-            Prêt à{" "}
-            <span className="gradient-text">simplifier vos paiements</span> ?
+            {t("contact.title", {})}{" "}
+            <span className="gradient-text">{t("contact.title2", {})}</span>
           </h2>
           <div className="w-20 h-1 bg-avada-500 mx-auto rounded-full mb-6"></div>
           <p className="text-xl text-muted-foreground max-w-2xl mx-auto">
-            Contactez-nous dès aujourd'hui pour une démonstration personnalisée
+            {t("contact.subtitle", {})}
           </p>
         </motion.div>
 
@@ -167,17 +175,16 @@ export default function Contact() {
                       <CheckCircle className="h-8 w-8" />
                     </div>
                     <h3 className="text-2xl font-bold mb-2 text-foreground">
-                      Message envoyé!
+                      {t("contact.form.success.title")}
                     </h3>
                     <p className="text-muted-foreground mb-6">
-                      Merci de nous avoir contacté. Notre équipe vous répondra
-                      dans les plus brefs délais.
+                      {t("contact.form.success.message")}
                     </p>
                     <Button
                       onClick={resetForm}
                       className="bg-avada-500 hover:bg-avada-600 text-white"
                     >
-                      Envoyer un autre message
+                      {t("contact.form.success.button")}
                     </Button>
                   </motion.div>
                 ) : (
@@ -193,13 +200,14 @@ export default function Contact() {
                           htmlFor="name"
                           className="block text-sm font-medium text-foreground mb-1"
                         >
-                          Nom complet <span className="text-red-500">*</span>
+                          {t("contact.form.name")}{" "}
+                          <span className="text-red-500">*</span>
                         </label>
                         <Input
                           type="text"
                           id="name"
                           name="name"
-                          placeholder="Votre nom"
+                          placeholder={t("contact.form.name")}
                           required
                           className={`w-full ${
                             errors.name
@@ -226,13 +234,14 @@ export default function Contact() {
                           htmlFor="email"
                           className="block text-sm font-medium text-foreground mb-1"
                         >
-                          Email <span className="text-red-500">*</span>
+                          {t("contact.form.email")}{" "}
+                          <span className="text-red-500">*</span>
                         </label>
                         <Input
                           type="email"
                           id="email"
                           name="email"
-                          placeholder="votre@email.com"
+                          placeholder={t("contact.form.email")}
                           required
                           className={`w-full ${
                             errors.email
@@ -275,13 +284,14 @@ export default function Contact() {
                         htmlFor="message"
                         className="block text-sm font-medium text-foreground mb-1"
                       >
-                        Message <span className="text-red-500">*</span>
+                        {t("contact.form.message")}{" "}
+                        <span className="text-red-500">*</span>
                       </label>
                       <Textarea
                         id="message"
                         name="message"
                         rows={4}
-                        placeholder="Comment pouvons-nous vous aider?"
+                        placeholder={t("contact.form.message")}
                         required
                         className={`w-full ${
                           errors.message
@@ -313,10 +323,10 @@ export default function Contact() {
                         {isSubmitting ? (
                           <>
                             <LoadingSpinner className="mr-2" />
-                            Envoi en cours...
+                            {t("contact.form.sending")}
                           </>
                         ) : (
-                          "Envoyer ma demande"
+                          t("contact.form.submit")
                         )}
                       </Button>
                     </div>
@@ -331,70 +341,50 @@ export default function Contact() {
             whileInView={{ opacity: 1, x: 0 }}
             transition={{ duration: 0.5, delay: 0.4 }}
             viewport={{ once: true }}
+            className="space-y-8"
           >
-            <div className="bg-card shadow-lg rounded-lg border border-border p-8 relative overflow-hidden">
-              <div className="relative z-10">
-                <h3 className="text-xl font-bold mb-6 text-foreground gradient-text">
-                  Nos coordonnées
-                </h3>
-
-                <div className="space-y-6">
-                  <div className="flex items-start">
-                    <div className="mr-4 mt-1">
-                      <div className="w-8 h-8 bg-avada-500/10 rounded-full flex items-center justify-center">
-                        <Phone className="h-4 w-4 text-avada-500" />
-                      </div>
-                    </div>
-                    <div>
-                      <h4 className="font-medium mb-1 text-foreground">
-                        Téléphone
-                      </h4>
-                      <p className="text-muted-foreground">
-                        {contactInfo.phone}
-                      </p>
-                    </div>
-                  </div>
-
-                  <div className="flex items-start">
-                    <div className="mr-4 mt-1">
-                      <div className="w-8 h-8 bg-avada-500/10 rounded-full flex items-center justify-center">
-                        <Mail className="h-4 w-4 text-avada-500" />
-                      </div>
-                    </div>
-                    <div>
-                      <h4 className="font-medium mb-1 text-foreground">
-                        Email
-                      </h4>
-                      <p className="text-muted-foreground">
-                        {contactInfo.email}
-                      </p>
-                    </div>
-                  </div>
-
-                  <div className="flex items-start">
-                    <div className="mr-4 mt-1">
-                      <div className="w-8 h-8 bg-avada-500/10 rounded-full flex items-center justify-center">
-                        <MapPin className="h-4 w-4 text-avada-500" />
-                      </div>
-                    </div>
-                    <div>
-                      <h4 className="font-medium mb-1 text-foreground">
-                        Adresse
-                      </h4>
-                      <p className="text-muted-foreground">
-                        {contactInfo.address}
-                      </p>
-                    </div>
+            <div className="bg-card shadow-lg rounded-xl border border-border p-8">
+              <h3 className="text-xl font-bold mb-6 text-foreground">
+                {t("contact.info.title")}
+              </h3>
+              <div className="space-y-6">
+                <div className="flex items-start space-x-4">
+                  <Phone className="h-5 w-5 text-avada-500 mt-1" />
+                  <div>
+                    <p className="text-sm font-medium text-muted-foreground">
+                      {t("contact.info.phone")}
+                    </p>
+                    <p className="text-foreground">{contactInfo.phone}</p>
                   </div>
                 </div>
-
-                <div className="mt-8 pt-8 border-t border-border">
-                  <h4 className="font-medium mb-2 text-foreground">
-                    Heures d'ouverture
-                  </h4>
-                  <p className="text-muted-foreground mb-1">
-                    Lundi - Vendredi: 8h00 - 17h00
-                  </p>
+                <div className="flex items-start space-x-4">
+                  <Mail className="h-5 w-5 text-avada-500 mt-1" />
+                  <div>
+                    <p className="text-sm font-medium text-muted-foreground">
+                      {t("contact.info.email")}
+                    </p>
+                    <p className="text-foreground">{contactInfo.email}</p>
+                  </div>
+                </div>
+                <div className="flex items-start space-x-4">
+                  <MapPin className="h-5 w-5 text-avada-500 mt-1" />
+                  <div>
+                    <p className="text-sm font-medium text-muted-foreground">
+                      {t("contact.info.address")}
+                    </p>
+                    <p className="text-foreground">{contactInfo.address}</p>
+                  </div>
+                </div>
+                <div className="flex items-start space-x-4">
+                  <Clock className="h-5 w-5 text-avada-500 mt-1" />
+                  <div>
+                    <p className="text-sm font-medium text-muted-foreground">
+                      {t("contact.info.hours")}
+                    </p>
+                    <p className="text-foreground">
+                      {t("contact.info.hours.value")}
+                    </p>
+                  </div>
                 </div>
               </div>
             </div>

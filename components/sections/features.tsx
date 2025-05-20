@@ -3,6 +3,7 @@
 import { useEffect, useRef } from "react";
 import { motion, useAnimation, useInView } from "framer-motion";
 import Link from "next/link";
+import { useI18n } from "@/locales/client";
 import {
   CreditCard,
   Shield,
@@ -17,29 +18,23 @@ import {
 const features = [
   {
     icon: <CreditCard className="h-6 w-6" />,
-    title: "Intégration Facile et Rapide",
-    description:
-      "API RESTful intuitive avec documentation interactive et exemples de code pour une intégration en moins de 72h.",
+    titleKey: "features.items.integration.title" as const,
+    descriptionKey: "features.items.integration.description" as const,
   },
   {
     icon: <Clock className="h-6 w-6" />,
-    title: "Monitoring & Reporting en temps réel",
-    description:
-      "Tableau de bord en temps réel avec notifications instantanées pour chaque transaction et rapports automatisés.",
+    titleKey: "features.items.monitoring.title" as const,
+    descriptionKey: "features.items.monitoring.description" as const,
   },
-
   {
     icon: <Smartphone className="h-6 w-6" />,
-    title: "Plusieres méthodes de paiement disponible",
-    description:
-      "Intégration avec M-Pesa, Orange Money, Airtel Money et AfriMoney avec réconciliation automatique.",
+    titleKey: "features.items.payment.title" as const,
+    descriptionKey: "features.items.payment.description" as const,
   },
-
   {
     icon: <Smartphone className="h-6 w-6" />,
-    title: "Pateformes stable et robuste",
-    description:
-      "Plateforme robuste et puissante, conçu pour offrir aux marchands des performances exceptionelles et une fiabilité sans faile",
+    titleKey: "features.items.platform.title" as const,
+    descriptionKey: "features.items.platform.description" as const,
   },
 ];
 
@@ -69,6 +64,7 @@ export default function Features() {
   const controls = useAnimation();
   const ref = useRef(null);
   const isInView = useInView(ref, { once: true, amount: 0.2 });
+  const t = useI18n();
 
   useEffect(() => {
     if (isInView) {
@@ -89,8 +85,9 @@ export default function Features() {
             transition={{ duration: 0.6 }}
             className="section-title-wrapper"
           >
-            <h2 className="text-3xl sm:text-4xl md:text-5xl font-extrabold text-dark">
-              Pourquoi <span className="gradient-text">choisir AvadaPay</span> ?
+            <h2 className="text-4xl md:text-5xl font-extrabold text-dark">
+              {t("features.title")}{" "}
+              <span className="gradient-text">{t("features.title2")}</span> ?
             </h2>
           </motion.div>
 
@@ -100,8 +97,7 @@ export default function Features() {
             transition={{ duration: 0.6, delay: 0.2 }}
             className="text-lg sm:text-xl text-gray-600 max-w-2xl mx-auto mt-4 sm:mt-6 font-bold px-4 sm:px-0"
           >
-            Des solutions de paiement innovantes conçues pour l'écosystème
-            financier congolais
+            {t("features.subtitle")}
           </motion.p>
         </div>
 
@@ -125,12 +121,12 @@ export default function Features() {
               </div>
 
               <h3 className="text-lg sm:text-xl font-bold mb-2 sm:mb-3 text-dark flex items-center">
-                {feature.title}
+                {t(feature.titleKey)}
                 <CheckCircle className="h-4 w-4 ml-2 text-avada-500" />
               </h3>
 
               <p className="text-sm sm:text-base text-gray-600 leading-relaxed mb-4 sm:mb-6">
-                {feature.description}
+                {t(feature.descriptionKey)}
               </p>
 
               <div className="mt-auto">
@@ -138,24 +134,12 @@ export default function Features() {
                   href="#contact"
                   className="inline-flex items-center text-avada-500 font-medium hover:underline"
                 >
-                  <span>En savoir plus</span>
+                  <span>{t("features.learnMore")}</span>
                   <ArrowRight className="ml-2 h-4 w-4" />
                 </Link>
               </div>
             </motion.div>
           ))}
-        </motion.div>
-
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.6, delay: 0.8 }}
-          className="mt-5 text-center"
-        >
-          {/* <div className="inline-flex items-center justify-center px-6 py-3 bg-dark text-white rounded-md text-lg font-medium relative">
-            <span className="relative z-10">Agréé par la Banque Centrale du Congo</span>
-            <Shield className="ml-2 h-5 w-5 relative z-10" />
-          </div> */}
         </motion.div>
       </div>
     </section>

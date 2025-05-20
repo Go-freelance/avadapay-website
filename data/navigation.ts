@@ -1,14 +1,14 @@
 export const navigationLinks = [
   {
-    label: "Solutions",
     href: "#solutions",
+    translationKey: "nav.solutions",
   },
   {
-    label: "Avantages",
     href: "#features",
+    translationKey: "nav.features",
   },
   {
-    label: "Partenaires",
     href: "#partners",
+    translationKey: "nav.partners",
   },
-]
+];

@@ -3,6 +3,7 @@
 import { useEffect, useState } from "react";
 import Image from "next/image";
 import { motion } from "framer-motion";
+import { useI18n } from "@/locales/client";
 
 const partners = [
   { name: "BetWinner", logo: "/images/bet-winner.png" },
@@ -17,6 +18,7 @@ const partners = [
 
 export default function Partners() {
   const [mounted, setMounted] = useState(false);
+  const t = useI18n();
 
   useEffect(() => {
     setMounted(true);
@@ -38,7 +40,7 @@ export default function Partners() {
           className="text-center mb-8 sm:mb-12"
         >
           <h2 className="text-2xl sm:text-3xl font-extrabold mb-3 sm:mb-4 text-dark">
-            Ils nous ont fait confiance
+            {t("partners.title")}
           </h2>
           <div className="w-16 sm:w-20 h-1 avada-gradient mx-auto mb-4 sm:mb-6 rounded-full"></div>
           {/* <p className="text-lg font-light text-gray-600 max-w-2xl mx-auto">

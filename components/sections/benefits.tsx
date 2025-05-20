@@ -7,11 +7,13 @@ import { SectionHeading } from "@/components/ui/section-heading";
 import { BenefitItem } from "@/components/ui/benefit-item";
 import { benefitsData } from "@/data/benefits";
 import { paymentPartners } from "@/data/partners";
+import { useI18n } from "@/locales/client";
 
 export default function Benefits() {
   const controls = useAnimation();
   const ref = useRef(null);
   const isInView = useInView(ref, { once: true, amount: 0.2 });
+  const t = useI18n();
 
   useEffect(() => {
     if (isInView) {
@@ -57,8 +59,8 @@ export default function Benefits() {
           transition={{ duration: 0.6 }}
         >
           <SectionHeading
-            title="Bénéfices pour"
-            title2="le Marchand"
+            title={t("benefits.title")}
+            title2={t("benefits.title2")}
             className="mb-8 sm:mb-12"
           />
         </motion.div>
@@ -75,7 +77,7 @@ export default function Benefits() {
               <div className="absolute inset-0 bg-gradient-to-br from-emerald-600/70 to-emerald-900/50 mix-blend-multiply z-10 rounded-xl"></div>
               <Image
                 src="/images/payment.jpg"
-                alt="Bénéfices pour le Marchand"
+                alt={t("benefits.optimize.title")}
                 fill
                 className="object-cover rounded-xl"
                 sizes="(max-width: 768px) 100vw, 50vw"
@@ -85,11 +87,10 @@ export default function Benefits() {
             {/* Content overlay */}
             <div className="absolute inset-0 z-20 flex flex-col justify-end p-4 sm:p-6 md:p-8 text-white">
               <h3 className="text-xl sm:text-2xl font-bold mb-2 sm:mb-3">
-                Optimisez votre business
+                {t("benefits.optimize.title")}
               </h3>
               <p className="text-sm sm:text-base text-white/90 max-w-md">
-                Découvrez comment nos solutions de paiement peuvent transformer
-                votre entreprise et améliorer l'expérience de vos clients.
+                {t("benefits.optimize.description")}
               </p>
               <div className="mt-3 sm:mt-4 inline-block">
                 <motion.span
@@ -110,7 +111,7 @@ export default function Benefits() {
                       clipRule="evenodd"
                     />
                   </svg>
-                  Agréé par la Banque Centrale du Congo
+                  {t("benefits.badge")}
                 </motion.span>
               </div>
             </div>
@@ -128,8 +129,8 @@ export default function Benefits() {
                 <motion.div key={benefit.id} variants={itemVariants}>
                   <BenefitItem
                     icon={benefit.icon}
-                    title={benefit.title}
-                    description={benefit.description}
+                    title={t(`${benefit.translationKey}.title`)}
+                    description={t(`${benefit.translationKey}.description`)}
                   />
                 </motion.div>
               ))}
@@ -145,7 +146,7 @@ export default function Benefits() {
           className="mt-8 sm:mt-12 md:mt-16"
         >
           <h3 className="text-lg sm:text-xl font-semibold text-center mb-4 sm:mb-6 md:mb-8">
-            Nos partenaires de paiement
+            {t("benefits.partners.title")}
           </h3>
           <div className="flex flex-wrap gap-3 sm:gap-4 md:gap-6 justify-center">
             {paymentPartners.map((partner, index) => (

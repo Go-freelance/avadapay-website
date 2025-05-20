@@ -7,10 +7,12 @@ import { Menu, X } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { navigationLinks } from "@/data/navigation";
 import { cn } from "@/lib/utils";
+import { useI18n } from "@/locales/client";
 
 export default function Header() {
   const [isOpen, setIsOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
+  const t = useI18n();
 
   useEffect(() => {
     const handleScroll = () => {
@@ -51,7 +53,7 @@ export default function Header() {
                 scrolled ? "text-slate-600" : ""
               )}
             >
-              {link.label}
+              {t(`nav.${link.href.replace("#", "")}`)}
             </Link>
           ))}
         </nav>
@@ -59,7 +61,7 @@ export default function Header() {
         <div className="hidden md:block">
           <Link href="#contact">
             <Button className="bg-emerald-500 hover:bg-emerald-600 text-white font-bold">
-              Nous contacter
+              {t("nav.contactButton")}
             </Button>
           </Link>
         </div>
@@ -102,7 +104,7 @@ export default function Header() {
                   className="text-xl font-medium hover:text-emerald-500  transition-colors"
                   onClick={() => setIsOpen(false)}
                 >
-                  {link.label}
+                  {t(`nav.${link.href.replace("#", "")}`)}
                 </Link>
               ))}
               <Link
@@ -110,7 +112,7 @@ export default function Header() {
                 className="mt-4 bg-emerald-500 hover:bg-emerald-600 text-white px-6 py-3 rounded-md text-base font-medium transition-colors inline-flex items-center justify-center"
                 onClick={() => setIsOpen(false)}
               >
-                Nous contacter
+                {t("nav.contactButton")}
               </Link>
             </nav>
           </div>

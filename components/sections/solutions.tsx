@@ -6,6 +6,7 @@ import Link from "next/link";
 import { motion } from "framer-motion";
 import { Button } from "@/components/ui/button";
 import { solutionsData } from "@/data/solutions";
+import { useI18n } from "@/locales/client";
 import {
   ChevronRight,
   CreditCard,
@@ -16,8 +17,15 @@ import {
 } from "lucide-react";
 import { cn } from "@/lib/utils";
 
+interface Solution {
+  id: string;
+  translationKey: string;
+  features?: string[];
+}
+
 export default function Solutions() {
   const [activeSolution, setActiveSolution] = useState(solutionsData[0].id);
+  const t = useI18n();
 
   const getActiveSolution = () => {
     return (
@@ -43,8 +51,9 @@ export default function Solutions() {
             viewport={{ once: true }}
             className="section-title-wrapper"
           >
-            <h2 className="text-3xl sm:text-4xl md:text-5xl font-extrabold text-dark">
-              Nos solutions <span className="gradient-text">Digitales</span>
+            <h2 className="text-4xl md:text-5xl font-extrabold text-dark">
+              {t("solutions.title")}{" "}
+              <span className="gradient-text">{t("solutions.title2")}</span> ?
             </h2>
           </motion.h2>
           <motion.p
@@ -54,15 +63,14 @@ export default function Solutions() {
             viewport={{ once: true }}
             className="text-base sm:text-lg md:text-xl text-gray-600 font-bold max-w-2xl mt-4 sm:mt-6 mx-auto px-4 sm:px-0"
           >
-            Des solutions digitales innovantes pour tous vos besoins de paiement
-            et communication
+            {t("solutions.subtitle", {})}
           </motion.p>
         </div>
 
         <div className="flex flex-col lg:flex-row gap-8 mb-16">
           <div className="lg:w-1/3">
             <div className="sticky top-24 space-y-2 flex flex-col">
-              {solutionsData.map((solution, index) => (
+              {solutionsData.map((solution: Solution, index: number) => (
                 <motion.button
                   key={solution.id}
                   initial={{ opacity: 0, x: -20 }}
@@ -118,7 +126,7 @@ export default function Solutions() {
                   </div>
                   <div>
                     <h3 className="font-medium text-base sm:text-lg">
-                      {solution.title}
+                      {t(`${solution.translationKey}.title`)}
                     </h3>
                     <p
                       className={cn(
@@ -128,7 +136,7 @@ export default function Solutions() {
                           : "text-muted-foreground"
                       )}
                     >
-                      {solution.shortDescription}
+                      {t(`${solution.translationKey}.shortDescription`)}
                     </p>
                   </div>
                   <ChevronRight
@@ -143,16 +151,17 @@ export default function Solutions() {
               ))}
 
               <div className="mt-8 p-4 sm:p-6 h-60 rounded-lg bg-primary/5 border border-primary/10 hidden lg:block">
-                <h4 className="font-medium text-lg mb-2">Besoin d'aide ?</h4>
+                <h4 className="font-medium text-lg mb-2">
+                  {t("solutions.help.title")}
+                </h4>
                 <p className="text-sm sm:text-base text-muted-foreground mb-4">
-                  Notre équipe est disponible pour vous accompagner dans
-                  l'intégration de nos solutions.
+                  {t("solutions.help.description")}
                 </p>
                 <Link
                   href="#contact"
                   className="text-primary text-sm sm:text-base font-medium flex items-center hover:underline"
                 >
-                  Contactez-nous{" "}
+                  {t("solutions.help.cta")}{" "}
                   <ArrowRight className="ml-1 h-3 w-3 sm:h-4 sm:w-4" />
                 </Link>
               </div>
@@ -171,17 +180,17 @@ export default function Solutions() {
               {/* En-tête avec dégradé */}
               <div className="bg-gradient-to-r from-primary/90 to-primary/70 p-6 sm:p-8 text-white">
                 <h3 className="text-xl sm:text-2xl font-bold mb-2">
-                  {getActiveSolution().title}
+                  {t(`${getActiveSolution().translationKey}.title`)}
                 </h3>
                 <p className="text-sm sm:text-base text-white/90">
-                  {getActiveSolution().description}
+                  {t(`${getActiveSolution().translationKey}.description`)}
                 </p>
               </div>
 
               <div className="relative h-[250px] sm:h-[300px] w-full bg-muted/30">
                 <Image
                   src={`/images/${getActiveSolution().id}.jpg`}
-                  alt={getActiveSolution().title}
+                  alt={t(`${getActiveSolution().translationKey}.title`)}
                   fill
                   className="object-cover"
                   sizes="(max-width: 768px) 100vw, 66vw"
@@ -240,7 +249,9 @@ export default function Solutions() {
                         <div className="h-6 w-6 rounded-full bg-primary/10 flex items-center justify-center mr-3 mt-0.5">
                           <span className="text-primary text-sm">✓</span>
                         </div>
-                        <span className="text-sm sm:text-base">{feature}</span>
+                        <span className="text-sm sm:text-base">
+                          {t(`${feature}`)}
+                        </span>
                       </div>
                     ))}
                 </div>
@@ -258,15 +269,14 @@ export default function Solutions() {
           className="mt-16 sm:mt-20 bg-gradient-to-r from-primary/90 to-primary/70 rounded-2xl p-6 sm:p-8 md:p-12 text-white text-center"
         >
           <h3 className="text-xl sm:text-2xl md:text-3xl font-extrabold mb-4">
-            Prêt à transformer votre système de paiement ?
+            {t("solutions.cta.title")}
           </h3>
           <p className="text-sm sm:text-base text-white/90 max-w-2xl mx-auto mb-6 sm:mb-8 px-4 sm:px-0">
-            Rejoignez les entreprises qui font confiance à AvadaPay pour leurs
-            solutions de paiement en ligne.
+            {t("solutions.cta.description")}
           </p>
           <Link href="#contact">
             <Button className="bg-white text-primary font-bold hover:bg-white/90 group">
-              Démarrer maintenant
+              {t("solutions.cta.button")}
               <ArrowRight className="ml-2 h-4 w-4 transition-transform group-hover:translate-x-1" />
             </Button>
           </Link>

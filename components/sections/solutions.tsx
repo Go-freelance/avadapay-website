@@ -11,7 +11,6 @@ import {
   ChevronRight,
   CreditCard,
   ArrowRight,
-  BarChart3,
   Users,
   Smartphone,
 } from "lucide-react";

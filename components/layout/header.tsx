@@ -9,16 +9,16 @@ import { useI18n } from "@/locales/client";
 import { LanguageSwitcher } from "@/components/ui/language-switcher";
 import { cn } from "@/lib/utils";
 import { usePathname } from "next/navigation";
+import { navigationLinks } from "../../data/navigation";
 
-const navigationLinks: {
-  href: string;
-  key: "nav.solutions" | "nav.features" | "nav.benefits" | "nav.contact";
-}[] = [
-  { href: "#solutions", key: "nav.solutions" },
-  { href: "#features", key: "nav.features" },
-  { href: "#benefits", key: "nav.benefits" },
-  { href: "#contact", key: "nav.contact" },
-];
+// const navigationLinks: {
+//   href: string;
+//   key: "nav.solutions" | "nav.features" | "nav.benefits" | "nav.contact";
+// }[] = [
+//   { href: "#solutions", key: "nav.solutions" },
+//   { href: "#benefits", key: "nav.benefits" },
+//   { href: "#contact", key: "nav.contact" },
+// ];
 
 export default function Header() {
   const [isOpen, setIsOpen] = useState(false);
@@ -84,7 +84,7 @@ export default function Header() {
                     : "text-gray-700 hover:text-primary hover:bg-gray-100/80"
                 )}
               >
-                {t(link.key)}
+                {t(link.translationKey)}
               </Link>
             ))}
           </div>

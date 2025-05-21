@@ -37,7 +37,8 @@ export default {
   // Solutions Section
   "solutions.title": "Our Solutions",
   "solutions.title2": "Digital",
-  "solutions.subtitle": "Innovative payment solutions for your business",
+  "solutions.subtitle":
+    "Innovative digital solutions for all your payment and communication needs",
   "solutions.items": {
     "online-payment": {
       title: "Online Payment",
@@ -46,8 +47,8 @@ export default {
       description:
         "Our online payment platform easily integrates with your website or mobile app, allowing your customers to pay securely via Mobile Money or bank card.",
       features: [
-        "Simple and fast API integration",
-        "Compatible with all Mobile Money operators",
+        "Easy and fast API integration",
+        "Connected to all Mobile Money operators",
         "Bank card support (VISA, MasterCard)",
       ],
     },
@@ -127,6 +128,9 @@ export default {
 
   // Partners Section
   "partners.title": "They Trust Us",
+  "partners.subtitle": "Trusted by industry leaders",
+  "partners.description": "Payment infrastructure connected to all operators.",
+  "partners.becomePartner": "Become a partner",
 
   // Testimonials Section
   "testimonials.title": "What Our Clients Say",

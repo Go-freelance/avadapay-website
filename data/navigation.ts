@@ -5,10 +5,10 @@ export const navigationLinks = [
   },
   {
     href: "#features",
-    translationKey: "nav.features",
+    translationKey: "nav.benefits",
   },
   {
-    href: "#partners",
-    translationKey: "nav.partners",
+    href: "#contact",
+    translationKey: "nav.contact",
   },
 ];

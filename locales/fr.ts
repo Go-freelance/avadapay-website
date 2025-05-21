@@ -15,17 +15,17 @@ export default {
   "hero.contact": "Nous contacter",
 
   // Features Section
-  "features.title": "Pourquoi?",
-  "features.title2": "choisir AvadaPay ?",
+  "features.title": "Pourquoi",
+  "features.title2": "choisir AvadaPay",
   "features.subtitle":
     "Des solutions de paiement innovantes conçues pour l'écosystème financier congolais",
   "features.items.integration.title": "Intégration Facile et Rapide",
   "features.items.integration.description":
     "API RESTful intuitive avec documentation interactive et exemples de code pour une intégration en moins de 72h.",
-  "features.items.monitoring.title": "Monitoring & Reporting en temps réel",
+  "features.items.monitoring.title": "Monitoring et Reporting en temps réel",
   "features.items.monitoring.description":
     "Tableau de bord en temps réel avec notifications instantanées pour chaque transaction et rapports automatisés.",
-  "features.items.payment.title": "Plusieres méthodes de paiement disponible",
+  "features.items.payment.title": "Plusieurs méthodes de paiement disponible",
   "features.items.payment.description":
     "Intégration avec M-Pesa, Orange Money, Airtel Money et AfriMoney avec réconciliation automatique.",
   "features.items.platform.title": "Plateforme stable et robuste",
@@ -37,7 +37,7 @@ export default {
   "solutions.title": "Nos Solutions",
   "solutions.title2": "Digitales",
   "solutions.subtitle":
-    "Des solutions de paiement innovantes pour votre entreprise",
+    "Des solutions digitales innovantes pour tous vos besoins de paiement et communication",
   "solutions.items": {
     "online-payment": {
       title: "Paiement en Ligne",
@@ -46,13 +46,13 @@ export default {
       description:
         "Notre plateforme de paiement en ligne s'intègre facilement à votre site web ou application mobile, permettant à vos clients de payer via Mobile Money ou carte bancaire en toute sécurité.",
       features: [
-        "Intégration API simple et rapide",
-        "Compatible avec tous les opérateurs Mobile Money",
+        "Intégration API facile et rapide",
+        "Connecté avec tous les opérateurs Mobile Money",
         "Support des cartes bancaires (VISA, MasterCard)",
       ],
     },
     "bulk-payment": {
-      title: "Paiement en Masse",
+      title: "Bulk Payment",
       shortDescription:
         "Effectuez des paiements en masse vers de multiples bénéficiaires",
       description:
@@ -66,7 +66,7 @@ export default {
       ],
     },
     "bulk-sms": {
-      title: "SMS en Masse",
+      title: "Bulk SMS",
       shortDescription: "Envoyez des SMS en masse à vos clients ou partenaires",
       description:
         "Envoyez des SMS en masse à vos clients ou partenaires avec notre solution de messagerie professionnelle couvrant tous les opérateurs de la RDC, idéale pour les notifications et campagnes marketing.",
@@ -86,8 +86,8 @@ export default {
   "solutions.cta.button": "Démarrer maintenant",
 
   // Benefits Section
-  "benefits.title": "Pourquoi",
-  "benefits.title2": " choisir AvadaPay",
+  "benefits.title": "Bénéfices pour le",
+  "benefits.title2": "Marchand",
   "benefits.subtitle": "Des avantages concrets pour votre entreprise",
   "benefits.optimize.title": "Optimisez votre business",
   "benefits.optimize.description":
@@ -129,6 +129,10 @@ export default {
 
   // Partners Section
   "partners.title": "Ils nous ont fait confiance",
+  "partners.subtitle": "Partenaires de confiance du secteur",
+  "partners.description":
+    "Infrastructure de paiement connectée à tous les opérateurs.",
+  "partners.becomePartner": "Devenir partenaire",
 
   // Testimonials Section
   "testimonials.title": "Ce que nos clients disent",

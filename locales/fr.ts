@@ -28,9 +28,9 @@ export default {
   "features.items.payment.title": "Plusieres méthodes de paiement disponible",
   "features.items.payment.description":
     "Intégration avec M-Pesa, Orange Money, Airtel Money et AfriMoney avec réconciliation automatique.",
-  "features.items.platform.title": "Pateformes stable et robuste",
+  "features.items.platform.title": "Plateforme stable et robuste",
   "features.items.platform.description":
-    "Plateforme robuste et puissante, conçu pour offrir aux marchands des performances exceptionelles et une fiabilité sans faile",
+    "Plateforme robuste et puissante, conçue pour offrir aux marchands des performances exceptionnelles et une fiabilité sans faille",
   "features.learnMore": "En savoir plus",
 
   // Solutions Section
@@ -38,40 +38,44 @@ export default {
   "solutions.title2": "Digitales",
   "solutions.subtitle":
     "Des solutions de paiement innovantes pour votre entreprise",
-  "solutions.items.online-payment.title": "Paiement en Ligne",
-  "solutions.items.online-payment.shortDescription":
-    "Acceptez les paiements en ligne via Mobile Money et cartes bancaires",
-  "solutions.items.online-payment.description":
-    "Notre plateforme de paiement en ligne s'intègre facilement à votre site web ou application mobile, permettant à vos clients de payer via Mobile Money ou carte bancaire en toute sécurité.",
-  "solutions.items.online-payment.features.0":
-    "Intégration API simple et rapide",
-  "solutions.items.online-payment.features.1":
-    "Compatible avec tous les opérateurs Mobile Money",
-  "solutions.items.online-payment.features.2":
-    "Support des cartes bancaires (VISA, MasterCard)",
-  "solutions.items.bulk-payment.title": "Paiement en Masse",
-  "solutions.items.bulk-payment.shortDescription":
-    "Effectuez des paiements en masse vers de multiples bénéficiaires",
-  "solutions.items.bulk-payment.description":
-    "Effectuez des paiements en masse vers de multiples bénéficiaires avec notre plateforme sécurisée, idéale pour les salaires, primes et autres versements récurrents à grande échelle.",
-  "solutions.items.bulk-payment.features.0":
-    "Paiements simultanés vers des milliers de bénéficiaires",
-  "solutions.items.bulk-payment.features.1":
-    "Validation multi-niveaux (maker-checker)",
-  "solutions.items.bulk-payment.features.2":
-    "Suivi en temps réel de l'état des paiements",
-  "solutions.items.bulk-payment.features.3":
-    "Traçabilité complète des transactions",
-  "solutions.items.bulk-payment.features.4":
-    "Optimisation des processus administratifs",
-  "solutions.items.bulk-sms.title": "SMS en Masse",
-  "solutions.items.bulk-sms.shortDescription":
-    "Envoyez des SMS en masse à vos clients ou partenaires",
-  "solutions.items.bulk-sms.description":
-    "Envoyez des SMS en masse à vos clients ou partenaires avec notre solution de messagerie professionnelle couvrant tous les opérateurs de la RDC, idéale pour les notifications et campagnes marketing.",
-  "solutions.items.bulk-sms.features.0":
-    "Couverture nationale sur tous les opérateurs de la RDC",
-  "solutions.items.bulk-sms.features.1": "Tarifs compétitifs et flexibles",
+  "solutions.items": {
+    "online-payment": {
+      title: "Paiement en Ligne",
+      shortDescription:
+        "Acceptez les paiements en ligne via Mobile Money et cartes bancaires",
+      description:
+        "Notre plateforme de paiement en ligne s'intègre facilement à votre site web ou application mobile, permettant à vos clients de payer via Mobile Money ou carte bancaire en toute sécurité.",
+      features: [
+        "Intégration API simple et rapide",
+        "Compatible avec tous les opérateurs Mobile Money",
+        "Support des cartes bancaires (VISA, MasterCard)",
+      ],
+    },
+    "bulk-payment": {
+      title: "Paiement en Masse",
+      shortDescription:
+        "Effectuez des paiements en masse vers de multiples bénéficiaires",
+      description:
+        "Effectuez des paiements en masse vers de multiples bénéficiaires avec notre plateforme sécurisée, idéale pour les salaires, primes et autres versements récurrents à grande échelle.",
+      features: [
+        "Paiements simultanés vers des milliers de bénéficiaires",
+        "Validation multi-niveaux (maker-checker)",
+        "Suivi en temps réel de l'état des paiements",
+        "Traçabilité complète des transactions",
+        "Optimisation des processus administratifs",
+      ],
+    },
+    "bulk-sms": {
+      title: "SMS en Masse",
+      shortDescription: "Envoyez des SMS en masse à vos clients ou partenaires",
+      description:
+        "Envoyez des SMS en masse à vos clients ou partenaires avec notre solution de messagerie professionnelle couvrant tous les opérateurs de la RDC, idéale pour les notifications et campagnes marketing.",
+      features: [
+        "Couverture nationale sur tous les opérateurs de la RDC",
+        "Tarifs compétitifs et flexibles",
+      ],
+    },
+  },
   "solutions.help.title": "Besoin d'aide ?",
   "solutions.help.description":
     "Notre équipe est là pour vous accompagner dans le choix de la solution adaptée à vos besoins.",
@@ -90,6 +94,38 @@ export default {
     "Découvrez comment nos solutions de paiement peuvent transformer votre entreprise et améliorer l'expérience de vos clients.",
   "benefits.badge": "Agréé par la Banque Centrale du Congo",
   "benefits.partners.title": "Nos partenaires de paiement",
+  "benefits.items": {
+    integration: {
+      title: "Intégration Facile",
+      description:
+        "La solution AVADAPAY s'intègre à n'importe quelle plateforme existante, du site web à l'application",
+    },
+    monitoring: {
+      title: "Monitoring en Temps Réel",
+      description:
+        "Suivi des paiements en temps réel et gestion comptable optimisée",
+    },
+    statistics: {
+      title: "Statistiques Détaillées",
+      description:
+        "Statistiques sur les produits les plus vendus pour optimiser votre offre",
+    },
+    "mobile-money": {
+      title: "Paiements Mobile Money",
+      description:
+        "Le paiement se fait via mobile money, Airtel Money, Mpesa, Orange Money et Afrimoney",
+    },
+    security: {
+      title: "Sécurité des Flux",
+      description:
+        "Sécurisation des flux monétaires avec moins de circulation d'argent liquide",
+    },
+    satisfaction: {
+      title: "Satisfaction Client",
+      description:
+        "Optimisation des revenus et de la satisfaction client grâce à la digitalisation du système de paiement",
+    },
+  },
 
   // Partners Section
   "partners.title": "Ils nous ont fait confiance",

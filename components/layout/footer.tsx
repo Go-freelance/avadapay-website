@@ -37,7 +37,7 @@ export default function Footer() {
                     href={link.href}
                     className="text-gray-400 hover:text-primary transition-colors"
                   >
-                    {t(link.translationKey)}
+                    {t(link.translationKey as any, {})}
                   </Link>
                 </li>
               ))}
@@ -55,7 +55,7 @@ export default function Footer() {
                     href={`#${solution.id}`}
                     className="text-gray-400 hover:text-primary transition-colors"
                   >
-                    {t(`solutions.items.${solution.id}.title`)}
+                    {t(`solutions.items.${solution.id}.title` as any, {})}
                   </Link>
                 </li>
               ))}

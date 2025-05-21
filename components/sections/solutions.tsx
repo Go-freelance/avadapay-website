@@ -49,12 +49,10 @@ export default function Solutions() {
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5, delay: 0.1 }}
             viewport={{ once: true }}
-            className="section-title-wrapper"
+            className="section-title-wrapper text-4xl md:text-5xl font-extrabold text-dark"
           >
-            <h2 className="text-4xl md:text-5xl font-extrabold text-dark">
-              {t("solutions.title")}{" "}
-              <span className="gradient-text">{t("solutions.title2")}</span> ?
-            </h2>
+            {t("solutions.title")}{" "}
+            <span className="gradient-text">{t("solutions.title2")}</span> ?
           </motion.h2>
           <motion.p
             initial={{ opacity: 0, y: 20 }}
@@ -63,7 +61,7 @@ export default function Solutions() {
             viewport={{ once: true }}
             className="text-base sm:text-lg md:text-xl text-gray-600 font-bold max-w-2xl mt-4 sm:mt-6 mx-auto px-4 sm:px-0"
           >
-            {t("solutions.subtitle", {})}
+            {t("solutions.subtitle")}
           </motion.p>
         </div>
 
@@ -126,7 +124,7 @@ export default function Solutions() {
                   </div>
                   <div>
                     <h3 className="font-medium text-base sm:text-lg">
-                      {t(`${solution.translationKey}.title`)}
+                      {t(`${solution.translationKey}.title`, {})}
                     </h3>
                     <p
                       className={cn(
@@ -136,7 +134,7 @@ export default function Solutions() {
                           : "text-muted-foreground"
                       )}
                     >
-                      {t(`${solution.translationKey}.shortDescription`)}
+                      {t(`${solution.translationKey}.shortDescription`, {})}
                     </p>
                   </div>
                   <ChevronRight
@@ -180,10 +178,10 @@ export default function Solutions() {
               {/* En-tête avec dégradé */}
               <div className="bg-gradient-to-r from-primary/90 to-primary/70 p-6 sm:p-8 text-white">
                 <h3 className="text-xl sm:text-2xl font-bold mb-2">
-                  {t(`${getActiveSolution().translationKey}.title`)}
+                  {t(`${getActiveSolution().translationKey}.title`, {})}
                 </h3>
                 <p className="text-sm sm:text-base text-white/90">
-                  {t(`${getActiveSolution().translationKey}.description`)}
+                  {t(`${getActiveSolution().translationKey}.description`, {})}
                 </p>
               </div>
 
@@ -250,7 +248,7 @@ export default function Solutions() {
                           <span className="text-primary text-sm">✓</span>
                         </div>
                         <span className="text-sm sm:text-base">
-                          {t(`${feature}`)}
+                          {t(`${feature}`, {})}
                         </span>
                       </div>
                     ))}

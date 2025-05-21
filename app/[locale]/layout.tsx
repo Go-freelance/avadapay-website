@@ -12,7 +12,7 @@ const mulish = Mulish({
   display: "swap",
 });
 
-export const metadata : Metadata = {
+export const metadata: Metadata = {
   title: "AvadaPay | Agrégateur de Paiement en Ligne",
   description:
     "AvadaPay est une fintech innovante installée en RDC depuis 2018, agréée par la Banque Centrale du Congo.",
@@ -26,11 +26,12 @@ export default async function RootLayout({
   params: { locale: string };
 }) {
   const t = await getI18n();
+  const locale = params.locale || "en";
 
   return (
-    <html lang={params.locale} className={mulish.variable}>
-      <body className="font-mulish antialiased">
-        <I18nProviderClient locale={params.locale}>
+    <html lang={locale} className={`${mulish.variable} scroll-smooth`}>
+      <body className="font-mulish antialiased overflow-x-hidden">
+        <I18nProviderClient locale={locale}>
           {children}
           <Toaster />
         </I18nProviderClient>

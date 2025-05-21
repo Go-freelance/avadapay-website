@@ -142,6 +142,36 @@ p {
   font-weight: 800;
 }
 
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes slideInRight {
+  from {
+    opacity: 0;
+    transform: translateX(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+.animate-fade-in-up {
+  animation: fadeInUp 0.5s ease forwards;
+}
+
+.animate-slide-in-right {
+  animation: slideInRight 0.3s ease forwards;
+}
+
 /* Éléments de la charte graphique */
 .avada-gradient {
   @apply bg-gradient-to-r from-avada-500 to-avada-400;
@@ -293,32 +323,6 @@ p {
   @apply avada-gradient;
   border-radius: 2px;
 }
-
-/* Éléments angulaires de la charte */
-/* .angular-element {
-  position: relative;
-}
-
-.angular-element::before {
-  content: "";
-  position: absolute;
-  width: 60px;
-  height: 60px;
-  background-color: #00c896;
-  clip-path: polygon(0 0, 100% 0, 100% 100%);
-  opacity: 0.1;
-}
-
-.angular-top-right::before {
-  top: 0;
-  right: 0;
-}
-
-.angular-bottom-left::before {
-  bottom: 0;
-  left: 0;
-  transform: rotate(180deg);
-} */
 
 /* Boutons stylisés selon la charte */
 .btn-avada {

@@ -10,6 +10,7 @@ import { LanguageSwitcher } from "@/components/ui/language-switcher";
 import { cn } from "@/lib/utils";
 import { usePathname } from "next/navigation";
 import { navigationLinks } from "../../data/navigation";
+import ReactDOM from "react-dom";
 
 type NavigationKey =
   | "nav.solutions"
@@ -114,14 +115,11 @@ export default function Header() {
         </div>
 
         {/* Mobile Menu*/}
-        {isOpen && (
-          <>
-            <div
-              className="fixed inset-0 bg-black/20 backdrop-blur-sm z-[998] md:hidden"
-              onClick={() => setIsOpen(false)}
-            />
-            <div className="fixed inset-0 z-[999] bg-white flex flex-col md:hidden">
-              <div className="flex items-center justify-between h-16 px-4 border-b">
+        {isOpen &&
+          typeof window !== "undefined" &&
+          ReactDOM.createPortal(
+            <div className="fixed inset-0 z-[9999] bg-white flex flex-col md:hidden">
+              <div className="flex items-center justify-between h-16 px-4 border-b bg-white">
                 <Image
                   src="/images/logo.png"
                   alt="AvadaPay Logo"
@@ -142,7 +140,7 @@ export default function Header() {
               </div>
 
               {/* Mobile Navigation Links */}
-              <nav className="flex-1 flex flex-col items-center justify-center gap-6 px-4">
+              <nav className="flex-1 flex flex-col items-center justify-center gap-6 px-4 overflow-y-auto">
                 {navigationLinks.map((link, index) => (
                   <Link
                     key={link.href}
@@ -180,9 +178,9 @@ export default function Header() {
               <div className="p-6 border-t flex justify-center">
                 <LanguageSwitcher />
               </div>
-            </div>
-          </>
-        )}
+            </div>,
+            document.body
+          )}
       </div>
     </header>
   );

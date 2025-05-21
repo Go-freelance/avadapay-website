@@ -9,6 +9,20 @@ import { paymentPartners } from "@/data/partners";
 import { useI18n } from "@/locales/client";
 import { Shield } from "lucide-react";
 
+type BenefitKey =
+  | "benefits.items.integration.title"
+  | "benefits.items.integration.description"
+  | "benefits.items.monitoring.title"
+  | "benefits.items.monitoring.description"
+  | "benefits.items.statistics.title"
+  | "benefits.items.statistics.description"
+  | "benefits.items.mobile-money.title"
+  | "benefits.items.mobile-money.description"
+  | "benefits.items.security.title"
+  | "benefits.items.security.description"
+  | "benefits.items.satisfaction.title"
+  | "benefits.items.satisfaction.description";
+
 export default function Benefits() {
   const controls = useAnimation();
   const ref = useRef(null);
@@ -46,11 +60,11 @@ export default function Benefits() {
   return (
     <section
       id="benefits"
-      className="py-16 sm:py-20 md:py-24 bg-white relative overflow-hidden"
+      className="py-12 sm:py-16 md:py-24 bg-white relative overflow-hidden"
     >
       {/* Background elements */}
-      <div className="absolute top-0 right-0 w-1/3 h-1/3 bg-primary/10 rounded-bl-full -z-10 opacity-70"></div>
-      <div className="absolute bottom-0 left-0 w-1/3 h-1/3 bg-primary/10 rounded-tr-full -z-10 opacity-70"></div>
+      <div className="absolute top-0 right-0 w-1/2 sm:w-1/3 h-1/3 bg-primary/10 rounded-bl-full -z-10 opacity-70"></div>
+      <div className="absolute bottom-0 left-0 w-1/2 sm:w-1/3 h-1/3 bg-primary/10 rounded-tr-full -z-10 opacity-70"></div>
 
       <div className="container px-4 sm:px-6 lg:px-8">
         <motion.div
@@ -58,16 +72,16 @@ export default function Benefits() {
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.7, ease: [0.22, 1, 0.36, 1] }}
           viewport={{ once: true, margin: "-100px" }}
-          className="text-center mb-12 sm:mb-16"
+          className="text-center mb-8 sm:mb-12"
         >
-          <h2 className="text-3xl md:text-4xl lg:text-5xl font-extrabold text-gray-900 max-w-3xl mx-auto leading-tight">
+          <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-extrabold text-gray-900 max-w-3xl mx-auto leading-tight">
             {t("benefits.title")}{" "}
             <span className="gradient-text">{t("benefits.title2")}</span>
           </h2>
-          <div className="w-20 h-1 bg-gradient-to-r from-primary to-primary/70 mx-auto mt-6 rounded-full"></div>
+          <div className="w-16 sm:w-20 h-1 bg-gradient-to-r from-primary to-primary/70 mx-auto mt-4 sm:mt-6 rounded-full"></div>
         </motion.div>
 
-        <div className="grid md:grid-cols-2 gap-8 sm:gap-10 md:gap-16 items-center mb-16">
+        <div className="grid md:grid-cols-2 gap-6 sm:gap-8 md:gap-16 items-center mb-12 sm:mb-16">
           <motion.div
             initial={{ opacity: 0, x: -20 }}
             whileInView={{ opacity: 1, x: 0 }}
@@ -75,35 +89,35 @@ export default function Benefits() {
             viewport={{ once: true }}
             className="relative"
           >
-            <div className="relative rounded-2xl overflow-hidden shadow-xl">
+            <div className="relative rounded-xl sm:rounded-2xl overflow-hidden shadow-lg sm:shadow-xl">
               <Image
-                src="/images/payment.jpg"
+                src="/images/marchand.jpg"
                 alt={t("benefits.optimize.title")}
                 width={600}
                 height={450}
-                className="object-cover w-full h-auto rounded-2xl"
+                className="object-cover w-full h-[250px] sm:h-[300px] md:h-[400px] rounded-xl sm:rounded-2xl"
               />
 
               <motion.div
                 initial={{ scale: 0.9, opacity: 0 }}
                 animate={{ scale: 1, opacity: 1 }}
                 transition={{ duration: 0.5, delay: 0.4 }}
-                className="absolute top-4 right-4 z-20"
+                className="absolute bottom-3 sm:bottom-4 right-3 sm:right-4 z-20"
               >
-                <div className="flex items-center gap-2 px-4 py-2 bg-white rounded-full shadow-lg border-2 border-primary">
-                  <Shield className="h-5 w-5 text-primary" />
-                  <span className="font-bold text-primary">
+                <div className="flex items-center gap-2 px-3 sm:px-4 py-1.5 sm:py-2 bg-white rounded-full shadow-lg border-2 border-primary">
+                  <Shield className="h-4 w-4 sm:h-5 sm:w-5 text-primary" />
+                  <span className="text-sm sm:text-base font-bold text-primary">
                     {t("benefits.badge")}
                   </span>
                 </div>
               </motion.div>
             </div>
 
-            <div className="mt-6 bg-gray-50 p-6 rounded-xl border border-gray-100">
-              <h3 className="text-xl font-bold mb-3 text-gray-900">
+            <div className="mt-4 sm:mt-6 bg-gray-50 p-4 sm:p-6 rounded-lg sm:rounded-xl border border-gray-100">
+              <h3 className="text-lg sm:text-xl font-bold mb-2 sm:mb-3 text-gray-900">
                 {t("benefits.optimize.title")}
               </h3>
-              <p className="text-gray-700">
+              <p className="text-sm sm:text-base text-gray-700">
                 {t("benefits.optimize.description")}
               </p>
             </div>
@@ -116,13 +130,15 @@ export default function Benefits() {
             initial="hidden"
             animate={controls}
           >
-            <ul className="space-y-5 sm:space-y-6">
+            <ul className="space-y-4 sm:space-y-6">
               {benefitsData.map((benefit, index) => (
                 <motion.div key={benefit.id} variants={itemVariants}>
                   <BenefitItem
                     icon={benefit.icon}
-                    title={t(`${benefit.translationKey}.title`)}
-                    description={t(`${benefit.translationKey}.description`)}
+                    title={t(`${benefit.translationKey}.title` as BenefitKey)}
+                    description={t(
+                      `${benefit.translationKey}.description` as BenefitKey
+                    )}
                   />
                 </motion.div>
               ))}
@@ -136,12 +152,12 @@ export default function Benefits() {
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6, delay: 0.3 }}
           viewport={{ once: true }}
-          className="mt-16 sm:mt-20 bg-gray-50 rounded-2xl p-8 sm:p-10"
+          className="mt-12 sm:mt-16 bg-gray-50 rounded-xl sm:rounded-2xl p-6 sm:p-8 md:p-10"
         >
-          <h3 className="text-xl font-bold text-center mb-8">
+          <h3 className="text-lg sm:text-xl font-bold text-center mb-6 sm:mb-8">
             {t("benefits.partners.title")}
           </h3>
-          <div className="flex flex-wrap gap-4 sm:gap-6 md:gap-8 justify-center items-center">
+          <div className="flex flex-wrap gap-3 sm:gap-4 md:gap-6 justify-center items-center">
             {paymentPartners.map((partner, index) => (
               <motion.div
                 key={index}
@@ -150,14 +166,14 @@ export default function Benefits() {
                   boxShadow: "0 10px 25px -5px rgba(0, 0, 0, 0.1)",
                 }}
                 transition={{ duration: 0.2 }}
-                className="bg-white p-4 rounded-xl shadow-sm border border-gray-100 hover:border-primary/30 transition-all"
+                className="bg-white p-3 sm:p-4 rounded-lg sm:rounded-xl shadow-sm border border-gray-100 hover:border-primary/30 transition-all"
               >
                 <Image
                   src={partner.logo}
                   alt={partner.name}
                   width={80}
                   height={40}
-                  className="h-10 sm:h-12 w-auto object-contain"
+                  className="h-8 sm:h-10 md:h-12 w-auto object-contain"
                 />
               </motion.div>
             ))}

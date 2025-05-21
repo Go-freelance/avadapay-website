@@ -66,8 +66,9 @@ export default function Header() {
             height={40}
             className={cn(
               "h-auto transition-all duration-300",
-              scrolled ? "w-36" : "w-40"
+              scrolled ? "w-28 sm:w-32 md:w-36" : "w-32 sm:w-36 md:w-40"
             )}
+            priority
           />
         </Link>
 
@@ -126,7 +127,8 @@ export default function Header() {
                   alt="AvadaPay Logo"
                   width={140}
                   height={36}
-                  className="h-8 w-auto"
+                  className="h-6 sm:h-8 w-auto"
+                  priority
                 />
                 <Button
                   variant="ghost"

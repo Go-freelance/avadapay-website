@@ -43,9 +43,6 @@ export default function Partners() {
             {t("partners.title")}
           </h2>
           <div className="w-16 sm:w-20 h-1 avada-gradient mx-auto mb-4 sm:mb-6 rounded-full"></div>
-          {/* <p className="text-lg font-light text-gray-600 max-w-2xl mx-auto">
-            Infrastructure de paiement connectée à tous les opérateurs
-          </p> */}
         </motion.div>
 
         <motion.div
@@ -66,26 +63,19 @@ export default function Partners() {
                 y: -5,
                 boxShadow: "0 10px 25px -5px rgba(0, 0, 0, 0.1)",
               }}
-              className="bg-white p-3 sm:p-4 rounded-lg shadow-sm border border-gray-100 hover:border-avada-500/30 transition-all flex items-center justify-center h-20 sm:h-24 w-52"
+              className="bg-white p-2 sm:p-4 rounded-lg shadow-sm border border-gray-100 hover:border-avada-500/30 transition-all flex items-center justify-center h-16 sm:h-20 md:h-24 w-full max-w-[140px] sm:max-w-[160px] md:max-w-[200px]"
             >
               <Image
                 src={partner.logo}
                 alt={partner.name}
-                width={100}
-                height={50}
-                className="max-h-10 sm:max-h-12 w-auto object-contain"
+                width={120}
+                height={60}
+                className="max-h-8 sm:max-h-10 md:max-h-12 w-auto object-contain"
+                priority={index < 4}
               />
             </motion.div>
           ))}
         </motion.div>
-
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.5, delay: 0.5 }}
-          viewport={{ once: true }}
-          className="mt-12 text-center"
-        ></motion.div>
       </div>
     </section>
   );

@@ -11,14 +11,11 @@ import { cn } from "@/lib/utils";
 import { usePathname } from "next/navigation";
 import { navigationLinks } from "../../data/navigation";
 
-// const navigationLinks: {
-//   href: string;
-//   key: "nav.solutions" | "nav.features" | "nav.benefits" | "nav.contact";
-// }[] = [
-//   { href: "#solutions", key: "nav.solutions" },
-//   { href: "#benefits", key: "nav.benefits" },
-//   { href: "#contact", key: "nav.contact" },
-// ];
+type NavigationKey =
+  | "nav.solutions"
+  | "nav.benefits"
+  | "nav.contact"
+  | "nav.contactButton";
 
 export default function Header() {
   const [isOpen, setIsOpen] = useState(false);
@@ -26,19 +23,23 @@ export default function Header() {
   const t = useI18n();
   const pathname = usePathname();
 
+  // Effet pour gérer le scroll du header
   useEffect(() => {
     const handleScroll = () => setScrolled(window.scrollY > 10);
     window.addEventListener("scroll", handleScroll);
+    return () => {
+      window.removeEventListener("scroll", handleScroll);
+    };
+  }, []);
 
-    // Disable scroll when mobile menu is open
+  // Effet pour gérer le blocage du scroll du body
+  useEffect(() => {
     if (isOpen) {
       document.body.classList.add("overflow-hidden");
     } else {
       document.body.classList.remove("overflow-hidden");
     }
-
     return () => {
-      window.removeEventListener("scroll", handleScroll);
       document.body.classList.remove("overflow-hidden");
     };
   }, [isOpen]);
@@ -84,7 +85,7 @@ export default function Header() {
                     : "text-gray-700 hover:text-primary hover:bg-gray-100/80"
                 )}
               >
-                {t(link.translationKey)}
+                {t(link.translationKey as NavigationKey)}
               </Link>
             ))}
           </div>
@@ -96,7 +97,7 @@ export default function Header() {
 
           <Link href="#contact" className="hidden md:block">
             <Button className="btn-avada rounded-full px-6 py-2 shadow-lg font-bold text-white transition-all duration-300 hover:scale-105">
-              {t("nav.contactButton")}
+              {t("nav.contactButton" as NavigationKey)}
             </Button>
           </Link>
 
@@ -111,68 +112,74 @@ export default function Header() {
           </Button>
         </div>
 
-        {/* Mobile Menu */}
+        {/* Mobile Menu*/}
         {isOpen && (
-          <div className="fixed inset-0 z-[999] bg-white flex flex-col md:hidden">
-            <div className="flex items-center justify-between h-16 px-4 border-b">
-              <Image
-                src="/images/logo.png"
-                alt="AvadaPay Logo"
-                width={140}
-                height={36}
-                className="h-8 w-auto"
-              />
-              <Button
-                variant="ghost"
-                size="icon"
-                className="rounded-full hover:bg-gray-100"
-                onClick={() => setIsOpen(false)}
-              >
-                <X className="h-6 w-6 text-primary" />
-                <span className="sr-only">Close</span>
-              </Button>
-            </div>
+          <>
+            <div
+              className="fixed inset-0 bg-black/20 backdrop-blur-sm z-[998] md:hidden"
+              onClick={() => setIsOpen(false)}
+            />
+            <div className="fixed inset-0 z-[999] bg-white flex flex-col md:hidden">
+              <div className="flex items-center justify-between h-16 px-4 border-b">
+                <Image
+                  src="/images/logo.png"
+                  alt="AvadaPay Logo"
+                  width={140}
+                  height={36}
+                  className="h-8 w-auto"
+                />
+                <Button
+                  variant="ghost"
+                  size="icon"
+                  className="rounded-full hover:bg-gray-100"
+                  onClick={() => setIsOpen(false)}
+                >
+                  <X className="h-6 w-6 text-primary" />
+                  <span className="sr-only">Close</span>
+                </Button>
+              </div>
 
-            {/* Mobile Navigation Links */}
-            <nav className="flex-1 flex flex-col items-center justify-center gap-6 px-4">
-              {navigationLinks.map((link, index) => (
+              {/* Mobile Navigation Links */}
+              <nav className="flex-1 flex flex-col items-center justify-center gap-6 px-4">
+                {navigationLinks.map((link, index) => (
+                  <Link
+                    key={link.href}
+                    href={link.href}
+                    className={cn(
+                      "text-xl font-semibold w-full text-center py-3 rounded-lg transition-all duration-300",
+                      pathname === link.href
+                        ? "text-white bg-primary"
+                        : "text-gray-700 hover:text-primary hover:bg-gray-50"
+                    )}
+                    onClick={() => setIsOpen(false)}
+                    style={{
+                      animationDelay: `${index * 0.1}s`,
+                      animation: "fadeInUp 0.5s ease forwards",
+                    }}
+                  >
+                    {t(link.translationKey as NavigationKey)}
+                  </Link>
+                ))}
+
                 <Link
-                  key={link.href}
-                  href={link.href}
-                  className={cn(
-                    "text-xl font-semibold w-full text-center py-3 rounded-lg transition-all duration-300",
-                    pathname === link.href
-                      ? "text-white bg-primary"
-                      : "text-gray-700 hover:text-primary hover:bg-gray-50"
-                  )}
+                  href="#contact"
+                  className="mt-6 w-full btn-avada text-center py-4 rounded-lg text-white font-bold"
                   onClick={() => setIsOpen(false)}
                   style={{
-                    animationDelay: `${index * 0.1}s`,
-                    animation: "fadeInUp 0.5s ease forwards",
+                    animation: "fadeInUp 0.5s 0.4s ease forwards",
+                    opacity: 0,
                   }}
                 >
-                  {t(link.key)}
+                  {t("nav.contactButton" as NavigationKey)}
                 </Link>
-              ))}
+              </nav>
 
-              <Link
-                href="#contact"
-                className="mt-6 w-full btn-avada text-center py-4 rounded-lg text-white font-bold"
-                onClick={() => setIsOpen(false)}
-                style={{
-                  animation: "fadeInUp 0.5s 0.4s ease forwards",
-                  opacity: 0,
-                }}
-              >
-                {t("nav.contactButton")}
-              </Link>
-            </nav>
-
-            {/* Mobile Footer */}
-            <div className="p-6 border-t flex justify-center">
-              {/* <LanguageSwitcher /> */}
+              {/* Mobile Footer */}
+              <div className="p-6 border-t flex justify-center">
+                <LanguageSwitcher />
+              </div>
             </div>
-          </div>
+          </>
         )}
       </div>
     </header>

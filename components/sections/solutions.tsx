@@ -38,9 +38,6 @@ export default function Solutions() {
       <div className="absolute inset-0 -z-10 h-full w-full bg-white">
         <div className="absolute bottom-0 left-0 right-0 top-0 bg-[linear-gradient(to_right,#4f4f4f2e_1px,transparent_1px),linear-gradient(to_bottom,#4f4f4f2e_1px,transparent_1px)] bg-[size:14px_24px]"></div>
       </div>
-      <div className="absolute top-0 right-0 -z-10 h-[300px] w-[300px] bg-primary/20 opacity-70 blur-[100px]"></div>
-      <div className="absolute bottom-0 left-0 -z-10 h-[400px] w-[400px] bg-primary/30 opacity-60 blur-[100px]"></div>
-
       <div className="container relative z-10 px-4 sm:px-6 lg:px-8">
         <div className="text-center mb-8 sm:mb-12 md:mb-16">
           <motion.h2

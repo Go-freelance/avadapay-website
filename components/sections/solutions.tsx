@@ -48,7 +48,7 @@ export default function Solutions() {
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5, delay: 0.1 }}
             viewport={{ once: true }}
-            className="section-title-wrapper text-4xl md:text-5xl font-extrabold text-dark"
+            className="section-title-wrapper text-4xl md:text-5xl font-extrabold text-dark break-words"
           >
             {t("solutions.title")}{" "}
             <span className="gradient-text">{t("solutions.title2")}</span> ?
@@ -58,7 +58,7 @@ export default function Solutions() {
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5, delay: 0.2 }}
             viewport={{ once: true }}
-            className="text-base sm:text-lg md:text-xl text-gray-600 font-bold max-w-2xl mt-4 sm:mt-6 mx-auto px-4 sm:px-0"
+            className="text-base sm:text-lg md:text-xl text-gray-600 font-bold max-w-2xl mt-4 sm:mt-6 mx-auto px-4 sm:px-0 break-words"
           >
             {t("solutions.subtitle")}
           </motion.p>
@@ -93,7 +93,7 @@ export default function Solutions() {
                     {index === 0 && (
                       <CreditCard
                         className={cn(
-                          "h-5 w-5 sm:h-6 sm:w-6",
+                          "h-5 w-5 sm:h-6 sm:w-6 flex-shrink-0",
                           activeSolution === solution.id
                             ? "text-white"
                             : "text-primary"
@@ -103,7 +103,7 @@ export default function Solutions() {
                     {index === 1 && (
                       <Users
                         className={cn(
-                          "h-5 w-5 sm:h-6 sm:w-6",
+                          "h-5 w-5 sm:h-6 sm:w-6 flex-shrink-0",
                           activeSolution === solution.id
                             ? "text-white"
                             : "text-primary"
@@ -113,7 +113,7 @@ export default function Solutions() {
                     {index === 2 && (
                       <Smartphone
                         className={cn(
-                          "h-5 w-5 sm:h-6 sm:w-6",
+                          "h-5 w-5 sm:h-6 sm:w-6 flex-shrink-0",
                           activeSolution === solution.id
                             ? "text-white"
                             : "text-primary"
@@ -121,13 +121,13 @@ export default function Solutions() {
                       />
                     )}
                   </div>
-                  <div>
-                    <h3 className="font-medium text-base sm:text-lg">
+                  <div className="min-w-0 flex-1">
+                    <h3 className="font-medium text-base sm:text-lg break-words">
                       {t(`${solution.translationKey}.title`, {})}
                     </h3>
                     <p
                       className={cn(
-                        "text-sm sm:text-base transition-all duration-300",
+                        "text-sm sm:text-base transition-all duration-300 break-words",
                         activeSolution === solution.id
                           ? "text-white/80"
                           : "text-muted-foreground"
@@ -138,7 +138,7 @@ export default function Solutions() {
                   </div>
                   <ChevronRight
                     className={cn(
-                      "ml-auto h-5 w-5 sm:h-6 sm:w-6 transition-transform",
+                      "ml-auto h-5 w-5 sm:h-6 sm:w-6 transition-transform flex-shrink-0",
                       activeSolution === solution.id
                         ? "text-white"
                         : "text-primary opacity-0 group-hover:opacity-100"
@@ -148,18 +148,18 @@ export default function Solutions() {
               ))}
 
               <div className="mt-8 p-4 sm:p-6 h-60 rounded-lg bg-primary/5 border border-primary/10 hidden lg:block">
-                <h4 className="font-medium text-lg mb-2">
+                <h4 className="font-medium text-lg mb-2 break-words">
                   {t("solutions.help.title")}
                 </h4>
-                <p className="text-sm sm:text-base text-muted-foreground mb-4">
+                <p className="text-sm sm:text-base text-muted-foreground mb-4 break-words">
                   {t("solutions.help.description")}
                 </p>
                 <Link
                   href="#contact"
-                  className="text-primary text-sm sm:text-base font-medium flex items-center hover:underline"
+                  className="text-primary text-sm sm:text-base font-medium flex items-center hover:underline whitespace-nowrap"
                 >
                   {t("solutions.help.cta")}{" "}
-                  <ArrowRight className="ml-1 h-3 w-3 sm:h-4 sm:w-4" />
+                  <ArrowRight className="ml-1 h-3 w-3 sm:h-4 sm:w-4 flex-shrink-0" />
                 </Link>
               </div>
             </div>
@@ -176,10 +176,10 @@ export default function Solutions() {
             >
               {/* En-tête avec dégradé */}
               <div className="bg-gradient-to-r from-primary/90 to-primary/70 p-6 sm:p-8 text-white">
-                <h3 className="text-xl sm:text-2xl font-bold mb-2">
+                <h3 className="text-xl sm:text-2xl font-bold mb-2 break-words">
                   {t(`${getActiveSolution().translationKey}.title`, {})}
                 </h3>
-                <p className="text-sm sm:text-base text-white/90">
+                <p className="text-sm sm:text-base text-white/90 break-words">
                   {t(`${getActiveSolution().translationKey}.description`, {})}
                 </p>
               </div>

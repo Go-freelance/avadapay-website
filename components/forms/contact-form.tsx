@@ -94,7 +94,7 @@ export function ContactForm() {
       {isSubmitting ? (
         <div className="flex flex-col items-center justify-center py-12">
           <LoadingSpinner className="mb-4" />
-          <p className="text-lg font-semibold text-emerald-700">
+          <p className="text-lg font-semibold text-emerald-700 break-words">
             {t("contact.form.sending")}
           </p>
         </div>
@@ -102,15 +102,19 @@ export function ContactForm() {
         <>
           {success && (
             <div className="bg-emerald-50 border border-emerald-200 text-emerald-700 rounded-md p-4 text-center mb-4">
-              <strong>{t("contact.form.success.title")}</strong>
-              <div>{t("contact.form.success.message")}</div>
+              <strong className="break-words">
+                {t("contact.form.success.title")}
+              </strong>
+              <div className="break-words">
+                {t("contact.form.success.message")}
+              </div>
             </div>
           )}
           <div className="grid md:grid-cols-2 gap-4">
-            <div>
+            <div className="min-w-0">
               <Label
                 htmlFor="name"
-                className="block text-sm font-medium text-gray-700 mb-1"
+                className="block text-sm font-medium text-gray-700 mb-1 break-words"
               >
                 {t("contact.form.name")}
               </Label>
@@ -128,16 +132,16 @@ export function ContactForm() {
               {serverErrors.name && (
                 <p
                   id="name-error"
-                  className="mt-1 text-sm text-red-500 flex items-center"
+                  className="mt-1 text-sm text-red-500 flex items-center break-words"
                 >
                   {serverErrors.name._errors?.[0] || serverErrors.name}
                 </p>
               )}
             </div>
-            <div>
+            <div className="min-w-0">
               <Label
                 htmlFor="email"
-                className="block text-sm font-medium text-gray-700 mb-1"
+                className="block text-sm font-medium text-gray-700 mb-1 break-words"
               >
                 {t("contact.form.email")}
               </Label>
@@ -157,17 +161,17 @@ export function ContactForm() {
               {serverErrors.email && (
                 <p
                   id="email-error"
-                  className="mt-1 text-sm text-red-500 flex items-center"
+                  className="mt-1 text-sm text-red-500 flex items-center break-words"
                 >
                   {serverErrors.email._errors?.[0] || serverErrors.email}
                 </p>
               )}
             </div>
           </div>
-          <div>
+          <div className="min-w-0">
             <Label
               htmlFor="company"
-              className="block text-sm font-medium text-gray-700 mb-1"
+              className="block text-sm font-medium text-gray-700 mb-1 break-words"
             >
               {t("contact.form.company")}
             </Label>
@@ -180,10 +184,10 @@ export function ContactForm() {
               disabled={isSubmitting}
             />
           </div>
-          <div>
+          <div className="min-w-0">
             <Label
               htmlFor="message"
-              className="block text-sm font-medium text-gray-700 mb-1"
+              className="block text-sm font-medium text-gray-700 mb-1 break-words"
             >
               {t("contact.form.message")}
             </Label>
@@ -203,21 +207,19 @@ export function ContactForm() {
             {serverErrors.message && (
               <p
                 id="message-error"
-                className="mt-1 text-sm text-red-500 flex items-center"
+                className="mt-1 text-sm text-red-500 flex items-center break-words"
               >
                 {serverErrors.message._errors?.[0] || serverErrors.message}
               </p>
             )}
           </div>
-          <div className="text-center">
-            <Button
-              type="submit"
-              className="bg-emerald-500 hover:bg-emerald-600 text-white px-8 py-3 rounded-md text-base font-medium transition-colors"
-              disabled={isSubmitting}
-            >
-              {t("contact.form.submit")}
-            </Button>
-          </div>
+          <Button
+            type="submit"
+            className="w-full bg-emerald-600 text-white py-2 px-4 rounded-md hover:bg-emerald-700 focus:outline-none focus:ring-2 focus:ring-emerald-500 focus:ring-offset-2 disabled:opacity-50 disabled:cursor-not-allowed"
+            disabled={isSubmitting}
+          >
+            {t("contact.form.submit")}
+          </Button>
         </>
       )}
     </form>

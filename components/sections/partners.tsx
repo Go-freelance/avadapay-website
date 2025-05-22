@@ -39,7 +39,7 @@ export default function Partners() {
           viewport={{ once: true }}
           className="text-center mb-8 sm:mb-12"
         >
-          <h2 className="text-2xl sm:text-3xl font-extrabold mb-3 sm:mb-4 text-dark">
+          <h2 className="text-2xl sm:text-3xl font-extrabold mb-3 sm:mb-4 text-dark break-words">
             {t("partners.title")}
           </h2>
           <div className="w-16 sm:w-20 h-1 avada-gradient mx-auto mb-4 sm:mb-6 rounded-full"></div>
@@ -63,7 +63,7 @@ export default function Partners() {
                 y: -5,
                 boxShadow: "0 10px 25px -5px rgba(0, 0, 0, 0.1)",
               }}
-              className="bg-white p-2 sm:p-4 rounded-lg shadow-sm border border-gray-100 hover:border-avada-500/30 transition-all flex items-center justify-center h-16 sm:h-20 md:h-24 w-full max-w-[140px] sm:max-w-[160px] md:max-w-[200px]"
+              className="bg-white p-2 sm:p-4 rounded-lg shadow-sm border border-gray-100 hover:border-avada-500/30 transition-all flex items-center justify-center h-16 sm:h-20 md:h-24 w-full max-w-[140px] sm:max-w-[160px] md:max-w-[200px] overflow-hidden"
             >
               <Image
                 src={partner.logo}

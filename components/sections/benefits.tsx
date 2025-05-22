@@ -74,7 +74,7 @@ export default function Benefits() {
           viewport={{ once: true, margin: "-100px" }}
           className="text-center mb-8 sm:mb-12"
         >
-          <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-extrabold text-gray-900 max-w-3xl mx-auto leading-tight">
+          <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-extrabold text-gray-900 max-w-3xl mx-auto leading-tight break-words">
             {t("benefits.title")}{" "}
             <span className="gradient-text">{t("benefits.title2")}</span>
           </h2>
@@ -87,9 +87,9 @@ export default function Benefits() {
             whileInView={{ opacity: 1, x: 0 }}
             transition={{ duration: 0.6, delay: 0.2 }}
             viewport={{ once: true }}
-            className="relative"
+            className="relative w-full"
           >
-            <div className="relative rounded-xl sm:rounded-2xl overflow-hidden shadow-lg sm:shadow-xl">
+            <div className="relative rounded-xl sm:rounded-2xl overflow-hidden shadow-lg sm:shadow-xl w-full">
               <Image
                 src="/images/marchand.jpg"
                 alt={t("benefits.optimize.title")}
@@ -104,8 +104,8 @@ export default function Benefits() {
                 transition={{ duration: 0.5, delay: 0.4 }}
                 className="absolute bottom-3 sm:bottom-4 right-3 sm:right-4 z-20"
               >
-                <div className="flex items-center gap-2 px-3 sm:px-4 py-1.5 sm:py-2 bg-white rounded-full shadow-lg border-2 border-primary">
-                  <Shield className="h-4 w-4 sm:h-5 sm:w-5 text-primary" />
+                <div className="flex items-center gap-2 px-3 sm:px-4 py-1.5 sm:py-2 bg-white rounded-full shadow-lg border-2 border-primary whitespace-nowrap">
+                  <Shield className="h-4 w-4 sm:h-5 sm:w-5 text-primary flex-shrink-0" />
                   <span className="text-sm sm:text-base font-bold text-primary">
                     {t("benefits.badge")}
                   </span>
@@ -114,10 +114,10 @@ export default function Benefits() {
             </div>
 
             <div className="mt-4 sm:mt-6 bg-gray-50 p-4 sm:p-6 rounded-lg sm:rounded-xl border border-gray-100">
-              <h3 className="text-lg sm:text-xl font-bold mb-2 sm:mb-3 text-gray-900">
+              <h3 className="text-lg sm:text-xl font-bold mb-2 sm:mb-3 text-gray-900 break-words">
                 {t("benefits.optimize.title")}
               </h3>
-              <p className="text-sm sm:text-base text-gray-700">
+              <p className="text-sm sm:text-base text-gray-700 break-words">
                 {t("benefits.optimize.description")}
               </p>
             </div>
@@ -129,6 +129,7 @@ export default function Benefits() {
             variants={containerVariants}
             initial="hidden"
             animate={controls}
+            className="w-full"
           >
             <ul className="space-y-4 sm:space-y-6">
               {benefitsData.map((benefit, index) => (
@@ -154,7 +155,7 @@ export default function Benefits() {
           viewport={{ once: true }}
           className="mt-12 sm:mt-16 bg-gray-50 rounded-xl sm:rounded-2xl p-6 sm:p-8 md:p-10"
         >
-          <h3 className="text-lg sm:text-xl font-bold text-center mb-6 sm:mb-8">
+          <h3 className="text-lg sm:text-xl font-bold text-center mb-6 sm:mb-8 break-words">
             {t("benefits.partners.title")}
           </h3>
           <div className="flex flex-wrap gap-3 sm:gap-4 md:gap-6 justify-center items-center">
@@ -166,7 +167,7 @@ export default function Benefits() {
                   boxShadow: "0 10px 25px -5px rgba(0, 0, 0, 0.1)",
                 }}
                 transition={{ duration: 0.2 }}
-                className="bg-white p-3 sm:p-4 rounded-lg sm:rounded-xl shadow-sm border border-gray-100 hover:border-primary/30 transition-all"
+                className="bg-white p-3 sm:p-4 rounded-lg sm:rounded-xl shadow-sm border border-gray-100 hover:border-primary/30 transition-all flex-shrink-0"
               >
                 <Image
                   src={partner.logo}

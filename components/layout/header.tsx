@@ -48,11 +48,11 @@ export default function Header() {
   return (
     <header
       className={cn(
-        "fixed left-0 z-50 w-full transition-all h-20 duration-500",
-        scrolled ? "bg-white/95 backdrop-blur-md shadow-lg " : "bg-white/0 "
+        "fixed top-0 left-0 right-0 z-50 w-full transition-all h-20 duration-500",
+        scrolled ? "bg-white/95 backdrop-blur-md shadow-lg" : "bg-white/0"
       )}
     >
-      <div className="container h-full flex items-center justify-between">
+      <div className="container h-full flex items-center justify-between relative">
         {/* Logo */}
         <Link
           href="/"
@@ -79,7 +79,7 @@ export default function Header() {
                 key={link.href}
                 href={link.href}
                 className={cn(
-                  "relative px-4 py-2 text-base font-medium rounded-full transition-all duration-300",
+                  "relative px-4 py-2 text-base font-medium rounded-full transition-all duration-300 whitespace-nowrap",
                   pathname === link.href
                     ? "text-white bg-primary shadow-md"
                     : "text-gray-700 hover:text-primary hover:bg-gray-100/80"
@@ -96,7 +96,7 @@ export default function Header() {
           <LanguageSwitcher />
 
           <Link href="#contact" className="hidden md:block">
-            <Button className="btn-avada rounded-full px-6 py-2 shadow-lg font-bold text-white transition-all duration-300 hover:scale-105">
+            <Button className="btn-avada rounded-full px-6 py-2 shadow-lg font-bold text-white transition-all duration-300 hover:scale-105 whitespace-nowrap">
               {t("nav.contactButton" as NavigationKey)}
             </Button>
           </Link>
@@ -116,7 +116,7 @@ export default function Header() {
         {isOpen &&
           typeof window !== "undefined" &&
           ReactDOM.createPortal(
-            <div className="fixed inset-0 z-[9999] bg-white flex flex-col md:hidden">
+            <div className="fixed inset-0 z-[9999] bg-white flex flex-col md:hidden overflow-hidden">
               <div className="flex items-center justify-between h-16 px-4 border-b bg-white">
                 <Image
                   src="/images/logo.png"
@@ -144,7 +144,7 @@ export default function Header() {
                     key={link.href}
                     href={link.href}
                     className={cn(
-                      "text-xl font-semibold w-full text-center py-3 rounded-lg transition-all duration-300",
+                      "text-xl font-semibold w-full text-center py-3 rounded-lg transition-all duration-300 whitespace-nowrap",
                       pathname === link.href
                         ? "text-white bg-primary"
                         : "text-gray-700 hover:text-primary hover:bg-gray-50"
@@ -161,7 +161,7 @@ export default function Header() {
 
                 <Link
                   href="#contact"
-                  className="mt-6 w-full btn-avada text-center py-4 rounded-lg text-white font-bold"
+                  className="mt-6 w-full btn-avada text-center py-4 rounded-lg text-white font-bold whitespace-nowrap"
                   onClick={() => setIsOpen(false)}
                   style={{
                     animation: "fadeInUp 0.5s 0.4s ease forwards",

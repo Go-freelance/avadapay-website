@@ -26,14 +26,14 @@ const testimonials = [
 
 export default function Testimonials() {
   return (
-    <section id="testimonials" className="py-24 bg-background">
+    <section id="testimonials" className="py-24 bg-background overflow-hidden">
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center mb-16">
-          <h2 className="text-3xl font-bold mb-4 text-foreground">
+          <h2 className="text-3xl font-bold mb-4 text-foreground break-words">
             Ce que nos <span className="gradient-text">clients disent</span>
           </h2>
           <div className="w-20 h-1 bg-primary mx-auto rounded-full mb-6"></div>
-          <p className="text-xl text-muted-foreground max-w-2xl mx-auto">
+          <p className="text-xl text-muted-foreground max-w-2xl mx-auto break-words">
             Découvrez pourquoi les entreprises font confiance à AvadaPay pour
             leurs solutions de paiement
           </p>
@@ -43,10 +43,10 @@ export default function Testimonials() {
           {testimonials.map((testimonial, index) => (
             <div
               key={index}
-              className="bg-card p-8 rounded-xl border border-border hover:border-primary/50 transition-colors creative-card"
+              className="bg-card p-8 rounded-xl border border-border hover:border-primary/50 transition-colors creative-card overflow-hidden"
             >
               <div className="flex items-center mb-6">
-                <div className="w-12 h-12 bg-primary/10 rounded-full flex items-center justify-center text-primary mr-4">
+                <div className="w-12 h-12 bg-primary/10 rounded-full flex items-center justify-center text-primary mr-4 flex-shrink-0">
                   <Image
                     src={testimonial.avatar || "/placeholder.svg"}
                     alt={testimonial.name}
@@ -55,16 +55,16 @@ export default function Testimonials() {
                     className="rounded-full"
                   />
                 </div>
-                <div>
-                  <h3 className="font-semibold text-foreground">
+                <div className="min-w-0">
+                  <h3 className="font-semibold text-foreground break-words">
                     {testimonial.name}
                   </h3>
-                  <p className="text-sm text-muted-foreground">
+                  <p className="text-sm text-muted-foreground break-words">
                     {testimonial.role}
                   </p>
                 </div>
               </div>
-              <p className="text-muted-foreground italic">
+              <p className="text-muted-foreground italic break-words">
                 "{testimonial.quote}"
               </p>
             </div>

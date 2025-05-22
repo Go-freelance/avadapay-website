@@ -1,14 +1,26 @@
-import { cn } from "@/lib/utils"
+import { cn } from "@/lib/utils";
 
 interface LoadingSpinnerProps {
-  className?: string
+  className?: string;
 }
 
 export function LoadingSpinner({ className }: LoadingSpinnerProps) {
   return (
-    <div className={cn("animate-spin h-5 w-5", className)}>
-      <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" className="h-5 w-5">
-        <circle className="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" strokeWidth="4"></circle>
+    <div className={cn("animate-spin h-5 w-5 flex-shrink-0", className)}>
+      <svg
+        xmlns="http://www.w3.org/2000/svg"
+        fill="none"
+        viewBox="0 0 24 24"
+        className="h-5 w-5"
+      >
+        <circle
+          className="opacity-25"
+          cx="12"
+          cy="12"
+          r="10"
+          stroke="currentColor"
+          strokeWidth="4"
+        ></circle>
         <path
           className="opacity-75"
           fill="currentColor"
@@ -16,5 +28,5 @@ export function LoadingSpinner({ className }: LoadingSpinnerProps) {
         ></path>
       </svg>
     </div>
-  )
+  );
 }

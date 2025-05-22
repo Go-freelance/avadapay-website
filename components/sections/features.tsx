@@ -103,7 +103,7 @@ export default function Features() {
             variants={titleVariants}
             className="inline-block"
           >
-            <h2 className="text-3xl md:text-4xl lg:text-5xl font-extrabold text-gray-900 max-w-3xl mx-auto leading-tight">
+            <h2 className="text-3xl md:text-4xl lg:text-5xl font-extrabold text-gray-900 max-w-3xl mx-auto leading-tight break-words">
               {t("features.title")}{" "}
               <span className="gradient-text">{t("features.title2")}</span> ?
             </h2>
@@ -114,7 +114,7 @@ export default function Features() {
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             transition={{ duration: 0.6, delay: 0.2 }}
-            className="text-lg sm:text-xl text-gray-600 max-w-2xl mx-auto mt-4 sm:mt-6 font-bold px-4 sm:px-0"
+            className="text-lg sm:text-xl text-gray-600 max-w-2xl mx-auto mt-4 sm:mt-6 font-bold px-4 sm:px-0 break-words"
           >
             {t("features.subtitle")}
           </motion.p>
@@ -145,21 +145,21 @@ export default function Features() {
                 </div>
               </div>
 
-              <h3 className="text-xl font-bold mb-3 text-gray-900 group-hover:text-primary transition-colors duration-300">
+              <h3 className="text-xl font-bold mb-3 text-gray-900 group-hover:text-primary transition-colors duration-300 break-words">
                 {t(feature.titleKey)}
               </h3>
 
-              <p className="text-gray-600 leading-relaxed mb-6">
+              <p className="text-gray-600 leading-relaxed mb-6 break-words">
                 {t(feature.descriptionKey)}
               </p>
 
               <div className="mt-auto">
                 <Link
                   href="#contact"
-                  className="inline-flex items-center text-primary font-medium hover:underline group-hover:translate-x-1 transition-transform duration-300"
+                  className="inline-flex items-center text-primary font-medium hover:underline group-hover:translate-x-1 transition-transform duration-300 whitespace-nowrap"
                 >
                   <span>{t("features.learnMore")}</span>
-                  <ArrowRight className="ml-2 h-4 w-4 transform group-hover:translate-x-1 transition-transform duration-300" />
+                  <ArrowRight className="ml-2 h-4 w-4 transform group-hover:translate-x-1 transition-transform duration-300 flex-shrink-0" />
                 </Link>
               </div>
 

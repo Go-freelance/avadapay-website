@@ -11,10 +11,10 @@ export default function Footer() {
   const t = useI18n();
 
   return (
-    <footer className="bg-gray-900 text-white py-16">
+    <footer className="bg-gray-900 text-white py-16 overflow-hidden">
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
         <div className="grid md:grid-cols-4 gap-12">
-          <div>
+          <div className="min-w-0">
             <Image
               src="/images/logo.png"
               alt="AvadaPay Logo"
@@ -22,17 +22,19 @@ export default function Footer() {
               height={40}
               className="h-auto w-40 mb-6"
             />
-            <p className="text-gray-400 mb-4">{t("footer.description")}</p>
-            <p className="text-gray-400">{t("footer.license")}</p>
+            <p className="text-gray-400 mb-4 break-words">
+              {t("footer.description")}
+            </p>
+            <p className="text-gray-400 break-words">{t("footer.license")}</p>
           </div>
 
-          <div>
-            <h3 className="text-lg font-semibold mb-4">
+          <div className="min-w-0">
+            <h3 className="text-lg font-semibold mb-4 break-words">
               {t("footer.navigation.title")}
             </h3>
             <ul className="space-y-3">
               {navigationLinks.map((link) => (
-                <li key={link.href}>
+                <li key={link.href} className="break-words">
                   <Link
                     href={link.href}
                     className="text-gray-400 hover:text-primary transition-colors"
@@ -44,13 +46,13 @@ export default function Footer() {
             </ul>
           </div>
 
-          <div>
-            <h3 className="text-lg font-semibold mb-4">
+          <div className="min-w-0">
+            <h3 className="text-lg font-semibold mb-4 break-words">
               {t("footer.solutions.title")}
             </h3>
             <ul className="space-y-3">
               {solutionsData.map((solution) => (
-                <li key={solution.id}>
+                <li key={solution.id} className="break-words">
                   <Link
                     href={`#${solution.id}`}
                     className="text-gray-400 hover:text-primary transition-colors"
@@ -62,29 +64,29 @@ export default function Footer() {
             </ul>
           </div>
 
-          <div>
-            <h3 className="text-lg font-semibold mb-4">
+          <div className="min-w-0">
+            <h3 className="text-lg font-semibold mb-4 break-words">
               {t("footer.contact.title")}
             </h3>
             <ul className="space-y-3 text-gray-400">
               <li className="flex items-start">
-                <span className="mr-2">📍</span>
-                {contactInfo.address}
+                <span className="mr-2 flex-shrink-0">📍</span>
+                <span className="break-words">{contactInfo.address}</span>
               </li>
               <li className="flex items-start">
-                <span className="mr-2">✉️</span>
+                <span className="mr-2 flex-shrink-0">✉️</span>
                 <a
                   href={`mailto:${contactInfo.email}`}
-                  className="hover:text-primary transition-colors"
+                  className="hover:text-primary transition-colors break-words"
                 >
                   {contactInfo.email}
                 </a>
               </li>
               <li className="flex items-start">
-                <span className="mr-2">📞</span>
+                <span className="mr-2 flex-shrink-0">📞</span>
                 <a
                   href={`tel:${contactInfo.phone}`}
-                  className="hover:text-primary transition-colors"
+                  className="hover:text-primary transition-colors break-words"
                 >
                   {contactInfo.phone}
                 </a>
@@ -94,11 +96,14 @@ export default function Footer() {
         </div>
 
         <div className="border-t border-gray-800 mt-12 pt-8 flex flex-col md:flex-row justify-between items-center">
-          <p className="text-gray-500 text-sm">
+          <p className="text-gray-500 text-sm break-words">
             {t("footer.copyright", { year: new Date().getFullYear() })}
           </p>
           <div className="flex space-x-6 mt-4 md:mt-0">
-            <Link href="#" className="text-gray-500 hover:text-primary">
+            <Link
+              href="#"
+              className="text-gray-500 hover:text-primary flex-shrink-0"
+            >
               <span className="sr-only">{t("footer.social.facebook")}</span>
               <svg
                 className="h-6 w-6"
@@ -113,7 +118,10 @@ export default function Footer() {
                 />
               </svg>
             </Link>
-            <Link href="#" className="text-gray-500 hover:text-primary">
+            <Link
+              href="#"
+              className="text-gray-500 hover:text-primary flex-shrink-0"
+            >
               <span className="sr-only">{t("footer.social.instagram")}</span>
               <svg
                 className="h-6 w-6"
@@ -128,7 +136,10 @@ export default function Footer() {
                 />
               </svg>
             </Link>
-            <Link href="#" className="text-gray-500 hover:text-primary">
+            <Link
+              href="#"
+              className="text-gray-500 hover:text-primary flex-shrink-0"
+            >
               <span className="sr-only">{t("footer.social.twitter")}</span>
               <svg
                 className="h-6 w-6"
@@ -139,7 +150,10 @@ export default function Footer() {
                 <path d="M8.29 20.251c7.547 0 11.675-6.253 11.675-11.675 0-.178 0-.355-.012-.53A8.348 8.348 0 0022 5.92a8.19 8.19 0 01-2.357.646 4.118 4.118 0 001.804-2.27 8.224 8.224 0 01-2.605.996 4.107 4.107 0 00-6.993 3.743 11.65 11.65 0 01-8.457-4.287 4.106 4.106 0 001.27 5.477A4.072 4.072 0 012.8 9.713v.052a4.105 4.105 0 003.292 4.022 4.095 4.095 0 01-1.853.07 4.108 4.108 0 003.834 2.85A8.233 8.233 0 012 18.407a11.616 11.616 0 006.29 1.84" />
               </svg>
             </Link>
-            <Link href="#" className="text-gray-500 hover:text-primary">
+            <Link
+              href="#"
+              className="text-gray-500 hover:text-primary flex-shrink-0"
+            >
               <span className="sr-only">{t("footer.social.linkedin")}</span>
               <svg
                 className="h-6 w-6"

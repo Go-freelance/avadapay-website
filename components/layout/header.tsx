@@ -48,10 +48,8 @@ export default function Header() {
   return (
     <header
       className={cn(
-        "fixed left-0 z-50 w-full transition-all duration-500",
-        scrolled
-          ? "bg-white/95 backdrop-blur-md shadow-lg h-16 md:h-20"
-          : "bg-white/0 h-20 md:h-24"
+        "fixed left-0 z-50 w-full transition-all h-20 duration-500",
+        scrolled ? "bg-white/95 backdrop-blur-md shadow-lg " : "bg-white/0 "
       )}
     >
       <div className="container h-full flex items-center justify-between">

@@ -36,7 +36,7 @@ export default {
 
   // Solutions Section
   "solutions.title": "Our Digital",
-  "solutions.title2": "Solutions",
+  "solutions.title2": " Solutions",
   "solutions.subtitle":
     "Innovative digital solutions for all your payment and communication needs",
   "solutions.items": {

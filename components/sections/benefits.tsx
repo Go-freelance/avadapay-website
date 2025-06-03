@@ -7,7 +7,6 @@ import { BenefitItem } from "@/components/ui/benefit-item";
 import { benefitsData } from "@/data/benefits";
 import { paymentPartners } from "@/data/partners";
 import { useI18n } from "@/locales/client";
-import { Shield } from "lucide-react";
 
 type BenefitKey =
   | "benefits.items.integration.title"
@@ -40,7 +39,7 @@ export default function Benefits() {
     visible: {
       opacity: 1,
       transition: {
-        staggerChildren: 0.1,
+        staggerChildren: 0.08,
       },
     },
   };
@@ -51,7 +50,7 @@ export default function Benefits() {
       y: 0,
       opacity: 1,
       transition: {
-        duration: 0.5,
+        duration: 0.4,
         ease: [0.22, 1, 0.36, 1],
       },
     },
@@ -60,80 +59,90 @@ export default function Benefits() {
   return (
     <section
       id="benefits"
-      className="py-12 sm:py-16 md:py-24 bg-white relative overflow-hidden"
+      className="py-16 md:py-24 lg:py-32 bg-gradient-to-br from-gray-50 via-white to-gray-50 relative overflow-hidden"
     >
-      {/* Background elements */}
-      <div className="absolute top-0 right-0 w-1/2 sm:w-1/3 h-1/3 bg-primary/10 rounded-bl-full -z-10 opacity-70"></div>
-      <div className="absolute bottom-0 left-0 w-1/2 sm:w-1/3 h-1/3 bg-primary/10 rounded-tr-full -z-10 opacity-70"></div>
+      {/* Modern background elements */}
+      <div className="absolute top-0 right-0 w-96 h-96 bg-primary/5 rounded-full blur-3xl -translate-y-1/2 translate-x-1/2"></div>
+      <div className="absolute bottom-0 left-0 w-80 h-80 bg-primary/5 rounded-full blur-3xl translate-y-1/2 -translate-x-1/2"></div>
 
-      <div className="container px-4 sm:px-6 lg:px-8">
+      {/* Subtle grid pattern */}
+      <div className="absolute inset-0 bg-[linear-gradient(rgba(0,200,150,0.03)_1px,transparent_1px),linear-gradient(90deg,rgba(0,200,150,0.03)_1px,transparent_1px)] bg-[size:20px_20px]"></div>
+
+      <div className="container relative z-10">
+        {/* Header Section */}
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.7, ease: [0.22, 1, 0.36, 1] }}
+          transition={{ duration: 0.6, ease: [0.22, 1, 0.36, 1] }}
           viewport={{ once: true, margin: "-100px" }}
-          className="text-center mb-8 sm:mb-12"
+          className="text-center mb-16 md:mb-20"
         >
-          <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-extrabold text-gray-900 max-w-3xl mx-auto leading-tight break-words">
+          <h2 className="text-3xl md:text-4xl lg:text-5xl font-extrabold text-gray-900 max-w-4xl mx-auto leading-tight mb-6">
             {t("benefits.title")}{" "}
             <span className="gradient-text">{t("benefits.title2")}</span>
           </h2>
-          <div className="w-16 sm:w-20 h-1 bg-gradient-to-r from-primary to-primary/70 mx-auto mt-4 sm:mt-6 rounded-full"></div>
+          <div className="w-20 h-1 bg-gradient-to-r from-primary to-primary/70 mx-auto rounded-full"></div>
         </motion.div>
 
-        <div className="grid md:grid-cols-2 gap-6 sm:gap-8 md:gap-16 items-center mb-12 sm:mb-16">
+        {/* Main Content Grid */}
+        <div className="grid lg:grid-cols-2 gap-12 lg:gap-20 items-start mb-20">
+          {/* Image Section */}
           <motion.div
-            initial={{ opacity: 0, x: -20 }}
+            initial={{ opacity: 0, x: -30 }}
             whileInView={{ opacity: 1, x: 0 }}
-            transition={{ duration: 0.6, delay: 0.2 }}
+            transition={{ duration: 0.7, delay: 0.2 }}
             viewport={{ once: true }}
-            className="relative w-full"
+            className="relative"
           >
-            <div className="relative rounded-xl sm:rounded-2xl overflow-hidden shadow-lg sm:shadow-xl w-full">
-              <Image
-                src="/images/marchand.jpg"
-                alt={t("benefits.optimize.title")}
-                width={600}
-                height={450}
-                className="object-cover w-full h-[250px] sm:h-[300px] md:h-[400px] rounded-xl sm:rounded-2xl"
-              />
+            <div className="relative group">
+              {/* Main image container */}
+              <div className="relative rounded-2xl overflow-hidden shadow-2xl bg-white p-2">
+                <Image
+                  src="/images/marchand.jpg"
+                  alt={t("benefits.optimize.title")}
+                  width={600}
+                  height={400}
+                  className="object-cover w-full h-[300px] md:h-[400px] rounded-xl"
+                />
 
-              <motion.div
-                initial={{ scale: 0.9, opacity: 0 }}
-                animate={{ scale: 1, opacity: 1 }}
-                transition={{ duration: 0.5, delay: 0.4 }}
-                className="absolute bottom-3 sm:bottom-4 right-3 sm:right-4 z-20"
-              >
-                <div className="flex items-center gap-2 px-3 sm:px-4 py-1.5 sm:py-2 bg-white rounded-full shadow-lg border-2 border-primary whitespace-nowrap">
-                  <Shield className="h-4 w-4 sm:h-5 sm:w-5 text-primary flex-shrink-0" />
-                  <span className="text-sm sm:text-base font-bold text-primary">
-                    {t("benefits.badge")}
-                  </span>
+                <div className="absolute bottom-4 right-4 bg-white/95 backdrop-blur-sm rounded-xl p-3 shadow-lg border border-gray-100">
+                  <div className="text-right">
+                    <div className="text-lg font-bold text-primary">+127%</div>
+                    <div className="text-xs text-gray-600">Croissance</div>
+                  </div>
                 </div>
-              </motion.div>
-            </div>
+              </div>
 
-            <div className="mt-4 sm:mt-6 bg-gray-50 p-4 sm:p-6 rounded-lg sm:rounded-xl border border-gray-100">
-              <h3 className="text-lg sm:text-xl font-bold mb-2 sm:mb-3 text-gray-900 break-words">
-                {t("benefits.optimize.title")}
-              </h3>
-              <p className="text-sm sm:text-base text-gray-700 break-words">
-                {t("benefits.optimize.description")}
-              </p>
+              {/* Info card below image */}
+              <div className="mt-6 bg-white rounded-xl p-6 shadow-lg border border-gray-100">
+                <div className="flex items-start gap-4">
+                  <div className="w-12 h-12 bg-primary/10 rounded-xl flex items-center justify-center flex-shrink-0">
+                    <div className="w-6 h-6 bg-primary rounded-md"></div>
+                  </div>
+                  <div>
+                    <h3 className="text-lg font-bold mb-2 text-gray-900">
+                      {t("benefits.optimize.title")}
+                    </h3>
+                    <p className="text-gray-600 text-sm leading-relaxed">
+                      {t("benefits.optimize.description")}
+                    </p>
+                  </div>
+                </div>
+              </div>
             </div>
           </motion.div>
 
-          {/* Benefits list */}
+          {/* Benefits Grid */}
           <motion.div
             ref={ref}
             variants={containerVariants}
             initial="hidden"
             animate={controls}
-            className="w-full"
+            className="space-y-1"
           >
-            <ul className="space-y-4 sm:space-y-6">
-              {benefitsData.map((benefit, index) => (
-                <motion.div key={benefit.id} variants={itemVariants}>
+            {benefitsData.map((benefit, index) => (
+              <motion.div key={benefit.id} variants={itemVariants}>
+                <div className="group p-4 rounded-xl hover:bg-white hover:shadow-md transition-all duration-300 border border-transparent hover:border-gray-100">
                   <BenefitItem
                     icon={benefit.icon}
                     title={t(`${benefit.translationKey}.title` as BenefitKey)}
@@ -141,40 +150,41 @@ export default function Benefits() {
                       `${benefit.translationKey}.description` as BenefitKey
                     )}
                   />
-                </motion.div>
-              ))}
-            </ul>
+                </div>
+              </motion.div>
+            ))}
           </motion.div>
         </div>
 
-        {/* Partners section */}
+        {/* Partners Section */}
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6, delay: 0.3 }}
           viewport={{ once: true }}
-          className="mt-12 sm:mt-16 bg-gray-50 rounded-xl sm:rounded-2xl p-6 sm:p-8 md:p-10"
+          className="bg-white rounded-2xl p-8 md:p-12 shadow-lg border border-gray-100"
         >
-          <h3 className="text-lg sm:text-xl font-bold text-center mb-6 sm:mb-8 break-words">
-            {t("benefits.partners.title")}
-          </h3>
-          <div className="flex flex-wrap gap-3 sm:gap-4 md:gap-6 justify-center items-center">
+          <div className="text-center mb-10">
+            <h3 className="text-xl md:text-2xl font-bold text-gray-900 mb-2">
+              {t("benefits.partners.title")}
+            </h3>
+            <div className="w-16 h-1 bg-primary mx-auto rounded-full"></div>
+          </div>
+
+          <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6 items-center">
             {paymentPartners.map((partner, index) => (
               <motion.div
                 key={index}
-                whileHover={{
-                  y: -5,
-                  boxShadow: "0 10px 25px -5px rgba(0, 0, 0, 0.1)",
-                }}
+                whileHover={{ scale: 1.05 }}
                 transition={{ duration: 0.2 }}
-                className="bg-white p-3 sm:p-4 rounded-lg sm:rounded-xl shadow-sm border border-gray-100 hover:border-primary/30 transition-all flex-shrink-0"
+                className="bg-gray-50 p-4 rounded-xl hover:bg-gray-100 transition-colors flex items-center justify-center h-16"
               >
                 <Image
                   src={partner.logo}
                   alt={partner.name}
                   width={80}
                   height={40}
-                  className="h-8 sm:h-10 md:h-12 w-auto object-contain"
+                  className="h-10 w-auto object-contain opacity-70 hover:opacity-100 transition-opacity"
                 />
               </motion.div>
             ))}

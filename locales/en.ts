@@ -93,6 +93,7 @@ export default {
     "Discover how our payment solutions can transform your business and improve your customers' experience.",
   "benefits.badge": "Approved by the Central Bank of Congo",
   "benefits.partners.title": "Our payment partners",
+  "benefits.growth": "Growth",
   "benefits.items": {
     integration: {
       title: "Easy Integration",

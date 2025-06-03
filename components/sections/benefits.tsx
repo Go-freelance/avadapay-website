@@ -108,7 +108,9 @@ export default function Benefits() {
                 <div className="absolute bottom-4 right-4 bg-white/95 backdrop-blur-sm rounded-xl p-3 shadow-lg border border-gray-100">
                   <div className="text-right">
                     <div className="text-lg font-bold text-primary">+127%</div>
-                    <div className="text-xs text-gray-600">Croissance</div>
+                    <div className="text-xs text-gray-600">
+                      {t("benefits.growth")}
+                    </div>
                   </div>
                 </div>
               </div>
@@ -177,14 +179,14 @@ export default function Benefits() {
                 key={index}
                 whileHover={{ scale: 1.05 }}
                 transition={{ duration: 0.2 }}
-                className="bg-gray-50 p-4 rounded-xl hover:bg-gray-100 transition-colors flex items-center justify-center h-16"
+                className=" p-4 rounded-xl hover:bg-gray-100 transition-colors flex items-center justify-center h-16"
               >
                 <Image
                   src={partner.logo}
                   alt={partner.name}
                   width={80}
                   height={40}
-                  className="h-10 w-auto object-contain opacity-70 hover:opacity-100 transition-opacity"
+                  className="h-12 w-auto object-contain"
                 />
               </motion.div>
             ))}

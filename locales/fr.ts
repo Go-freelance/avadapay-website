@@ -94,6 +94,7 @@ export default {
     "Découvrez comment nos solutions de paiement peuvent transformer votre entreprise et améliorer l'expérience de vos clients.",
   "benefits.badge": "Agréé par la Banque Centrale du Congo",
   "benefits.partners.title": "Nos partenaires de paiement",
+  "benefits.growth": "Croissance",
   "benefits.items": {
     integration: {
       title: "Intégration Facile",

@@ -155,18 +155,28 @@ export default {
   "contact.form.success.message":
     "Merci de nous avoir contacté. Notre équipe vous répondra dans les plus brefs délais.",
   "contact.form.success.button": "Envoyer un autre message",
+  "contact.form.error":
+    "Une erreur s'est produite lors de l'envoi du message. Veuillez réessayer.",
   "contact.info.title": "Nos coordonnées",
   "contact.info.phone": "Téléphone",
   "contact.info.email": "Email",
   "contact.info.address": "Adresse",
   "contact.info.hours": "Heures d'ouverture",
   "contact.info.hours.value": "Lundi - Vendredi: 8h00 - 17h00",
+  "contact.email.title": "Nouveau message de contact",
+  "contact.email.subject": "Nouveau message de contact - AvadaPay",
 
   // Form Validation
   "validation.required": "Ce champ est requis",
   "validation.email": "Veuillez entrer une adresse email valide",
   "validation.minLength": "Ce champ doit contenir au moins {min} caractères",
   "validation.error": "Une erreur s'est produite. Veuillez réessayer.",
+  "validation.name.required": "Le nom est requis",
+  "validation.name.min": "Le nom doit contenir au moins 2 caractères",
+  "validation.email.required": "L'email est requis",
+  "validation.email.invalid": "Veuillez entrer une adresse email valide",
+  "validation.message.required": "Le message est requis",
+  "validation.message.min": "Le message doit contenir au moins 10 caractères",
 
   footer: {
     description:

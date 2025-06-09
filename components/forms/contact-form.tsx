@@ -1,6 +1,9 @@
 "use client";
 
-import { useState, useEffect } from "react";
+import { useState } from "react";
+import { useForm } from "react-hook-form";
+import { zodResolver } from "@hookform/resolvers/zod";
+import { z } from "zod";
 import { sendContactForm } from "@/actions/contact";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
@@ -13,52 +16,47 @@ import { useI18n } from "@/locales/client";
 export function ContactForm() {
   const { toast } = useToast();
   const [isSubmitting, setIsSubmitting] = useState(false);
-  const [serverErrors, setServerErrors] = useState<any>({});
   const [success, setSuccess] = useState(false);
+  const [error, setError] = useState<string | null>(null);
   const t = useI18n();
 
-  useEffect(() => {
-    if (success) {
-      const timer = setTimeout(() => setSuccess(false), 3000);
-      return () => clearTimeout(timer);
-    }
-  }, [success]);
+  const contactFormSchema = z.object({
+    name: z.string().min(2, t("validation.name.min")).trim(),
+    email: z.string().email(t("validation.email.invalid")).trim(),
+    company: z.string().optional(),
+    message: z.string().min(10, t("validation.message.min")).trim(),
+  });
 
-  async function handleSubmit(formData: FormData) {
-    setIsSubmitting(true);
-    setServerErrors({});
-    setSuccess(false);
+  type ContactFormData = z.infer<typeof contactFormSchema>;
 
-    const name = (formData.get("name") as string)?.trim() || "";
-    const email = (formData.get("email") as string)?.trim() || "";
-    const company = (formData.get("company") as string)?.trim() || "";
-    const message = (formData.get("message") as string)?.trim() || "";
+  const {
+    register,
+    handleSubmit,
+    reset,
+    formState: { errors },
+  } = useForm<ContactFormData>({
+    resolver: zodResolver(contactFormSchema),
+    defaultValues: {
+      name: "",
+      email: "",
+      company: "",
+      message: "",
+    },
+  });
 
-    // Empêcher l'envoi si un champ requis est vide
-    if (!name || !email || !message) {
-      setIsSubmitting(false);
-      setServerErrors({
-        name: !name ? t("validation.required") : undefined,
-        email: !email ? t("validation.required") : undefined,
-        message: !message ? t("validation.required") : undefined,
-      });
-      toast({
-        title: t("validation.error"),
-        description: t("validation.required"),
-        variant: "destructive",
-      });
-      return;
-    }
-
-    // Créer un nouveau FormData nettoyé
-    const cleanedFormData = new FormData();
-    cleanedFormData.set("name", name);
-    cleanedFormData.set("email", email);
-    cleanedFormData.set("company", company);
-    cleanedFormData.set("message", message);
-
+  const onSubmit = async (data: ContactFormData) => {
     try {
-      const result = await sendContactForm(cleanedFormData);
+      setIsSubmitting(true);
+      setSuccess(false);
+      setError(null);
+
+      const formData = new FormData();
+      formData.set("name", data.name);
+      formData.set("email", data.email);
+      formData.set("company", data.company || "");
+      formData.set("message", data.message);
+
+      const result = await sendContactForm(formData);
 
       if (result.success) {
         setSuccess(true);
@@ -67,11 +65,9 @@ export function ContactForm() {
           description: t("contact.form.success.message"),
           variant: "success",
         });
-        // Reset form
-        const form = document.getElementById("contact-form") as HTMLFormElement;
-        form?.reset();
+        reset();
       } else {
-        setServerErrors(result.errors || {});
+        setError(result.error || t("validation.error"));
         toast({
           title: t("validation.error"),
           description: result.error || t("validation.error"),
@@ -79,6 +75,8 @@ export function ContactForm() {
         });
       }
     } catch (error) {
+      console.error("Error submitting form:", error);
+      setError(t("validation.error"));
       toast({
         title: t("validation.error"),
         description: t("validation.error"),
@@ -87,141 +85,117 @@ export function ContactForm() {
     } finally {
       setIsSubmitting(false);
     }
-  }
+  };
 
   return (
-    <form id="contact-form" action={handleSubmit} className="space-y-4">
-      {isSubmitting ? (
-        <div className="flex flex-col items-center justify-center py-12">
-          <LoadingSpinner className="mb-4" />
-          <p className="text-lg font-semibold text-emerald-700 break-words">
-            {t("contact.form.sending")}
-          </p>
+    <form onSubmit={handleSubmit(onSubmit)} className="space-y-4">
+      {success && (
+        <div className="bg-emerald-50 border border-emerald-200 text-emerald-700 rounded-md p-4 text-center mb-4">
+          <strong className="break-words">
+            {t("contact.form.success.title")}
+          </strong>
+          <div className="break-words">{t("contact.form.success.message")}</div>
         </div>
-      ) : (
-        <>
-          {success && (
-            <div className="bg-emerald-50 border border-emerald-200 text-emerald-700 rounded-md p-4 text-center mb-4">
-              <strong className="break-words">
-                {t("contact.form.success.title")}
-              </strong>
-              <div className="break-words">
-                {t("contact.form.success.message")}
-              </div>
-            </div>
-          )}
-          <div className="grid md:grid-cols-2 gap-4">
-            <div className="min-w-0">
-              <Label
-                htmlFor="name"
-                className="block text-sm font-medium text-gray-700 mb-1 break-words"
-              >
-                {t("contact.form.name")}
-              </Label>
-              <Input
-                type="text"
-                id="name"
-                name="name"
-                className="w-full px-4 py-2 border border-gray-300 rounded-md focus:ring-emerald-500 focus:border-emerald-500"
-                placeholder={t("contact.form.name")}
-                required
-                aria-invalid={!!serverErrors.name}
-                aria-describedby={serverErrors.name ? "name-error" : undefined}
-                disabled={isSubmitting}
-              />
-              {serverErrors.name && (
-                <p
-                  id="name-error"
-                  className="mt-1 text-sm text-red-500 flex items-center break-words"
-                >
-                  {serverErrors.name._errors?.[0] || serverErrors.name}
-                </p>
-              )}
-            </div>
-            <div className="min-w-0">
-              <Label
-                htmlFor="email"
-                className="block text-sm font-medium text-gray-700 mb-1 break-words"
-              >
-                {t("contact.form.email")}
-              </Label>
-              <Input
-                type="email"
-                id="email"
-                name="email"
-                className="w-full px-4 py-2 border border-gray-300 rounded-md focus:ring-emerald-500 focus:border-emerald-500"
-                placeholder={t("contact.form.email")}
-                required
-                aria-invalid={!!serverErrors.email}
-                aria-describedby={
-                  serverErrors.email ? "email-error" : undefined
-                }
-                disabled={isSubmitting}
-              />
-              {serverErrors.email && (
-                <p
-                  id="email-error"
-                  className="mt-1 text-sm text-red-500 flex items-center break-words"
-                >
-                  {serverErrors.email._errors?.[0] || serverErrors.email}
-                </p>
-              )}
-            </div>
-          </div>
-          <div className="min-w-0">
-            <Label
-              htmlFor="company"
-              className="block text-sm font-medium text-gray-700 mb-1 break-words"
-            >
-              {t("contact.form.company")}
-            </Label>
-            <Input
-              type="text"
-              id="company"
-              name="company"
-              className="w-full px-4 py-2 border border-gray-300 rounded-md focus:ring-emerald-500 focus:border-emerald-500"
-              placeholder={t("contact.form.company")}
-              disabled={isSubmitting}
-            />
-          </div>
-          <div className="min-w-0">
-            <Label
-              htmlFor="message"
-              className="block text-sm font-medium text-gray-700 mb-1 break-words"
-            >
-              {t("contact.form.message")}
-            </Label>
-            <Textarea
-              id="message"
-              name="message"
-              rows={4}
-              className="w-full px-4 py-2 border border-gray-300 rounded-md focus:ring-emerald-500 focus:border-emerald-500"
-              placeholder={t("contact.form.message")}
-              required
-              aria-invalid={!!serverErrors.message}
-              aria-describedby={
-                serverErrors.message ? "message-error" : undefined
-              }
-              disabled={isSubmitting}
-            />
-            {serverErrors.message && (
-              <p
-                id="message-error"
-                className="mt-1 text-sm text-red-500 flex items-center break-words"
-              >
-                {serverErrors.message._errors?.[0] || serverErrors.message}
-              </p>
-            )}
-          </div>
-          <Button
-            type="submit"
-            className="w-full bg-emerald-600 text-white py-2 px-4 rounded-md hover:bg-emerald-700 focus:outline-none focus:ring-2 focus:ring-emerald-500 focus:ring-offset-2 disabled:opacity-50 disabled:cursor-not-allowed"
-            disabled={isSubmitting}
-          >
-            {t("contact.form.submit")}
-          </Button>
-        </>
       )}
+      {error && (
+        <div className="bg-red-50 border border-red-200 text-red-700 rounded-md p-4 text-center mb-4">
+          <strong className="break-words">{t("validation.error")}</strong>
+          <div className="break-words">{error}</div>
+        </div>
+      )}
+      <div className="grid md:grid-cols-2 gap-4">
+        <div className="min-w-0">
+          <Label
+            htmlFor="name"
+            className="block text-sm font-medium text-gray-700 mb-1 break-words"
+          >
+            {t("contact.form.name")}
+          </Label>
+          <Input
+            id="name"
+            {...register("name")}
+            className="w-full px-4 py-2 border border-gray-300 rounded-md focus:ring-emerald-500 focus:border-emerald-500"
+            placeholder={t("contact.form.name")}
+            disabled={isSubmitting}
+          />
+          {errors.name && (
+            <p className="mt-1 text-sm text-red-500 flex items-center break-words">
+              {errors.name.message}
+            </p>
+          )}
+        </div>
+        <div className="min-w-0">
+          <Label
+            htmlFor="email"
+            className="block text-sm font-medium text-gray-700 mb-1 break-words"
+          >
+            {t("contact.form.email")}
+          </Label>
+          <Input
+            id="email"
+            type="email"
+            {...register("email")}
+            className="w-full px-4 py-2 border border-gray-300 rounded-md focus:ring-emerald-500 focus:border-emerald-500"
+            placeholder={t("contact.form.email")}
+            disabled={isSubmitting}
+          />
+          {errors.email && (
+            <p className="mt-1 text-sm text-red-500 flex items-center break-words">
+              {errors.email.message}
+            </p>
+          )}
+        </div>
+      </div>
+      <div className="min-w-0">
+        <Label
+          htmlFor="company"
+          className="block text-sm font-medium text-gray-700 mb-1 break-words"
+        >
+          {t("contact.form.company")}
+        </Label>
+        <Input
+          id="company"
+          {...register("company")}
+          className="w-full px-4 py-2 border border-gray-300 rounded-md focus:ring-emerald-500 focus:border-emerald-500"
+          placeholder={t("contact.form.company")}
+          disabled={isSubmitting}
+        />
+      </div>
+      <div className="min-w-0">
+        <Label
+          htmlFor="message"
+          className="block text-sm font-medium text-gray-700 mb-1 break-words"
+        >
+          {t("contact.form.message")}
+        </Label>
+        <Textarea
+          id="message"
+          {...register("message")}
+          rows={4}
+          className="w-full px-4 py-2 border border-gray-300 rounded-md focus:ring-emerald-500 focus:border-emerald-500"
+          placeholder={t("contact.form.message")}
+          disabled={isSubmitting}
+        />
+        {errors.message && (
+          <p className="mt-1 text-sm text-red-500 flex items-center break-words">
+            {errors.message.message}
+          </p>
+        )}
+      </div>
+      <Button
+        type="submit"
+        className="w-full bg-emerald-600 text-white py-2 px-4 rounded-md hover:bg-emerald-700 focus:outline-none focus:ring-2 focus:ring-emerald-500 focus:ring-offset-2 disabled:opacity-50 disabled:cursor-not-allowed"
+        disabled={isSubmitting}
+      >
+        {isSubmitting ? (
+          <div className="flex items-center justify-center gap-2">
+            <LoadingSpinner className="h-4 w-4" />
+            <span>{t("contact.form.sending")}</span>
+          </div>
+        ) : (
+          t("contact.form.submit")
+        )}
+      </Button>
     </form>
   );
 }

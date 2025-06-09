@@ -152,18 +152,28 @@ export default {
   "contact.form.success.message":
     "Thank you for contacting us. Our team will get back to you as soon as possible.",
   "contact.form.success.button": "Send another message",
+  "contact.form.error":
+    "An error occurred while sending the message. Please try again.",
   "contact.info.title": "Our Contact Information",
   "contact.info.phone": "Phone",
   "contact.info.email": "Email",
   "contact.info.address": "Address",
   "contact.info.hours": "Business Hours",
   "contact.info.hours.value": "Monday - Friday: 8:00 AM - 5:00 PM",
+  "contact.email.title": "New Contact Message",
+  "contact.email.subject": "New Contact Message - AvadaPay",
 
   // Form Validation
   "validation.required": "This field is required",
   "validation.email": "Please enter a valid email address",
   "validation.minLength": "This field must contain at least {min} characters",
   "validation.error": "An error occurred. Please try again.",
+  "validation.name.required": "Name is required",
+  "validation.name.min": "Name must contain at least 2 characters",
+  "validation.email.required": "Email is required",
+  "validation.email.invalid": "Please enter a valid email address",
+  "validation.message.required": "Message is required",
+  "validation.message.min": "Message must contain at least 10 characters",
 
   "solutions.items.online-payment.features.0":
     "Simple and fast API integration",

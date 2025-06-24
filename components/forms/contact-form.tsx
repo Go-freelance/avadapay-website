@@ -21,24 +21,15 @@ export function ContactForm() {
   const t = useI18n();
 
   const contactFormSchema = z.object({
-    name: z
-      .string()
-      .trim()
-      .min(2, t("validation.name.min")),
-    email: z
-      .string()
-      .trim()
-      .email(t("validation.email.invalid")),
+    name: z.string().trim().min(2, t("validation.name.min")),
+    email: z.string().trim().email(t("validation.email.invalid")),
     phone: z
       .string()
       .trim()
       .min(9, t("validation.phone.required"))
-      .regex(/^[0-9+\s()-]{8,}$/i, t("validation.phone.invalid")),
+      .regex(/^[0-9+\s()-]{9,}$/i, t("validation.phone.invalid")),
     company: z.string().optional(),
-    message: z
-      .string()
-      .trim()
-      .min(10, t("validation.message.min")),
+    message: z.string().trim().min(10, t("validation.message.min")),
   });
 
   type ContactFormData = z.infer<typeof contactFormSchema>;

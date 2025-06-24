@@ -10,7 +10,7 @@ const contactFormSchema = z.object({
   phone: z
     .string()
     .min(9, "Le numéro de téléphone est requis")
-    .regex(/^[0-9+\s()-]{8,}$/i, "Veuillez entrer un numéro de téléphone valide")
+    .regex(/^[0-9+\s()-]{9,}$/i, "Veuillez entrer un numéro de téléphone valide")
     .trim(),
   company: z.string().optional(),
   message: z

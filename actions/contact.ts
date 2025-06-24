@@ -7,6 +7,11 @@ import { getI18n } from "@/locales/server";
 const contactFormSchema = z.object({
   name: z.string().min(2, "Le nom est requis").trim(),
   email: z.string().email("Email invalide").trim(),
+  phone: z
+    .string()
+    .min(9, "Le numéro de téléphone est requis")
+    .regex(/^[0-9+\s()-]{8,}$/i, "Veuillez entrer un numéro de téléphone valide")
+    .trim(),
   company: z.string().optional(),
   message: z
     .string()
@@ -22,6 +27,7 @@ export async function sendContactForm(formData: FormData) {
     const data = {
       name: formData.get("name"),
       email: formData.get("email"),
+      phone: formData.get("phone"),
       company: formData.get("company"),
       message: formData.get("message"),
     };
@@ -48,6 +54,9 @@ export async function sendContactForm(formData: FormData) {
       <p><strong>${t("contact.form.email")}:</strong> ${
       validatedData.data.email
     }</p>
+      <p><strong>${t("contact.form.phone")}:</strong> ${
+        validatedData.data.phone
+      }</p>
       ${
         validatedData.data.company
           ? `<p><strong>${t("contact.form.company")}:</strong> ${

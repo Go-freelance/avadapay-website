@@ -21,10 +21,24 @@ export function ContactForm() {
   const t = useI18n();
 
   const contactFormSchema = z.object({
-    name: z.string().min(2, t("validation.name.min")).trim(),
-    email: z.string().email(t("validation.email.invalid")).trim(),
+    name: z
+      .string()
+      .trim()
+      .min(2, t("validation.name.min")),
+    email: z
+      .string()
+      .trim()
+      .email(t("validation.email.invalid")),
+    phone: z
+      .string()
+      .trim()
+      .min(9, t("validation.phone.required"))
+      .regex(/^[0-9+\s()-]{8,}$/i, t("validation.phone.invalid")),
     company: z.string().optional(),
-    message: z.string().min(10, t("validation.message.min")).trim(),
+    message: z
+      .string()
+      .trim()
+      .min(10, t("validation.message.min")),
   });
 
   type ContactFormData = z.infer<typeof contactFormSchema>;
@@ -39,6 +53,7 @@ export function ContactForm() {
     defaultValues: {
       name: "",
       email: "",
+      phone: "",
       company: "",
       message: "",
     },
@@ -53,6 +68,7 @@ export function ContactForm() {
       const formData = new FormData();
       formData.set("name", data.name);
       formData.set("email", data.email);
+      formData.set("phone", data.phone);
       formData.set("company", data.company || "");
       formData.set("message", data.message);
 
@@ -145,22 +161,45 @@ export function ContactForm() {
             </p>
           )}
         </div>
+
+        <div className="min-w-0">
+          <Label
+            htmlFor="phone"
+            className="block text-sm font-medium text-gray-700 mb-1 break-words"
+          >
+            {t("contact.form.phone")}
+          </Label>
+          <Input
+            id="phone"
+            {...register("phone")}
+            className="w-full px-4 py-2 border border-gray-300 rounded-md focus:ring-emerald-500 focus:border-emerald-500"
+            placeholder={t("contact.form.phone")}
+            disabled={isSubmitting}
+          />
+          {errors.phone && (
+            <p className="mt-1 text-sm text-red-500 flex items-center break-words">
+              {errors.phone.message}
+            </p>
+          )}
+        </div>
+
+        <div className="min-w-0">
+          <Label
+            htmlFor="company"
+            className="block text-sm font-medium text-gray-700 mb-1 break-words"
+          >
+            {t("contact.form.company")}
+          </Label>
+          <Input
+            id="company"
+            {...register("company")}
+            className="w-full px-4 py-2 border border-gray-300 rounded-md focus:ring-emerald-500 focus:border-emerald-500"
+            placeholder={t("contact.form.company")}
+            disabled={isSubmitting}
+          />
+        </div>
       </div>
-      <div className="min-w-0">
-        <Label
-          htmlFor="company"
-          className="block text-sm font-medium text-gray-700 mb-1 break-words"
-        >
-          {t("contact.form.company")}
-        </Label>
-        <Input
-          id="company"
-          {...register("company")}
-          className="w-full px-4 py-2 border border-gray-300 rounded-md focus:ring-emerald-500 focus:border-emerald-500"
-          placeholder={t("contact.form.company")}
-          disabled={isSubmitting}
-        />
-      </div>
+
       <div className="min-w-0">
         <Label
           htmlFor="message"

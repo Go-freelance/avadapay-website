@@ -147,6 +147,7 @@ export default {
     "Contactez-nous dès aujourd'hui pour une démonstration personnalisée",
   "contact.form.name": "Nom complet",
   "contact.form.email": "Email",
+  "contact.form.phone": "Numéro de téléphone",
   "contact.form.company": "Entreprise",
   "contact.form.message": "Message",
   "contact.form.submit": "Envoyer ma demande",
@@ -169,6 +170,8 @@ export default {
   // Form Validation
   "validation.required": "Ce champ est requis",
   "validation.email": "Veuillez entrer une adresse email valide",
+  "validation.phone.required": "Le numéro de téléphone est requis",
+  "validation.phone.invalid": "Veuillez entrer un numéro de téléphone valide",
   "validation.minLength": "Ce champ doit contenir au moins {min} caractères",
   "validation.error": "Une erreur s'est produite. Veuillez réessayer.",
   "validation.name.required": "Le nom est requis",

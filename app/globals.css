@@ -329,6 +329,7 @@ p {
   @apply relative overflow-hidden px-6 py-3 rounded-md font-semibold text-white transition-all duration-300;
   background: linear-gradient(90deg, #00c896, #00c896);
   background-size: 200% auto;
+  font-weight: 800;
 }
 
 .btn-avada:hover {

@@ -6,6 +6,13 @@ export default {
   "nav.partners": "Partners",
   "nav.contact": "Contact",
   "nav.contactButton": "Contact Us",
+  "nav.developers": "Developers",
+  "nav.developer.api.title": "Payment API",
+  "nav.developer.api.description": "Full documentation for the payment API",
+  "nav.developer.sms.title": "Messages API",
+  "nav.developer.sms.description": "SMS API documentation",
+  "nav.developer.menu.title": "API Documentation",
+  "nav.developer.menu.help": "Need help? Contact our technical team",
 
   // Hero Section
   "hero.badge": "Leading Payment Aggregator in DRC",

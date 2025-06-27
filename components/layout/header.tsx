@@ -3,24 +3,46 @@
 import { useState, useEffect } from "react";
 import Image from "next/image";
 import Link from "next/link";
-import { Menu, X } from "lucide-react";
+import {
+  Menu,
+  X,
+  ChevronDown,
+  Code,
+  FileText,
+  ExternalLink,
+} from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { useI18n } from "@/locales/client";
 import { LanguageSwitcher } from "@/components/ui/language-switcher";
+import {
+  DropdownMenu,
+  DropdownMenuContent,
+  DropdownMenuItem,
+  DropdownMenuTrigger,
+  DropdownMenuSeparator,
+} from "@/components/ui/dropdown-menu";
 import { cn } from "@/lib/utils";
 import { usePathname } from "next/navigation";
-import { navigationLinks } from "../../data/navigation";
+import {
+  navigationLinks,
+  developerLinks,
+  DeveloperLink,
+} from "../../data/navigation";
 import ReactDOM from "react-dom";
 
 type NavigationKey =
   | "nav.solutions"
   | "nav.benefits"
   | "nav.contact"
-  | "nav.contactButton";
+  | "nav.contactButton"
+  | "nav.developers";
+
+const iconMap = { Code, FileText };
 
 export default function Header() {
   const [isOpen, setIsOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
+  const [developersOpen, setDevelopersOpen] = useState(false);
   const t = useI18n();
   const pathname = usePathname();
 
@@ -79,7 +101,7 @@ export default function Header() {
                 key={link.href}
                 href={link.href}
                 className={cn(
-                  "relative px-4 py-2 text-base font-medium rounded-full transition-all duration-300 whitespace-nowrap",
+                  "relative px-4 py-2 text-base font-bold rounded-full transition-all duration-300 whitespace-nowrap",
                   pathname === link.href
                     ? "text-white bg-primary shadow-md"
                     : "text-gray-700 hover:text-primary hover:bg-gray-100/80"
@@ -88,6 +110,62 @@ export default function Header() {
                 {t(link.translationKey as NavigationKey)}
               </Link>
             ))}
+
+            {/* Developers Dropdown */}
+            <DropdownMenu>
+              <DropdownMenuTrigger asChild>
+                <Button
+                  variant="ghost"
+                  className={cn(
+                    "relative px-4 py-2 text-base font-bold rounded-full transition-all duration-300 whitespace-nowrap flex items-center gap-1",
+                    "text-gray-700 hover:text-primary hover:bg-gray-100/80"
+                  )}
+                >
+                  {t("nav.developers" as NavigationKey)}
+                  <ChevronDown className="h-3 w-3 transition-transform duration-200" />
+                </Button>
+              </DropdownMenuTrigger>
+              <DropdownMenuContent
+                align="center"
+                className="w-80 p-2 bg-white/95 backdrop-blur-md border border-gray-200 shadow-xl rounded-xl"
+              >
+                <div className="px-3 py-2 text-sm font-medium text-gray-500 border-b border-gray-100 mb-2">
+                  {t("nav.developer.menu.title")}
+                </div>
+                {developerLinks.map((item: DeveloperLink, index) => {
+                  const Icon = iconMap[item.icon];
+                  return (
+                    <DropdownMenuItem key={index} asChild className="p-0">
+                      <a
+                        href={item.href}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="flex items-start gap-3 p-3 rounded-lg hover:bg-gray-50 transition-colors cursor-pointer group"
+                      >
+                        <div className="flex-shrink-0 w-8 h-8 bg-avada-500/10 rounded-lg flex items-center justify-center text-avada-500 group-hover:bg-avada-500 group-hover:text-white transition-colors">
+                          <Icon className="h-4 w-4" />
+                        </div>
+                        <div className="flex-1 min-w-0">
+                          <div className="flex items-center gap-2">
+                            <p className="text-sm font-medium text-gray-900 group-hover:text-avada-600">
+                              {t(item.titleKey as NavigationKey)}
+                            </p>
+                            <ExternalLink className="h-3 w-3 text-gray-400 group-hover:text-avada-500" />
+                          </div>
+                          <p className="text-xs text-gray-500 mt-1">
+                            {t(item.descriptionKey as NavigationKey)}
+                          </p>
+                        </div>
+                      </a>
+                    </DropdownMenuItem>
+                  );
+                })}
+                <DropdownMenuSeparator className="my-2" />
+                <div className="px-3 py-2 text-xs text-gray-400 text-center">
+                  {t("nav.developer.menu.help")}
+                </div>
+              </DropdownMenuContent>
+            </DropdownMenu>
           </div>
         </nav>
 
@@ -138,7 +216,7 @@ export default function Header() {
               </div>
 
               {/* Mobile Navigation Links */}
-              <nav className="flex-1 flex flex-col items-center justify-center gap-6 px-4 overflow-y-auto">
+              <nav className="flex-1 flex flex-col items-center justify-center gap-4 px-4 overflow-y-auto">
                 {navigationLinks.map((link, index) => (
                   <Link
                     key={link.href}
@@ -158,6 +236,58 @@ export default function Header() {
                     {t(link.translationKey as NavigationKey)}
                   </Link>
                 ))}
+
+                {/* Mobile Developers Section */}
+                <div className="w-full">
+                  <Button
+                    variant="ghost"
+                    className="w-full text-xl font-semibold py-3 rounded-lg text-gray-700 hover:text-primary hover:bg-gray-50 flex items-center justify-center gap-2"
+                    onClick={() => setDevelopersOpen(!developersOpen)}
+                    style={{
+                      animationDelay: `${navigationLinks.length * 0.1}s`,
+                      animation: "fadeInUp 0.5s ease forwards",
+                    }}
+                  >
+                    {t("nav.developers" as NavigationKey)}
+                    <ChevronDown
+                      className={cn(
+                        "h-4 w-4 transition-transform",
+                        developersOpen && "rotate-180"
+                      )}
+                    />
+                  </Button>
+
+                  {developersOpen && (
+                    <div className="mt-2 space-y-2 px-4">
+                      {developerLinks.map((item: DeveloperLink, index) => {
+                        const Icon = iconMap[item.icon];
+                        return (
+                          <a
+                            key={index}
+                            href={item.href}
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            className="flex items-center gap-3 p-3 rounded-lg bg-gray-50 hover:bg-gray-100 transition-colors"
+                            onClick={() => setIsOpen(false)}
+                          >
+                            <div className="w-8 h-8 bg-avada-500/10 rounded-lg flex items-center justify-center text-avada-500">
+                              <Icon className="h-4 w-4" />
+                            </div>
+                            <div className="flex-1 text-left">
+                              <p className="text-sm font-medium text-gray-900">
+                                {t(item.titleKey as NavigationKey)}
+                              </p>
+                              <p className="text-xs text-gray-500">
+                                {t(item.descriptionKey as NavigationKey)}
+                              </p>
+                            </div>
+                            <ExternalLink className="h-4 w-4 text-gray-400" />
+                          </a>
+                        );
+                      })}
+                    </div>
+                  )}
+                </div>
 
                 <Link
                   href="#contact"

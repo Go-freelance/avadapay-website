@@ -62,7 +62,7 @@ export default function Hero() {
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6, delay: 0.2 }}
-              className="text-2xl xs:text-3xl sm:text-4xl md:text-5xl lg:text-6xl mb-3 sm:mb-6 text-white leading-tight font-extrabold break-words"
+              className="text-2xl sm:text-4xl md:text-5xl lg:text-7xl mb-3 sm:mb-6 text-white font-extrabold break-words"
             >
               {t("hero.title")}
             </motion.h1>
@@ -86,7 +86,7 @@ export default function Hero() {
                 <Link href="#solutions" className="w-full sm:w-auto">
                   <Button
                     size="lg"
-                    className="bg-primary hover:bg-primary/90 text-white px-4 sm:px-6 lg:px-8 py-4 sm:py-5 h-auto text-sm sm:text-base font-bold w-full sm:w-auto"
+                    className="bg-primary hover:bg-primary/90 text-white px-4 sm:px-6 lg:px-8 py-4 sm:py-5 h-auto text-sm sm:text-base font-extrabold w-full sm:w-auto"
                   >
                     {t("hero.cta")}
                     <ChevronRight className="ml-2 h-3 w-3 sm:h-4 sm:w-4 transition-transform group-hover:translate-x-1" />
@@ -96,7 +96,7 @@ export default function Hero() {
                   <Button
                     size="lg"
                     variant="outline"
-                    className="border-primary text-primary hover:bg-white/10 hover:text-white px-4 sm:px-6 lg:px-8 py-4 sm:py-5 h-auto text-sm sm:text-base font-bold backdrop-blur-sm w-full sm:w-auto"
+                    className="border-primary text-primary hover:bg-white/10 hover:text-white px-4 sm:px-6 lg:px-8 py-4 sm:py-5 h-auto text-sm sm:text-base font-extrabold backdrop-blur-sm w-full sm:w-auto"
                   >
                     {t("hero.contact")}
                   </Button>

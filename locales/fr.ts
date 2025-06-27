@@ -5,6 +5,14 @@ export default {
   "nav.benefits": "Avantages",
   "nav.contact": "Contact",
   "nav.contactButton": "Nous contacter",
+  "nav.developers": "Développeurs",
+  "nav.developer.api.title": "API de Paiement",
+  "nav.developer.api.description":
+    "Documentation complète de l'API de paiement",
+  "nav.developer.sms.title": "API de Messages",
+  "nav.developer.sms.description": "Documentation de l'API SMS",
+  "nav.developer.menu.title": "Documentation API",
+  "nav.developer.menu.help": "Besoin d'aide ? Contactez notre équipe technique",
 
   // Hero Section
   "hero.badge": "L'agrégateur de paiement n°1 en RDC",

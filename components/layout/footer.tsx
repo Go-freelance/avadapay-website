@@ -3,17 +3,19 @@
 import Image from "next/image";
 import Link from "next/link";
 import { contactInfo } from "@/data/contact";
-import { navigationLinks } from "@/data/navigation";
+import { navigationLinks, developerLinks } from "@/data/navigation";
 import { solutionsData } from "@/data/solutions";
 import { useI18n } from "@/locales/client";
+import { Code, FileText, ExternalLink } from "lucide-react";
 
 export default function Footer() {
   const t = useI18n();
+  const iconMap = { Code, FileText };
 
   return (
-    <footer className="bg-gray-900 text-white py-16 overflow-hidden">
-      <div className="container mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="grid md:grid-cols-4 gap-12">
+    <footer className="bg-gray-900 text-white py-16 overflow-hidden relative">
+      <div className="container mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+        <div className="grid md:grid-cols-5 gap-12">
           <div className="min-w-0">
             <Image
               src="/images/logo.png"
@@ -37,7 +39,7 @@ export default function Footer() {
                 <li key={link.href} className="break-words">
                   <Link
                     href={link.href}
-                    className="text-gray-400 hover:text-primary transition-colors"
+                    className="text-gray-400 hover:text-avada-500 transition-colors"
                   >
                     {t(link.translationKey as any, {})}
                   </Link>
@@ -55,12 +57,42 @@ export default function Footer() {
                 <li key={solution.id} className="break-words">
                   <Link
                     href={"#solutions"}
-                    className="text-gray-400 hover:text-primary transition-colors"
+                    className="text-gray-400 hover:text-avada-500 transition-colors"
                   >
                     {t(`solutions.items.${solution.id}.title` as any, {})}
                   </Link>
                 </li>
               ))}
+            </ul>
+          </div>
+
+          {/* Section Développeurs */}
+          <div className="min-w-0">
+            <h3 className="text-lg font-semibold mb-4 break-words">
+              <span className="flex items-center gap-2">
+                {t("nav.developers" as any, {})}
+              </span>
+            </h3>
+            <ul className="space-y-3">
+              {developerLinks.map((item, index) => {
+                const Icon = iconMap[item.icon];
+                return (
+                  <li key={index} className="break-words">
+                    <a
+                      href={item.href}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="text-gray-400 hover:text-avada-500 transition-colors flex items-center gap-2 group"
+                    >
+                      <div className="flex-shrink-0 w-8 h-8 bg-avada-500/10 rounded-lg flex items-center justify-center text-avada-500 group-hover:bg-avada-500 group-hover:text-white transition-colors">
+                        <Icon className="h-4 w-4" />
+                      </div>
+                      <span>{t(item.titleKey as any, {})}</span>
+                      <ExternalLink className="h-3 w-3 opacity-50 group-hover:opacity-100" />
+                    </a>
+                  </li>
+                );
+              })}
             </ul>
           </div>
 
@@ -77,7 +109,7 @@ export default function Footer() {
                 <span className="mr-2 flex-shrink-0">✉️</span>
                 <a
                   href={`mailto:${contactInfo.email}`}
-                  className="hover:text-primary transition-colors break-words"
+                  className="hover:text-avada-500 transition-colors break-words"
                 >
                   {contactInfo.email}
                 </a>
@@ -86,7 +118,7 @@ export default function Footer() {
                 <span className="mr-2 flex-shrink-0">📞</span>
                 <a
                   href={`tel:${contactInfo.phone}`}
-                  className="hover:text-primary transition-colors break-words"
+                  className="hover:text-avada-500 transition-colors break-words"
                 >
                   {contactInfo.phone}
                 </a>
@@ -102,7 +134,7 @@ export default function Footer() {
           <div className="flex space-x-6 mt-4 md:mt-0">
             <Link
               href="#"
-              className="text-gray-500 hover:text-primary flex-shrink-0"
+              className="text-gray-500 hover:text-avada-500 flex-shrink-0 transition-colors"
             >
               <span className="sr-only">{t("footer.social.facebook")}</span>
               <svg
@@ -120,7 +152,7 @@ export default function Footer() {
             </Link>
             <Link
               href="#"
-              className="text-gray-500 hover:text-primary flex-shrink-0"
+              className="text-gray-500 hover:text-avada-500 flex-shrink-0 transition-colors"
             >
               <span className="sr-only">{t("footer.social.instagram")}</span>
               <svg
@@ -138,7 +170,7 @@ export default function Footer() {
             </Link>
             <Link
               href="#"
-              className="text-gray-500 hover:text-primary flex-shrink-0"
+              className="text-gray-500 hover:text-avada-500 flex-shrink-0 transition-colors"
             >
               <span className="sr-only">{t("footer.social.linkedin")}</span>
               <svg

@@ -3,13 +3,11 @@
 import { useState, useEffect } from "react";
 import Image from "next/image";
 import Link from "next/link";
+import { FaCode, FaFileCode, FaExternalLinkAlt } from "react-icons/fa";
 import {
   Menu,
   X,
   ChevronDown,
-  Code,
-  FileText,
-  ExternalLink,
 } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { useI18n } from "@/locales/client";
@@ -37,7 +35,7 @@ type NavigationKey =
   | "nav.contactButton"
   | "nav.developers";
 
-const iconMap = { Code, FileText };
+const iconMap = { FaCode, FaFileCode };
 
 export default function Header() {
   const [isOpen, setIsOpen] = useState(false);
@@ -150,7 +148,7 @@ export default function Header() {
                             <p className="text-sm font-medium text-gray-900 group-hover:text-avada-600">
                               {t(item.titleKey as NavigationKey)}
                             </p>
-                            <ExternalLink className="h-3 w-3 text-gray-400 group-hover:text-avada-500" />
+                            <FaExternalLinkAlt className="h-3 w-3 text-gray-400 group-hover:text-avada-500" />
                           </div>
                           <p className="text-xs text-gray-500 mt-1">
                             {t(item.descriptionKey as NavigationKey)}
@@ -281,7 +279,7 @@ export default function Header() {
                                 {t(item.descriptionKey as NavigationKey)}
                               </p>
                             </div>
-                            <ExternalLink className="h-4 w-4 text-gray-400" />
+                            <FaExternalLinkAlt className="h-4 w-4 text-gray-400" />
                           </a>
                         );
                       })}

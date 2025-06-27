@@ -13,7 +13,7 @@ export const navigationLinks = [
   },
 ];
 
-export type DeveloperIcon = "Code" | "FileText";
+export type DeveloperIcon = "FaCode" | "FaFileCode";
 
 export interface DeveloperLink {
   titleKey: string;
@@ -27,12 +27,12 @@ export const developerLinks: DeveloperLink[] = [
     titleKey: "nav.developer.api.title",
     descriptionKey: "nav.developer.api.description",
     href: "https://docs.unipesa.tech/",
-    icon: "Code",
+    icon: "FaCode",
   },
   {
     titleKey: "nav.developer.sms.title",
     descriptionKey: "nav.developer.sms.description",
     href: "https://msg.unipesa.tech/docs/api.html",
-    icon: "FileText",
+    icon: "FaFileCode",
   },
 ];

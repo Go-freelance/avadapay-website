@@ -1,16 +1,12 @@
-import {
-  CreditCard,
-  Clock,
-  BarChart,
-  Smartphone,
-  Shield,
-  Users,
-} from "lucide-react";
+import { FaCreditCard, FaClock, FaUser } from "react-icons/fa";
+import { BsBarChartFill } from "react-icons/bs";
+import { MdSmartphone } from "react-icons/md";
+import { FaShield } from "react-icons/fa6";
 
 export const benefitsData = [
   {
     id: "integration",
-    icon: <CreditCard className="h-4 w-4 text-emerald-600" />,
+    icon: <FaCreditCard className="h-4 w-4 text-emerald-600" />,
     translationKey: "benefits.items.integration",
     title: "Intégration Facile",
     description:
@@ -18,7 +14,7 @@ export const benefitsData = [
   },
   {
     id: "monitoring",
-    icon: <Clock className="h-4 w-4 text-emerald-600" />,
+    icon: <FaClock className="h-4 w-4 text-emerald-600" />,
     translationKey: "benefits.items.monitoring",
     title: "Monitoring en Temps Réel",
     description:
@@ -26,7 +22,7 @@ export const benefitsData = [
   },
   {
     id: "statistics",
-    icon: <BarChart className="h-4 w-4 text-emerald-600" />,
+    icon: <BsBarChartFill className="h-4 w-4 text-emerald-600" />,
     translationKey: "benefits.items.statistics",
     title: "Statistiques Détaillées",
     description:
@@ -34,7 +30,7 @@ export const benefitsData = [
   },
   {
     id: "mobile-money",
-    icon: <Smartphone className="h-4 w-4 text-emerald-600" />,
+    icon: <MdSmartphone className="h-4 w-4 text-emerald-600" />,
     translationKey: "benefits.items.mobile-money",
     title: "Paiements Mobile Money",
     description:
@@ -42,7 +38,7 @@ export const benefitsData = [
   },
   {
     id: "security",
-    icon: <Shield className="h-4 w-4 text-emerald-600" />,
+    icon: <FaShield className="h-4 w-4 text-emerald-600" />,
     translationKey: "benefits.items.security",
     title: "Sécurisation des Flux",
     description:
@@ -50,7 +46,7 @@ export const benefitsData = [
   },
   {
     id: "satisfaction",
-    icon: <Users className="h-4 w-4 text-emerald-600" />,
+    icon: <FaUser className="h-4 w-4 text-emerald-600" />,
     translationKey: "benefits.items.satisfaction",
     title: "Satisfaction Client",
     description:

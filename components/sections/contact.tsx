@@ -1,7 +1,10 @@
 "use client";
 
 import { contactInfo } from "@/data/contact";
-import { Phone, Mail, MapPin, Clock } from "lucide-react";
+import { FaPhoneAlt, FaClock} from "react-icons/fa";
+import { IoMail } from "react-icons/io5";
+import { SiGooglemaps } from "react-icons/si";
+
 import { motion } from "framer-motion";
 import { useI18n } from "@/locales/client";
 import { ContactForm } from "@/components/forms/contact-form";
@@ -63,7 +66,7 @@ export default function Contact() {
               </h3>
               <div className="space-y-6">
                 <div className="flex items-start space-x-4">
-                  <Phone className="h-5 w-5 text-avada-500 mt-1 flex-shrink-0" />
+                  <FaPhoneAlt className="h-5 w-5 text-avada-500 mt-1 flex-shrink-0" />
                   <div className="min-w-0">
                     <p className="text-sm font-medium text-muted-foreground break-words">
                       {t("contact.info.phone")}
@@ -74,7 +77,7 @@ export default function Contact() {
                   </div>
                 </div>
                 <div className="flex items-start space-x-4">
-                  <Mail className="h-5 w-5 text-avada-500 mt-1 flex-shrink-0" />
+                  <IoMail className="h-5 w-5 text-avada-500 mt-1 flex-shrink-0" />
                   <div className="min-w-0">
                     <p className="text-sm font-medium text-muted-foreground break-words">
                       {t("contact.info.email")}
@@ -85,7 +88,7 @@ export default function Contact() {
                   </div>
                 </div>
                 <div className="flex items-start space-x-4">
-                  <MapPin className="h-5 w-5 text-avada-500 mt-1 flex-shrink-0" />
+                  <SiGooglemaps className="h-5 w-5 text-avada-500 mt-1 flex-shrink-0" />
                   <div className="min-w-0">
                     <p className="text-sm font-medium text-muted-foreground break-words">
                       {t("contact.info.address")}
@@ -96,7 +99,7 @@ export default function Contact() {
                   </div>
                 </div>
                 <div className="flex items-start space-x-4">
-                  <Clock className="h-5 w-5 text-avada-500 mt-1 flex-shrink-0" />
+                  <FaClock className="h-5 w-5 text-avada-500 mt-1 flex-shrink-0" />
                   <div className="min-w-0">
                     <p className="text-sm font-medium text-muted-foreground break-words">
                       {t("contact.info.hours")}

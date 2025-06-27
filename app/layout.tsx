@@ -22,7 +22,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="fr" className={`scroll-smooth ${mulish.variable}`}>
+    <html lang="fr" className={`${mulish.variable} scroll-smooth`}>
       <body
         className={`${mulish.variable} font-sans min-h-screen w-full overflow-x-hidden relative`}
       >

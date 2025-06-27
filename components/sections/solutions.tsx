@@ -8,12 +8,12 @@ import { Button } from "@/components/ui/button";
 import { solutionsData } from "@/data/solutions";
 import { useI18n } from "@/locales/client";
 import {
-  ChevronRight,
-  CreditCard,
-  ArrowRight,
-  Users,
-  Smartphone,
-} from "lucide-react";
+  FaCreditCard,
+  FaArrowRight,
+  FaChevronRight,
+} from "react-icons/fa";
+import { TbUsersGroup } from "react-icons/tb";
+import { MdSmartphone } from "react-icons/md";
 import { cn } from "@/lib/utils";
 
 interface Solution {
@@ -88,7 +88,7 @@ export default function Solutions() {
                     )}
                   >
                     {index === 0 && (
-                      <CreditCard
+                      <FaCreditCard
                         className={cn(
                           "h-5 w-5 sm:h-6 sm:w-6 flex-shrink-0",
                           activeSolution === solution.id
@@ -98,7 +98,7 @@ export default function Solutions() {
                       />
                     )}
                     {index === 1 && (
-                      <Users
+                      <TbUsersGroup
                         className={cn(
                           "h-5 w-5 sm:h-6 sm:w-6 flex-shrink-0",
                           activeSolution === solution.id
@@ -108,7 +108,7 @@ export default function Solutions() {
                       />
                     )}
                     {index === 2 && (
-                      <Smartphone
+                      <MdSmartphone
                         className={cn(
                           "h-5 w-5 sm:h-6 sm:w-6 flex-shrink-0",
                           activeSolution === solution.id
@@ -133,7 +133,7 @@ export default function Solutions() {
                       {t(`${solution.translationKey}.shortDescription`, {})}
                     </p>
                   </div>
-                  <ChevronRight
+                  <FaChevronRight
                     className={cn(
                       "ml-auto h-5 w-5 sm:h-6 sm:w-6 transition-transform flex-shrink-0",
                       activeSolution === solution.id
@@ -156,7 +156,7 @@ export default function Solutions() {
                   className="text-primary text-sm sm:text-base font-medium flex items-center hover:underline whitespace-nowrap"
                 >
                   {t("solutions.help.cta")}{" "}
-                  <ArrowRight className="ml-1 h-3 w-3 sm:h-4 sm:w-4 flex-shrink-0" />
+                  <FaArrowRight className="ml-1 h-3 w-3 sm:h-4 sm:w-4 flex-shrink-0" />
                 </Link>
               </div>
             </div>
@@ -271,7 +271,7 @@ export default function Solutions() {
           <Link href="#contact">
             <Button className="bg-white text-primary font-bold hover:bg-white/90 group">
               {t("solutions.cta.button")}
-              <ArrowRight className="ml-2 h-4 w-4 transition-transform group-hover:translate-x-1" />
+              <FaArrowRight className="ml-2 h-4 w-4 transition-transform group-hover:translate-x-1" />
             </Button>
           </Link>
         </motion.div>

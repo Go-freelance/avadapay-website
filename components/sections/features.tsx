@@ -4,36 +4,31 @@ import { useEffect, useRef } from "react";
 import { motion, useAnimation, useInView } from "framer-motion";
 import Link from "next/link";
 import { useI18n } from "@/locales/client";
-import {
-  CreditCard,
-  Shield,
-  Smartphone,
-  Clock,
-  ArrowRight,
-  ExternalLink,
-} from "lucide-react";
+import { FaCreditCard, FaClock, FaArrowRight } from "react-icons/fa";
+import { MdSmartphone } from "react-icons/md";
+import { FaShield } from "react-icons/fa6";
 
 const features = [
   {
-    icon: <CreditCard className="h-6 w-6" />,
+    icon: <FaCreditCard className="h-6 w-6" />,
     titleKey: "features.items.integration.title" as const,
     descriptionKey: "features.items.integration.description" as const,
     color: "from-[#00C896] to-[#36CFBD]",
   },
   {
-    icon: <Clock className="h-6 w-6" />,
+    icon: <FaClock className="h-6 w-6" />,
     titleKey: "features.items.monitoring.title" as const,
     descriptionKey: "features.items.monitoring.description" as const,
     color: "from-[#00C896] to-[#36CFBD]",
   },
   {
-    icon: <Smartphone className="h-6 w-6" />,
+    icon: <MdSmartphone className="h-6 w-6" />,
     titleKey: "features.items.payment.title" as const,
     descriptionKey: "features.items.payment.description" as const,
     color: "from-[#00C896] to-[#36CFBD]",
   },
   {
-    icon: <Shield className="h-6 w-6" />,
+    icon: <FaShield className="h-6 w-6" />,
     titleKey: "features.items.platform.title" as const,
     descriptionKey: "features.items.platform.description" as const,
     color: "from-[#00C896] to-[#36CFBD]",
@@ -159,7 +154,7 @@ export default function Features() {
                   className="inline-flex items-center text-primary font-medium hover:underline group-hover:translate-x-1 transition-transform duration-300 whitespace-nowrap"
                 >
                   <span>{t("features.learnMore")}</span>
-                  <ArrowRight className="ml-2 h-4 w-4 transform group-hover:translate-x-1 transition-transform duration-300 flex-shrink-0" />
+                  <FaArrowRight className="ml-2 h-4 w-4 transform group-hover:translate-x-1 transition-transform duration-300 flex-shrink-0" />
                 </Link>
               </div>
 

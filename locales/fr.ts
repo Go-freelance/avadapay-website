@@ -138,9 +138,9 @@ export default {
 
   // Partners Section
   "partners.title": "Ils nous ont fait confiance",
-  "partners.subtitle": "Partenaires de confiance du secteur",
+  "partners.subtitle": "",
   "partners.description":
-    "Infrastructure de paiement connectée à tous les opérateurs.",
+    "Déjà adopté par les acteurs clés du digital en RDC, Ils utilisent Avadapay chaque jour pour fiabiliser leurs flux financiers",
   "partners.becomePartner": "Devenir partenaire",
 
   // Testimonials Section

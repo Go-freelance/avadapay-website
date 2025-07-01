@@ -137,7 +137,7 @@ export default {
   // Partners Section
   "partners.title": "They Trust Us",
   "partners.subtitle": "Trusted by industry leaders",
-  "partners.description": "Payment infrastructure connected to all operators.",
+  "partners.description": "Already adopted by key digital players in the DRC, they use Avadapay on a daily basis to make their financial flows more reliable.",
   "partners.becomePartner": "Become a partner",
 
   // Testimonials Section

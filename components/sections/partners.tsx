@@ -74,9 +74,9 @@ export default function Partners() {
             <Image
               src={partner.logo}
               alt={partner.name}
-              width={100}
+              width={180}
               height={90}
-              className="max-h-16 sm:max-h-20 w-auto object-contain opacity-80 hover:opacity-100 transition-opacity duration-300"
+              className="max-h-20 sm:max-h-20 object-contain opacity-80 hover:opacity-100 transition-opacity duration-300"
               priority={index < 4}
             />
           </motion.div>

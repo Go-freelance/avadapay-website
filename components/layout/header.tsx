@@ -4,11 +4,7 @@ import { useState, useEffect } from "react";
 import Image from "next/image";
 import Link from "next/link";
 import { FaCode, FaFileCode, FaExternalLinkAlt } from "react-icons/fa";
-import {
-  Menu,
-  X,
-  ChevronDown,
-} from "lucide-react";
+import { Menu, X, ChevronDown } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { useI18n } from "@/locales/client";
 import { LanguageSwitcher } from "@/components/ui/language-switcher";
@@ -76,7 +72,7 @@ export default function Header() {
         {/* Logo */}
         <Link
           href="/"
-          className="flex items-center gap-2 flex-shrink-0 transition-transform duration-300 hover:scale-105"
+          className="flex items-center gap-2 flex-shrink-0 transition-transform duration-300"
         >
           <Image
             src="/images/logo.png"

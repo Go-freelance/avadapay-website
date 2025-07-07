@@ -7,11 +7,7 @@ import { motion } from "framer-motion";
 import { Button } from "@/components/ui/button";
 import { solutionsData } from "@/data/solutions";
 import { useI18n } from "@/locales/client";
-import {
-  FaCreditCard,
-  FaArrowRight,
-  FaChevronRight,
-} from "react-icons/fa";
+import { FaCreditCard, FaArrowRight, FaChevronRight } from "react-icons/fa";
 import { TbUsersGroup } from "react-icons/tb";
 import { MdSmartphone } from "react-icons/md";
 import { cn } from "@/lib/utils";
@@ -181,54 +177,14 @@ export default function Solutions() {
                 </p>
               </div>
 
-              <div className="relative h-[250px] sm:h-[300px] w-full bg-muted/30">
+              <div className="relative h-[150px] sm:h-[350px] w-full bg-muted/30">
                 <Image
                   src={`/images/${getActiveSolution().id}.jpg`}
                   alt={t(`${getActiveSolution().translationKey}.title`)}
-                  fill
-                  className="object-cover"
-                  sizes="(max-width: 768px) 100vw, 66vw"
+                  className="object-cover max-h-[350px] w-full"
+                  width={800}
+                  height={700}
                 />
-                {getActiveSolution().id === "online-payment" && (
-                  <div className="absolute inset-0 z-10 flex items-center lg:mt-56 mt-20 justify-center gap-4 sm:gap-6 md:gap-8 p-4">
-                    <div className="bg-white/90 backdrop-blur-sm p-2 sm:p-3 rounded-lg shadow-lg">
-                      <Image
-                        src="/images/logo-mpsa.png"
-                        alt="M-Pesa"
-                        width={60}
-                        height={30}
-                        className="h-8 sm:h-10 w-auto object-contain"
-                      />
-                    </div>
-                    <div className="bg-white/90 backdrop-blur-sm p-2 sm:p-3 rounded-lg shadow-lg">
-                      <Image
-                        src="/images/orange-money.png"
-                        alt="Orange Money"
-                        width={60}
-                        height={30}
-                        className="h-8 sm:h-10 w-auto object-contain"
-                      />
-                    </div>
-                    <div className="bg-white/90 backdrop-blur-sm p-2 sm:p-3 rounded-lg shadow-lg">
-                      <Image
-                        src="/images/airtel-money.png"
-                        alt="Airtel Money"
-                        width={60}
-                        height={30}
-                        className="h-8 sm:h-10 w-auto object-contain"
-                      />
-                    </div>
-                    <div className="bg-white/90 backdrop-blur-sm p-2 sm:p-3 rounded-lg shadow-lg">
-                      <Image
-                        src="/images/afrimoney.png"
-                        alt="AfriMoney"
-                        width={60}
-                        height={30}
-                        className="h-8 sm:h-10 w-auto object-contain"
-                      />
-                    </div>
-                  </div>
-                )}
               </div>
 
               {/* Caractéristiques */}

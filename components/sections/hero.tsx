@@ -21,7 +21,7 @@ export default function Hero() {
   }, []);
 
   return (
-    <section className="relative h-screen min-h-[500px] sm:min-h-[650px] max-h-[900px] w-full overflow-hidden">
+    <section className="relative lg:h-[100vh] h-[70vh] w-full overflow-hidden">
       {/* Image de fond avec overlay */}
       <div className="absolute inset-0 z-0">
         <div className="relative w-full h-full">

@@ -5,6 +5,7 @@ import { I18nProviderClient } from "@/locales/client";
 import Script from "next/script";
 import "../globals.css";
 import { Toaster } from "@/components/ui/toaster";
+import { PopupSystem } from "@/components/popup-system";
 
 const mulish = Mulish({
   subsets: ["latin"],
@@ -47,8 +48,10 @@ export default async function RootLayout({
       </head>
       <body className="font-mulish antialiased overflow-x-hidden">
         <I18nProviderClient locale={locale}>
-          {children}
-          <Toaster />
+          <PopupSystem>
+            {children}
+            <Toaster />
+          </PopupSystem>
         </I18nProviderClient>
       </body>
     </html>

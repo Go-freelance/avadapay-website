@@ -189,6 +189,24 @@ export default {
   "validation.message.required": "Le message est requis",
   "validation.message.min": "Le message doit contenir au moins 10 caractères",
 
+  // Popup
+  "popup.title": "Besoin d'aide avec vos paiements ?",
+  "popup.message":
+    "Notre équipe d'experts est là pour vous accompagner dans tous vos projets de paiement. Contactez-nous pour une consultation gratuite et découvrez comment AvadaPay peut révolutionner votre activité.",
+  "popup.ctaText": "Contacter notre équipe",
+  "popup.dismissText": "Plus tard",
+  "popup.permanentDismissText": "Ne plus afficher",
+  "popup.subtitle": "Solution de paiement sécurisée",
+  "popup.badge.mobile": "Agréé BCC",
+  "popup.badge.desktop": "Agréé par la Banque Centrale du Congo",
+  "popup.feature.integration.title": "Intégration rapide",
+  "popup.feature.integration.description": "API prête en 72h",
+  "popup.feature.support.title": "Support dédié",
+  "popup.feature.support.description": "Équipe technique 24/7",
+  "popup.stats.partners": "Partenaires",
+  "popup.stats.availability": "Disponibilité",
+  "popup.stats.countries": "Pays africains en activité",
+
   footer: {
     description:
       "Agrégateur de paiement agréé par la Banque Centrale du Congo.",

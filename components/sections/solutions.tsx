@@ -177,7 +177,7 @@ export default function Solutions() {
                 </p>
               </div>
 
-              <div className="relative h-[150px] sm:h-[350px] w-full bg-muted/30">
+              <div className="relative h-[200px] sm:h-[350px] w-full bg-muted/30">
                 <Image
                   src={`/images/${getActiveSolution().id}.jpg`}
                   alt={t(`${getActiveSolution().translationKey}.title`)}

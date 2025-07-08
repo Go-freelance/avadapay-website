@@ -137,7 +137,8 @@ export default {
   // Partners Section
   "partners.title": "They Trust Us",
   "partners.subtitle": "Trusted by industry leaders",
-  "partners.description": "Already adopted by key digital players in the DRC, they use Avadapay on a daily basis to make their financial flows more reliable.",
+  "partners.description":
+    "Already adopted by key digital players in the DRC, they use Avadapay on a daily basis to make their financial flows more reliable.",
   "partners.becomePartner": "Become a partner",
 
   // Testimonials Section
@@ -184,6 +185,24 @@ export default {
   "validation.email.invalid": "Please enter a valid email address",
   "validation.message.required": "Message is required",
   "validation.message.min": "Message must contain at least 10 characters",
+
+  // Popup
+  "popup.title": "Need help with your payments?",
+  "popup.message":
+    "Our team of experts is here to support you in all your payment projects. Contact us for a free consultation and discover how AvadaPay can revolutionize your business.",
+  "popup.ctaText": "Contact our team",
+  "popup.dismissText": "Later",
+  "popup.permanentDismissText": "Don't show again",
+  "popup.subtitle": "Secure payment solution",
+  "popup.badge.mobile": "BCC Approved",
+  "popup.badge.desktop": "Approved by the Central Bank of Congo",
+  "popup.feature.integration.title": "Fast integration",
+  "popup.feature.integration.description": "API ready in 72h",
+  "popup.feature.support.title": "Dedicated support",
+  "popup.feature.support.description": "24/7 technical team",
+  "popup.stats.partners": "Partners",
+  "popup.stats.availability": "Availability",
+  "popup.stats.countries": "African countries in activity",
 
   "solutions.items.online-payment.features.0":
     "Simple and fast API integration",

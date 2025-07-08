@@ -216,16 +216,16 @@ export default function Solutions() {
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.5 }}
           viewport={{ once: true }}
-          className="mt-16 sm:mt-20 bg-gradient-to-r from-primary/90 to-primary/70 rounded-2xl p-6 sm:p-8 md:p-12 text-white text-center"
+          className="mt-16 sm:mt-20 bg-gradient-to-r from-primary to-primary/80 rounded-2xl p-6 sm:p-8 md:p-12 text-white text-center shadow-2xl border border-primary/20"
         >
-          <h3 className="text-xl sm:text-2xl md:text-3xl font-extrabold mb-4">
+          <h3 className="text-xl sm:text-2xl md:text-3xl font-extrabold mb-4 text-white">
             {t("solutions.cta.title")}
           </h3>
-          <p className="text-sm sm:text-base text-white/90 max-w-2xl mx-auto mb-6 sm:mb-8 px-4 sm:px-0">
+          <p className="text-sm sm:text-base text-white/90 max-w-2xl mx-auto mb-6 sm:mb-8 px-4 sm:px-0 leading-relaxed">
             {t("solutions.cta.description")}
           </p>
           <Link href="#contact">
-            <Button className="bg-white text-primary font-bold hover:bg-white/90 group">
+            <Button className="bg-white text-primary font-bold hover:bg-white/95 hover:shadow-xl group px-6 sm:px-8 py-4 sm:py-5 h-auto text-base sm:text-lg rounded-xl transition-all duration-300 transform hover:scale-105 shadow-lg">
               {t("solutions.cta.button")}
               <FaArrowRight className="ml-2 h-4 w-4 transition-transform group-hover:translate-x-1" />
             </Button>

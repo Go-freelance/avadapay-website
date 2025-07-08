@@ -11,9 +11,6 @@ const partners = [
   { name: "Somba Mart", logo: "images/sosmart.png" },
   { name: "Nakelasi", logo: "images/nakelasi.png" },
   { name: "Monetbil", logo: "/images/monetbil.png" },
-  // { name: "1xBet", logo: "/images/1xbet.png" },
-  // { name: "Melbet", logo: "/images/melbet.png" },
-  // { name: "Betika", logo: "/images/betika.png" },
   { name: "Ligdicash", logo: "/images/ligdicash.png" },
   { name: "Fyatu", logo: "/images/fyatu.png" },
   { name: "KoboPay", logo: "/images/kobopay.png" },
@@ -60,26 +57,25 @@ export default function Partners() {
           className="flex justify-center"
         >
           <div className="bg-white rounded-2xl shadow-lg px-4 py-6 sm:px-8 sm:py-8 w-full max-w-4xl">
-            <div className="flex flex-wrap justify-center items-center gap-6 sm:gap-8">
+            <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-4 xl:grid-cols-4 gap-4 sm:gap-6 md:gap-8 place-items-center">
               {partners.map((partner, index) => (
-          <motion.div
-            key={index}
-            initial={{ opacity: 0, scale: 0.9 }}
-            whileInView={{ opacity: 1, scale: 1 }}
-            transition={{ duration: 0.4, delay: 0.1 * index }}
-            viewport={{ once: true }}
-            className="flex items-center justify-center"
-            style={{ minWidth: 80, minHeight: 60 }}
-          >
-            <Image
-              src={partner.logo}
-              alt={partner.name}
-              width={180}
-              height={90}
-              className="max-h-20 sm:max-h-20 object-contain opacity-80 hover:opacity-100 transition-opacity duration-300"
-              priority={index < 4}
-            />
-          </motion.div>
+                <motion.div
+                  key={index}
+                  initial={{ opacity: 0, scale: 0.9 }}
+                  whileInView={{ opacity: 1, scale: 1 }}
+                  transition={{ duration: 0.4, delay: 0.1 * index }}
+                  viewport={{ once: true }}
+                  className="flex items-center justify-center w-full h-16 sm:h-20"
+                >
+                  <Image
+                    src={partner.logo}
+                    alt={partner.name}
+                    width={120}
+                    height={60}
+                    className="max-h-12 sm:max-h-16 md:max-h-20 w-auto object-contain opacity-80 hover:opacity-100 transition-opacity duration-300"
+                    priority={index < 4}
+                  />
+                </motion.div>
               ))}
             </div>
           </div>

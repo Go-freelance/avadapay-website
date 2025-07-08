@@ -168,7 +168,7 @@ export default function Header() {
           <LanguageSwitcher />
 
           <Link href="#contact" className="hidden md:block">
-            <Button className="btn-avada rounded-full px-6 py-2 shadow-lg font-bold text-white transition-all duration-300 hover:scale-105 whitespace-nowrap">
+            <Button className="btn-avada rounded-full px-6 py-3 shadow-lg font-bold text-white transition-all duration-300 hover:scale-105 hover:shadow-xl whitespace-nowrap border border-primary/20">
               {t("nav.contactButton" as NavigationKey)}
             </Button>
           </Link>
@@ -176,7 +176,7 @@ export default function Header() {
           {/* Mobile Menu Button */}
           <Button
             variant="ghost"
-            className="md:hidden p-2 rounded-full hover:bg-gray-100 transition-all"
+            className="md:hidden p-2 rounded-full hover:bg-gray-100/80 hover:shadow-md transition-all duration-300 hover:scale-105 border border-gray-200/50"
             onClick={() => setIsOpen(true)}
             aria-label="Open menu"
           >
@@ -201,7 +201,7 @@ export default function Header() {
                 <Button
                   variant="ghost"
                   size="icon"
-                  className="rounded-full hover:bg-gray-100"
+                  className="rounded-full hover:bg-gray-100/80 hover:shadow-md transition-all duration-300 hover:scale-105 border border-gray-200/50"
                   onClick={() => setIsOpen(false)}
                 >
                   <X className="h-6 w-6 text-primary" />
@@ -235,7 +235,7 @@ export default function Header() {
                 <div className="w-full">
                   <Button
                     variant="ghost"
-                    className="w-full text-xl font-semibold py-3 rounded-lg text-gray-700 hover:text-primary hover:bg-gray-50 flex items-center justify-center gap-2"
+                    className="w-full text-xl font-semibold py-3 rounded-lg text-gray-700 hover:text-primary hover:bg-gray-50/80 hover:shadow-md transition-all duration-300 flex items-center justify-center gap-2"
                     onClick={() => setDevelopersOpen(!developersOpen)}
                     style={{
                       animationDelay: `${navigationLinks.length * 0.1}s`,
@@ -285,7 +285,7 @@ export default function Header() {
 
                 <Link
                   href="#contact"
-                  className="mt-6 w-full btn-avada text-center py-4 rounded-lg text-white font-bold whitespace-nowrap"
+                  className="mt-6 w-full btn-avada text-center py-4 rounded-lg text-white font-bold whitespace-nowrap shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-105 border border-primary/20"
                   onClick={() => setIsOpen(false)}
                   style={{
                     animation: "fadeInUp 0.5s 0.4s ease forwards",

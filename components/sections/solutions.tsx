@@ -30,7 +30,7 @@ export default function Solutions() {
   };
 
   return (
-    <section id="solutions" className="py-16 sm:py-20 md:py-24 overflow-hidden">
+    <section id="solutions" className="py-14 sm:py-20 md:py-24 overflow-hidden">
       <div className="absolute inset-0 -z-10 h-full w-full bg-white">
         <div className="absolute bottom-0 left-0 right-0 top-0 bg-[linear-gradient(to_right,#4f4f4f2e_1px,transparent_1px),linear-gradient(to_bottom,#4f4f4f2e_1px,transparent_1px)] bg-[size:14px_24px]"></div>
       </div>
@@ -41,7 +41,7 @@ export default function Solutions() {
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5, delay: 0.1 }}
             viewport={{ once: true }}
-            className="section-title-wrapper text-4xl md:text-5xl font-extrabold text-dark break-words"
+            className="section-title-wrapper text-3xl sm:text-4xl md:text-5xl font-extrabold text-dark break-words"
           >
             {t("solutions.title")}{" "}
             <span className="gradient-text">{t("solutions.title2")}</span> ?
@@ -57,9 +57,9 @@ export default function Solutions() {
           </motion.p>
         </div>
 
-        <div className="flex flex-col lg:flex-row gap-8 mb-16">
+        <div className="flex flex-col lg:flex-row gap-6 lg:gap-8 mb-14 sm:mb-16">
           <div className="lg:w-1/3">
-            <div className="sticky top-24 space-y-2 flex flex-col">
+            <div className="lg:sticky lg:top-24 space-y-2 flex flex-col">
               {solutionsData.map((solution: Solution, index: number) => (
                 <motion.button
                   key={solution.id}
@@ -69,7 +69,7 @@ export default function Solutions() {
                   viewport={{ once: true }}
                   onClick={() => setActiveSolution(solution.id)}
                   className={cn(
-                    "w-full text-left p-4 sm:p-5 rounded-lg transition-all duration-300 flex items-center gap-4 group",
+                    "w-full text-left p-4 sm:p-5 rounded-lg transition-all duration-300 flex items-center gap-3 sm:gap-4 group",
                     activeSolution === solution.id
                       ? "bg-primary text-white shadow-lg shadow-primary/20"
                       : "hover:bg-primary/5"
@@ -165,7 +165,7 @@ export default function Solutions() {
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.5 }}
-              className="bg-card rounded-2xl shadow-xl border border-border overflow-hidden"
+              className="bg-card rounded-2xl shadow-lg border border-border overflow-hidden"
             >
               {/* En-tête avec dégradé */}
               <div className="bg-gradient-to-r from-primary/90 to-primary/70 p-6 sm:p-8 text-white">
@@ -177,13 +177,13 @@ export default function Solutions() {
                 </p>
               </div>
 
-              <div className="relative h-[200px] sm:h-[350px] w-full bg-muted/30">
+              <div className="relative h-[220px] sm:h-[350px] w-full bg-muted/30">
                 <Image
                   src={`/images/${getActiveSolution().id}.jpg`}
                   alt={t(`${getActiveSolution().translationKey}.title`)}
-                  className="object-cover max-h-[350px] w-full"
-                  width={800}
-                  height={700}
+                  className="object-cover"
+                  fill
+                  sizes="(max-width: 1024px) 100vw, 66vw"
                 />
               </div>
 
@@ -196,7 +196,7 @@ export default function Solutions() {
                         key={idx}
                         className="flex items-start p-4 rounded-lg bg-muted/30 border border-border hover:border-primary/30 transition-colors"
                       >
-                        <div className="h-6 w-6 rounded-full bg-primary/10 flex items-center justify-center mr-3 mt-0.5">
+                        <div className="h-6 w-6 rounded-full bg-primary/10 flex items-center justify-center mr-3 mt-0.5 flex-shrink-0">
                           <span className="text-primary text-sm">✓</span>
                         </div>
                         <span className="text-sm sm:text-base">

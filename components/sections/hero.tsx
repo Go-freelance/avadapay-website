@@ -1,6 +1,5 @@
 "use client";
 
-import { useEffect, useState } from "react";
 import Image from "next/image";
 import Link from "next/link";
 import { Button } from "@/components/ui/button";
@@ -9,19 +8,10 @@ import { ChevronRight } from "lucide-react";
 import { useI18n } from "@/locales/client";
 
 export default function Hero() {
-  const [scrollY, setScrollY] = useState(0);
   const t = useI18n();
 
-  useEffect(() => {
-    const handleScroll = () => {
-      setScrollY(window.scrollY);
-    };
-    window.addEventListener("scroll", handleScroll);
-    return () => window.removeEventListener("scroll", handleScroll);
-  }, []);
-
   return (
-    <section className="relative lg:h-[100vh] h-[70vh] w-full overflow-hidden">
+    <section className="relative min-h-[620px] sm:min-h-[680px] lg:min-h-screen w-full overflow-hidden">
       {/* Image de fond avec overlay */}
       <div className="absolute inset-0 z-0">
         <div className="relative w-full h-full">
@@ -46,7 +36,7 @@ export default function Hero() {
 
       {/* Contenu principal */}
       <div className="relative z-10 h-full flex items-center">
-        <div className="container mt-16 sm:mt-20 px-4 sm:px-6 lg:px-8">
+        <div className="container mt-36 sm:mt-26 px-4 sm:px-6 lg:px-8">
           <div className="max-w-4xl mx-auto text-center">
             <motion.div
               initial={{ opacity: 0, y: 20 }}
@@ -88,7 +78,7 @@ export default function Hero() {
               >
                 <Button
                   size="lg"
-                  className="bg-primary hover:bg-primary/90 text-white px-6 sm:px-8 py-4 sm:py-5 h-auto text-base sm:text-lg font-bold w-full sm:w-auto rounded-xl shadow-lg hover:shadow-xl transition-all duration-300 transform hover:scale-105"
+                  className="bg-primary hover:bg-primary/90 text-white px-6 sm:px-8 py-4 sm:py-5 h-auto text-base sm:text-lg font-bold w-full sm:w-auto rounded-xl shadow-lg hover:shadow-xl transition-all duration-300"
                 >
                   {t("hero.cta")}
                   <ChevronRight className="ml-2 h-4 w-4 sm:h-5 sm:w-5 transition-transform group-hover:translate-x-1" />
@@ -101,7 +91,7 @@ export default function Hero() {
                 <Button
                   size="lg"
                   variant="outline"
-                  className="border-2 border-white text-primary hover:bg-white hover:text-primary px-6 sm:px-8 py-4 sm:py-5 h-auto text-base sm:text-lg font-bold backdrop-blur-sm w-full sm:w-auto rounded-xl shadow-lg hover:shadow-xl transition-all duration-300 transform hover:scale-105"
+                  className="border-2 border-white text-primary hover:bg-white hover:text-primary px-6 sm:px-8 py-4 sm:py-5 h-auto text-base sm:text-lg font-bold backdrop-blur-sm w-full sm:w-auto rounded-xl shadow-lg hover:shadow-xl transition-all duration-300"
                 >
                   {t("hero.contact")}
                 </Button>

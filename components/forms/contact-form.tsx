@@ -22,7 +22,7 @@ export function ContactForm() {
 
   const contactFormSchema = z.object({
     name: z.string().trim().min(2, t("validation.name.min")),
-    email: z.string().trim().email(t("validation.email.invalid")),
+    email: z.email(t("validation.email.invalid")),
     phone: z
       .string()
       .trim()

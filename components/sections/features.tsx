@@ -84,14 +84,14 @@ export default function Features() {
   return (
     <section
       id="features"
-      className="py-20 sm:py-24 md:py-32 bg-white relative overflow-hidden features-background"
+      className="py-16 sm:py-24 md:py-32 bg-white relative overflow-hidden features-background"
     >
       {/* Background decorative elements */}
-      <div className="absolute top-0 right-0 w-64 h-64 bg-gradient-to-br from-primary/5 to-primary/10 rounded-full blur-3xl -z-10 transform translate-x-1/2 -translate-y-1/2"></div>
-      <div className="absolute bottom-0 left-0 w-96 h-96 bg-gradient-to-tr from-primary/5 to-primary/10 rounded-full blur-3xl -z-10 transform -translate-x-1/2 translate-y-1/2"></div>
+      <div className="hidden md:block absolute top-0 right-0 w-64 h-64 bg-gradient-to-br from-primary/5 to-primary/10 rounded-full blur-3xl -z-10 transform translate-x-1/2 -translate-y-1/2"></div>
+      <div className="hidden md:block absolute bottom-0 left-0 w-96 h-96 bg-gradient-to-tr from-primary/5 to-primary/10 rounded-full blur-3xl -z-10 transform -translate-x-1/2 translate-y-1/2"></div>
 
       <div className="container relative z-10">
-        <div className="text-center mb-16 md:mb-20">
+        <div className="text-center mb-10 sm:mb-16 md:mb-20">
           <motion.div
             initial="hidden"
             animate="visible"
@@ -126,7 +126,7 @@ export default function Features() {
             <motion.div
               key={index}
               variants={itemVariants}
-              className="feature-card bg-white rounded-xl p-6 md:p-8 shadow-lg hover:shadow-xl border border-gray-100 relative overflow-hidden group"
+              className="feature-card bg-white rounded-xl p-5 sm:p-6 md:p-8 shadow-lg hover:shadow-xl border border-gray-100 relative overflow-hidden group"
               whileHover={{ y: -8, transition: { duration: 0.3 } }}
             >
               {/* Decorative corner accent */}

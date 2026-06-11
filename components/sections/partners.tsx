@@ -1,15 +1,14 @@
 "use client";
 
-import { useEffect, useState } from "react";
 import Image from "next/image";
 import { motion } from "framer-motion";
 import { useI18n } from "@/locales/client";
 
 const partners = [
-  { name: "MEAG", logo: "images/meag.png" },
-  { name: "SFA", logo: "images/sfa.png" },
-  { name: "Somba Mart", logo: "images/sosmart.png" },
-  { name: "Nakelasi", logo: "images/nakelasi.png" },
+  { name: "MEAG", logo: "/images/meag.png" },
+  { name: "SFA", logo: "/images/sfa.png" },
+  { name: "Somba Mart", logo: "/images/sosmart.png" },
+  { name: "Nakelasi", logo: "/images/nakelasi.png" },
   { name: "Monetbil", logo: "/images/monetbil.png" },
   { name: "Ligdicash", logo: "/images/ligdicash.png" },
   { name: "Fyatu", logo: "/images/fyatu.png" },
@@ -17,14 +16,7 @@ const partners = [
 ];
 
 export default function Partners() {
-  const [mounted, setMounted] = useState(false);
   const t = useI18n();
-
-  useEffect(() => {
-    setMounted(true);
-  }, []);
-
-  if (!mounted) return null;
 
   return (
     <section
@@ -72,8 +64,8 @@ export default function Partners() {
                     alt={partner.name}
                     width={120}
                     height={60}
+                    sizes="(max-width: 640px) 45vw, (max-width: 1024px) 25vw, 120px"
                     className="max-h-12 sm:max-h-16 md:max-h-20 w-auto object-contain opacity-80 hover:opacity-100 transition-opacity duration-300"
-                    priority={index < 4}
                   />
                 </motion.div>
               ))}

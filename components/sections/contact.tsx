@@ -14,11 +14,11 @@ export default function Contact() {
   return (
     <section
       id="contact"
-      className="py-24 bg-muted/50 relative overflow-hidden section-with-graphic graphic-top-right graphic-bottom-left"
+      className="py-14 sm:py-20 md:py-24 bg-muted/50 relative overflow-hidden section-with-graphic graphic-top-right graphic-bottom-left"
     >
       {/* Modern background elements */}
-      <div className="absolute top-0 right-0 w-96 h-96 bg-primary/5 rounded-full blur-3xl -translate-y-1/2 translate-x-1/2"></div>
-      <div className="absolute bottom-0 left-0 w-80 h-80 bg-primary/5 rounded-full blur-3xl translate-y-1/2 -translate-x-1/2"></div>
+      <div className="hidden md:block absolute top-0 right-0 w-96 h-96 bg-primary/5 rounded-full blur-3xl -translate-y-1/2 translate-x-1/2"></div>
+      <div className="hidden md:block absolute bottom-0 left-0 w-80 h-80 bg-primary/5 rounded-full blur-3xl translate-y-1/2 -translate-x-1/2"></div>
 
       <div className="container relative z-10">
         <motion.div
@@ -26,7 +26,7 @@ export default function Contact() {
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.5 }}
           viewport={{ once: true }}
-          className="text-center mb-16"
+          className="text-center mb-10 sm:mb-16"
         >
           <h2 className="text-3xl font-extrabold mb-4 text-foreground break-words">
             {t("contact.title")}{" "}
@@ -38,7 +38,7 @@ export default function Contact() {
           </p>
         </motion.div>
 
-        <div className="grid lg:grid-cols-3 gap-12">
+        <div className="grid lg:grid-cols-3 gap-8 lg:gap-12">
           <motion.div
             initial={{ opacity: 0, x: -20 }}
             whileInView={{ opacity: 1, x: 0 }}
@@ -46,7 +46,7 @@ export default function Contact() {
             viewport={{ once: true }}
             className="lg:col-span-2"
           >
-            <div className="bg-card shadow-lg rounded-xl border border-border p-8 relative overflow-hidden">
+            <div className="bg-card shadow-lg rounded-xl border border-border p-5 sm:p-8 relative overflow-hidden">
               <div className="relative z-10">
                 <ContactForm />
               </div>
@@ -60,7 +60,7 @@ export default function Contact() {
             viewport={{ once: true }}
             className="space-y-8"
           >
-            <div className="bg-card shadow-lg rounded-xl border border-border p-8">
+            <div className="bg-card shadow-lg rounded-xl border border-border p-5 sm:p-8">
               <h3 className="text-xl font-bold mb-6 text-foreground break-words">
                 {t("contact.info.title")}
               </h3>

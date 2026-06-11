@@ -25,10 +25,11 @@ export default async function RootLayout({
   params,
 }: {
   children: React.ReactNode;
-  params: { locale: string };
+  params: Promise<{ locale: string }>;
 }) {
+  const { locale: rawLocale } = await params;
   const t = await getI18n();
-  const locale = params.locale || "en";
+  const locale = rawLocale || "en";
 
   return (
     <html lang={locale} className={`${mulish.variable} scroll-smooth`}>

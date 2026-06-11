@@ -59,11 +59,11 @@ export default function Benefits() {
   return (
     <section
       id="benefits"
-      className="py-16 md:py-24 lg:py-32 bg-gradient-to-br from-gray-50 via-white to-gray-50 relative overflow-hidden"
+      className="py-14 sm:py-16 md:py-24 lg:py-32 bg-gradient-to-br from-gray-50 via-white to-gray-50 relative overflow-hidden"
     >
       {/* Modern background elements */}
-      <div className="absolute top-0 right-0 w-96 h-96 bg-primary/5 rounded-full blur-3xl -translate-y-1/2 translate-x-1/2"></div>
-      <div className="absolute bottom-0 left-0 w-80 h-80 bg-primary/5 rounded-full blur-3xl translate-y-1/2 -translate-x-1/2"></div>
+      <div className="hidden md:block absolute top-0 right-0 w-96 h-96 bg-primary/5 rounded-full blur-3xl -translate-y-1/2 translate-x-1/2"></div>
+      <div className="hidden md:block absolute bottom-0 left-0 w-80 h-80 bg-primary/5 rounded-full blur-3xl translate-y-1/2 -translate-x-1/2"></div>
 
       <div className="container relative z-10">
         {/* Header Section */}
@@ -72,7 +72,7 @@ export default function Benefits() {
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6, ease: [0.22, 1, 0.36, 1] }}
           viewport={{ once: true, margin: "-100px" }}
-          className="text-center mb-16 md:mb-20"
+          className="text-center mb-10 sm:mb-16 md:mb-20"
         >
           <h2 className="text-3xl md:text-4xl lg:text-5xl font-extrabold text-gray-900 max-w-4xl mx-auto leading-tight mb-6">
             {t("benefits.title")}{" "}
@@ -82,7 +82,7 @@ export default function Benefits() {
         </motion.div>
 
         {/* Main Content Grid */}
-        <div className="grid lg:grid-cols-2 gap-12 lg:gap-20 items-start mb-20">
+        <div className="grid lg:grid-cols-2 gap-10 lg:gap-20 items-start mb-14 sm:mb-20">
           {/* Image Section */}
           <motion.div
             initial={{ opacity: 0, x: -30 }}
@@ -93,12 +93,13 @@ export default function Benefits() {
           >
             <div className="relative group">
               {/* Main image container */}
-              <div className="relative rounded-2xl overflow-hidden shadow-2xl bg-white p-2">
+              <div className="relative rounded-2xl overflow-hidden shadow-lg bg-white p-2">
                 <Image
                   src="/images/marchand.jpg"
                   alt={t("benefits.optimize.title")}
                   width={600}
                   height={400}
+                  sizes="(max-width: 1024px) 100vw, 50vw"
                   className="object-cover w-full h-[300px] md:h-[400px] rounded-xl"
                 />
 
@@ -161,7 +162,7 @@ export default function Benefits() {
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6, delay: 0.3 }}
           viewport={{ once: true }}
-          className="bg-white rounded-2xl p-8 md:p-12 shadow-lg border border-gray-100"
+          className="bg-white rounded-2xl p-5 sm:p-8 md:p-12 shadow-lg border border-gray-100"
         >
           <div className="text-center mb-10">
             <h3 className="text-xl md:text-2xl font-bold text-gray-900 mb-2">
@@ -183,6 +184,7 @@ export default function Benefits() {
                   alt={partner.name}
                   width={80}
                   height={40}
+                  sizes="(max-width: 768px) 45vw, (max-width: 1024px) 33vw, 80px"
                   className="h-12 w-auto object-contain"
                 />
               </motion.div>

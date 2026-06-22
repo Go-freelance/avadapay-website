@@ -3,6 +3,7 @@ export default {
   "nav.solutions": "Solutions",
   "nav.features": "Fonctionnalités",
   "nav.benefits": "Avantages",
+  "nav.team": "Qui sommes-nous",
   "nav.contact": "Contact",
   "nav.contactButton": "Nous contacter",
   "nav.developers": "Développeurs",
@@ -206,6 +207,56 @@ export default {
   "popup.stats.partners": "Partenaires",
   "popup.stats.availability": "Disponibilité",
   "popup.stats.countries": "Pays africains en activité",
+
+  // About Page
+  "team.hero.eyebrow": "Qui sommes-nous",
+  "team.hero.title":
+    "AvadaPay construit des solutions de paiement pensées pour le marché congolais.",
+  "team.hero.description":
+    "Depuis 2018, nous accompagnons les entreprises avec des services digitaux qui rendent les transactions plus simples, plus traçables et plus fiables.",
+  "team.signature.label": "Notre manière de travailler",
+  "team.signature.title": "Proche des marchands, rigoureux sur les flux.",
+  "team.signature.description":
+    "Nous combinons accompagnement local, supervision des transactions et amélioration continue de la plateforme.",
+  "team.stats.founded": "Présence en RDC",
+  "team.stats.monitoring": "Suivi des opérations",
+  "team.stats.licensed": "Agréé Banque Centrale du Congo",
+  "team.members.eyebrow": "Membres",
+  "team.members.title": "Notre équipe",
+  "team.members.grace.role": "Direction générale",
+  "team.members.david.role": "Produit & intégrations",
+  "team.members.nadine.role": "Conformité",
+  "team.members.jonathan.role": "Opérations",
+  "team.members.sarah.role": "Relation marchands",
+  "team.members.patrick.role": "Support technique",
+  "team.pillars.eyebrow": "Nos pôles",
+  "team.pillars.title": "Les expertises qui portent AvadaPay",
+  "team.pillars.compliance.title": "Conformité",
+  "team.pillars.compliance.description":
+    "Un cadre de travail aligné avec les exigences du secteur financier et les standards attendus des partenaires.",
+  "team.pillars.product.title": "Produit & technologie",
+  "team.pillars.product.description":
+    "Des APIs, interfaces et intégrations pensées pour faciliter les paiements en ligne, le bulk payment et la messagerie.",
+  "team.pillars.operations.title": "Opérations",
+  "team.pillars.operations.description":
+    "Une attention continue sur la disponibilité, le suivi des transactions et la qualité d'exécution.",
+  "team.pillars.support.title": "Accompagnement",
+  "team.pillars.support.description":
+    "Une équipe proche des marchands pour cadrer les besoins, faciliter l'intégration et répondre aux demandes clés.",
+  "team.values.eyebrow": "Culture",
+  "team.values.title": "Ce que l'équipe protège au quotidien",
+  "team.values.description":
+    "Notre rôle est de rendre les paiements plus simples sans perdre l'exigence de sécurité, de clarté et de proximité.",
+  "team.values.reliability": "Fiabilité des flux avant tout.",
+  "team.values.clarity":
+    "Des échanges simples avec les marchands et partenaires.",
+  "team.values.proximity":
+    "Une compréhension concrète du marché congolais.",
+  "team.cta.title":
+    "Travaillons avec une équipe qui comprend vos flux.",
+  "team.cta.description":
+    "Présentez-nous votre besoin de paiement, de décaissement ou de communication et nous vous orienterons vers la solution adaptée.",
+  "team.cta.button": "Contacter l'équipe",
 
   footer: {
     description:

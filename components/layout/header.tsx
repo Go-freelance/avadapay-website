@@ -17,6 +17,7 @@ import {
 } from "@/components/ui/dropdown-menu";
 import { cn } from "@/lib/utils";
 import { usePathname } from "next/navigation";
+import { useCurrentLocale } from "@/locales/client";
 import {
   navigationLinks,
   developerLinks,
@@ -27,6 +28,7 @@ import ReactDOM from "react-dom";
 type NavigationKey =
   | "nav.solutions"
   | "nav.benefits"
+  | "nav.team"
   | "nav.contact"
   | "nav.contactButton"
   | "nav.developers";
@@ -39,7 +41,12 @@ export default function Header() {
   const scrolledRef = useRef(false);
   const [developersOpen, setDevelopersOpen] = useState(false);
   const t = useI18n();
+  const locale = useCurrentLocale();
   const pathname = usePathname();
+  const normalizedPath = pathname.replace(/^\/(fr|en)/, "") || "/";
+  const getLocalizedHref = (href: string) =>
+    href.startsWith("#") ? `/${locale}${href}` : `/${locale}${href}`;
+  const contactHref = `/${locale}#contact`;
 
   // Effet pour gérer le scroll du header
   useEffect(() => {
@@ -80,7 +87,7 @@ export default function Header() {
       <div className="container h-full flex items-center justify-between relative">
         {/* Logo */}
         <Link
-          href="/"
+          href={`/${locale}`}
           className="flex items-center gap-2 flex-shrink-0 transition-transform duration-300"
         >
           <Image
@@ -102,10 +109,10 @@ export default function Header() {
             {navigationLinks.map((link) => (
               <Link
                 key={link.href}
-                href={link.href}
+                href={getLocalizedHref(link.href)}
                 className={cn(
                   "relative px-4 py-2 text-base font-bold rounded-full transition-all duration-300 whitespace-nowrap",
-                  pathname === link.href
+                  link.href.startsWith("/") && normalizedPath === link.href
                     ? "text-white bg-primary shadow-md"
                     : "text-gray-700 hover:text-primary hover:bg-gray-100/80"
                 )}
@@ -176,7 +183,7 @@ export default function Header() {
         <div className="flex items-center gap-2 sm:gap-4 flex-shrink-0">
           <LanguageSwitcher />
 
-          <Link href="#contact" className="hidden md:block">
+          <Link href={contactHref} className="hidden md:block">
             <Button className="btn-avada rounded-full px-6 py-3 shadow-lg font-bold text-white transition-all duration-300 hover:scale-105 hover:shadow-xl whitespace-nowrap border border-primary/20">
               {t("nav.contactButton" as NavigationKey)}
             </Button>
@@ -223,10 +230,10 @@ export default function Header() {
                 {navigationLinks.map((link, index) => (
                   <Link
                     key={link.href}
-                    href={link.href}
+                    href={getLocalizedHref(link.href)}
                     className={cn(
                       "text-xl font-semibold w-full text-center py-3 rounded-lg transition-all duration-300 whitespace-nowrap",
-                      pathname === link.href
+                      link.href.startsWith("/") && normalizedPath === link.href
                         ? "text-white bg-primary"
                         : "text-gray-700 hover:text-primary hover:bg-gray-50"
                     )}
@@ -293,7 +300,7 @@ export default function Header() {
                 </div>
 
                 <Link
-                  href="#contact"
+                  href={contactHref}
                   className="mt-6 w-full btn-avada text-center py-4 rounded-lg text-white font-bold whitespace-nowrap shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-105 border border-primary/20"
                   onClick={() => setIsOpen(false)}
                   style={{

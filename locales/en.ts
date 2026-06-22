@@ -3,6 +3,7 @@ export default {
   "nav.solutions": "Solutions",
   "nav.features": "Features",
   "nav.benefits": "Benefits",
+  "nav.team": "About us",
   "nav.partners": "Partners",
   "nav.contact": "Contact",
   "nav.contactButton": "Contact Us",
@@ -203,6 +204,57 @@ export default {
   "popup.stats.partners": "Partners",
   "popup.stats.availability": "Availability",
   "popup.stats.countries": "African countries in activity",
+
+  // About Page
+  "team.hero.eyebrow": "About us",
+  "team.hero.title":
+    "AvadaPay builds payment solutions designed for the Congolese market.",
+  "team.hero.description":
+    "Since 2018, we have supported businesses with digital services that make transactions simpler, more traceable, and more reliable.",
+  "team.signature.label": "How we work",
+  "team.signature.title":
+    "Close to merchants, rigorous on payment flows.",
+  "team.signature.description":
+    "We combine local support, transaction supervision, and continuous platform improvement.",
+  "team.stats.founded": "Presence in the DRC",
+  "team.stats.monitoring": "Operations monitoring",
+  "team.stats.licensed": "Approved by the Central Bank of Congo",
+  "team.members.eyebrow": "Members",
+  "team.members.title": "Our team",
+  "team.members.grace.role": "General management",
+  "team.members.david.role": "Product & integrations",
+  "team.members.nadine.role": "Compliance",
+  "team.members.jonathan.role": "Operations",
+  "team.members.sarah.role": "Merchant relations",
+  "team.members.patrick.role": "Technical support",
+  "team.pillars.eyebrow": "Our teams",
+  "team.pillars.title": "The expertise behind AvadaPay",
+  "team.pillars.compliance.title": "Compliance",
+  "team.pillars.compliance.description":
+    "A working framework aligned with financial-sector requirements and partner expectations.",
+  "team.pillars.product.title": "Product & technology",
+  "team.pillars.product.description":
+    "APIs, interfaces, and integrations designed for online payments, bulk payment, and messaging.",
+  "team.pillars.operations.title": "Operations",
+  "team.pillars.operations.description":
+    "Continuous attention to availability, transaction monitoring, and execution quality.",
+  "team.pillars.support.title": "Support",
+  "team.pillars.support.description":
+    "A merchant-focused team to clarify needs, ease integration, and answer key requests.",
+  "team.values.eyebrow": "Culture",
+  "team.values.title": "What the team protects every day",
+  "team.values.description":
+    "Our role is to make payments simpler without lowering expectations for security, clarity, and proximity.",
+  "team.values.reliability": "Payment-flow reliability comes first.",
+  "team.values.clarity":
+    "Simple conversations with merchants and partners.",
+  "team.values.proximity":
+    "A practical understanding of the Congolese market.",
+  "team.cta.title":
+    "Work with a team that understands your flows.",
+  "team.cta.description":
+    "Tell us about your payment, payout, or communication need and we will guide you to the right solution.",
+  "team.cta.button": "Contact the team",
 
   "solutions.items.online-payment.features.0":
     "Simple and fast API integration",

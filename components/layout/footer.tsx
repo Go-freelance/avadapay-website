@@ -5,13 +5,16 @@ import Link from "next/link";
 import { contactInfo } from "@/data/contact";
 import { navigationLinks, developerLinks } from "@/data/navigation";
 import { solutionsData } from "@/data/solutions";
-import { useI18n } from "@/locales/client";
+import { useCurrentLocale, useI18n } from "@/locales/client";
 import { FaCode, FaFileCode, FaExternalLinkAlt } from "react-icons/fa";
 import {FaInstagram, FaLinkedin,  FaFacebook} from "react-icons/fa6";
 
 export default function Footer() {
   const t = useI18n();
+  const locale = useCurrentLocale();
   const iconMap = { FaCode, FaFileCode };
+  const getLocalizedHref = (href: string) =>
+    href.startsWith("#") ? `/${locale}${href}` : `/${locale}${href}`;
 
   return (
     <footer className="bg-gray-900 text-white py-16 overflow-hidden relative">
@@ -39,7 +42,7 @@ export default function Footer() {
               {navigationLinks.map((link) => (
                 <li key={link.href} className="break-words">
                   <Link
-                    href={link.href}
+                    href={getLocalizedHref(link.href)}
                     className="text-gray-400 hover:text-avada-500 transition-colors"
                   >
                     {t(link.translationKey as any, {})}

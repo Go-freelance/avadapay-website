@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from "react";
+import { useCallback, useEffect, useState } from "react";
 import Image from "next/image";
 import Link from "next/link";
 import { motion } from "framer-motion";
@@ -22,6 +22,54 @@ export default function Solutions() {
   const [activeSolution, setActiveSolution] = useState(solutionsData[0].id);
   const t = useI18n();
 
+  const activateSolution = useCallback((solutionId: string | null) => {
+    if (
+      solutionId &&
+      solutionsData.some((solution) => solution.id === solutionId)
+    ) {
+      setActiveSolution(solutionId);
+    }
+  }, []);
+
+  const handleSolutionSelect = (solutionId: string) => {
+    setActiveSolution(solutionId);
+
+    if (typeof window === "undefined") return;
+
+    const url = new URL(window.location.href);
+    url.searchParams.set("solution", solutionId);
+    url.hash = "solutions";
+    window.history.replaceState(null, "", url);
+  };
+
+  useEffect(() => {
+    if (typeof window === "undefined") return;
+
+    const syncSolutionFromUrl = () => {
+      const params = new URLSearchParams(window.location.search);
+      activateSolution(params.get("solution"));
+    };
+
+    const handleSolutionChange = (event: Event) => {
+      const solutionId = (event as CustomEvent<{ solutionId?: string }>).detail
+        ?.solutionId;
+      if (!solutionId) return;
+      activateSolution(solutionId);
+    };
+
+    syncSolutionFromUrl();
+    window.addEventListener("popstate", syncSolutionFromUrl);
+    window.addEventListener("avadapay:solution-change", handleSolutionChange);
+
+    return () => {
+      window.removeEventListener("popstate", syncSolutionFromUrl);
+      window.removeEventListener(
+        "avadapay:solution-change",
+        handleSolutionChange
+      );
+    };
+  }, [activateSolution]);
+
   const getActiveSolution = () => {
     return (
       solutionsData.find((solution) => solution.id === activeSolution) ||
@@ -29,8 +77,13 @@ export default function Solutions() {
     );
   };
 
+  const translate = (key: string) => t(key as any, {});
+
   return (
-    <section id="solutions" className="py-14 sm:py-20 md:py-24 overflow-hidden bg-white">
+    <section
+      id="solutions"
+      className="scroll-mt-24 py-14 sm:py-20 md:py-24 overflow-hidden bg-white"
+    >
       <div className="absolute inset-0 -z-10 h-full w-full bg-white">
         <div className="absolute bottom-0 left-0 right-0 top-0 bg-[linear-gradient(to_right,#4f4f4f2e_1px,transparent_1px),linear-gradient(to_bottom,#4f4f4f2e_1px,transparent_1px)] bg-[size:14px_24px]"></div>
       </div>
@@ -67,7 +120,7 @@ export default function Solutions() {
                   whileInView={{ opacity: 1, x: 0 }}
                   transition={{ duration: 0.3, delay: 0.1 * index }}
                   viewport={{ once: true }}
-                  onClick={() => setActiveSolution(solution.id)}
+                  onClick={() => handleSolutionSelect(solution.id)}
                   className={cn(
                     "w-full text-left p-4 sm:p-5 rounded-lg transition-all duration-300 flex items-center gap-3 sm:gap-4 group border border-transparent",
                     activeSolution === solution.id
@@ -116,7 +169,7 @@ export default function Solutions() {
                   </div>
                   <div className="min-w-0 flex-1">
                     <h3 className="font-medium text-base sm:text-lg break-words">
-                      {t(`${solution.translationKey}.title`, {})}
+                      {translate(`${solution.translationKey}.title`)}
                     </h3>
                     <p
                       className={cn(
@@ -126,7 +179,7 @@ export default function Solutions() {
                           : "text-muted-foreground"
                       )}
                     >
-                      {t(`${solution.translationKey}.shortDescription`, {})}
+                      {translate(`${solution.translationKey}.shortDescription`)}
                     </p>
                   </div>
                   <FaChevronRight
@@ -170,17 +223,19 @@ export default function Solutions() {
               {/* En-tête avec dégradé */}
               <div className="bg-gradient-to-r from-primary/90 to-primary/70 p-6 sm:p-8 text-white">
                 <h3 className="text-xl sm:text-2xl font-bold mb-2 break-words">
-                  {t(`${getActiveSolution().translationKey}.title`, {})}
+                  {translate(`${getActiveSolution().translationKey}.title`)}
                 </h3>
                 <p className="text-sm sm:text-base text-white/90 break-words">
-                  {t(`${getActiveSolution().translationKey}.description`, {})}
+                  {translate(`${getActiveSolution().translationKey}.description`)}
                 </p>
               </div>
 
               <div className="relative h-[220px] sm:h-[350px] w-full bg-muted/30">
                 <Image
                   src={`/images/${getActiveSolution().id}.jpg`}
-                  alt={t(`${getActiveSolution().translationKey}.title`)}
+                  alt={String(
+                    translate(`${getActiveSolution().translationKey}.title`)
+                  )}
                   className="object-cover"
                   fill
                   sizes="(max-width: 1024px) 100vw, 66vw"
@@ -200,7 +255,7 @@ export default function Solutions() {
                           <span className="text-primary text-sm">✓</span>
                         </div>
                         <span className="text-sm sm:text-base">
-                          {t(`${feature}`, {})}
+                          {translate(feature)}
                         </span>
                       </div>
                     ))}

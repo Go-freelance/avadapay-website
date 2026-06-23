@@ -23,6 +23,7 @@ import {
   developerLinks,
   DeveloperLink,
 } from "../../data/navigation";
+import { solutionsData } from "@/data/solutions";
 import ReactDOM from "react-dom";
 
 type NavigationKey =
@@ -40,6 +41,7 @@ export default function Header() {
   const [scrolled, setScrolled] = useState(false);
   const scrolledRef = useRef(false);
   const [developersOpen, setDevelopersOpen] = useState(false);
+  const [solutionsOpen, setSolutionsOpen] = useState(false);
   const t = useI18n();
   const locale = useCurrentLocale();
   const pathname = usePathname();
@@ -47,6 +49,15 @@ export default function Header() {
   const getLocalizedHref = (href: string) =>
     href.startsWith("#") ? `/${locale}${href}` : `/${locale}${href}`;
   const contactHref = `/${locale}#contact`;
+  const getSolutionHref = (solutionId: string) =>
+    `/${locale}?solution=${solutionId}#solutions`;
+  const selectSolution = (solutionId: string) => {
+    window.dispatchEvent(
+      new CustomEvent("avadapay:solution-change", {
+        detail: { solutionId },
+      })
+    );
+  };
 
   // Effet pour gérer le scroll du header
   useEffect(() => {
@@ -106,20 +117,68 @@ export default function Header() {
         {/* Desktop Navigation */}
         <nav className="hidden md:flex flex-1 justify-center">
           <div className="flex gap-1 lg:gap-2 p-1 rounded-full bg-gray-50/80 backdrop-blur-sm">
-            {navigationLinks.map((link) => (
-              <Link
-                key={link.href}
-                href={getLocalizedHref(link.href)}
-                className={cn(
-                  "relative px-4 py-2 text-base font-bold rounded-full transition-all duration-300 whitespace-nowrap",
-                  link.href.startsWith("/") && normalizedPath === link.href
-                    ? "text-white bg-primary shadow-md"
-                    : "text-gray-700 hover:text-primary hover:bg-gray-100/80"
-                )}
-              >
-                {t(link.translationKey as NavigationKey)}
-              </Link>
-            ))}
+            {navigationLinks.map((link) =>
+              link.translationKey === "nav.solutions" ? (
+                <DropdownMenu key={link.href}>
+                  <DropdownMenuTrigger asChild>
+                    <Button
+                      variant="ghost"
+                      className="relative px-4 py-2 text-base font-bold rounded-full transition-all duration-300 whitespace-nowrap flex items-center gap-1 text-gray-700 hover:text-primary hover:bg-gray-100/80"
+                    >
+                      {t(link.translationKey as NavigationKey)}
+                      <ChevronDown className="h-3 w-3 transition-transform duration-200" />
+                    </Button>
+                  </DropdownMenuTrigger>
+                  <DropdownMenuContent
+                    align="center"
+                    className="w-80 p-2 bg-white/95 backdrop-blur-md border border-gray-200 shadow-xl rounded-xl"
+                  >
+                    <div className="px-3 py-2 text-sm font-medium text-gray-500 border-b border-gray-100 mb-2">
+                      {t("solutions.title")} {t("solutions.title2")}
+                    </div>
+                    {solutionsData.map((solution) => (
+                      <DropdownMenuItem
+                        key={solution.id}
+                        asChild
+                        className="p-0"
+                      >
+                        <Link
+                          href={getSolutionHref(solution.id)}
+                          onClick={() => selectSolution(solution.id)}
+                          className="flex items-start gap-3 p-3 rounded-lg hover:bg-primary/5 transition-colors cursor-pointer group"
+                        >
+                          <div className="mt-1 h-2.5 w-2.5 rounded-full bg-primary/50 group-hover:bg-primary flex-shrink-0" />
+                          <div className="min-w-0">
+                            <p className="text-sm font-bold text-gray-900 group-hover:text-white">
+                              {t(`${solution.translationKey}.title` as any, {})}
+                            </p>
+                            <p className="text-xs text-gray-500 mt-1 leading-relaxed">
+                              {t(
+                                `${solution.translationKey}.shortDescription` as any,
+                                {}
+                              )}
+                            </p>
+                          </div>
+                        </Link>
+                      </DropdownMenuItem>
+                    ))}
+                  </DropdownMenuContent>
+                </DropdownMenu>
+              ) : (
+                <Link
+                  key={link.href}
+                  href={getLocalizedHref(link.href)}
+                  className={cn(
+                    "relative px-4 py-2 text-base font-bold rounded-full transition-all duration-300 whitespace-nowrap",
+                    link.href.startsWith("/") && normalizedPath === link.href
+                      ? "text-white bg-primary shadow-md"
+                      : "text-gray-700 hover:text-primary hover:bg-gray-100/80"
+                  )}
+                >
+                  {t(link.translationKey as NavigationKey)}
+                </Link>
+              )
+            )}
 
             {/* Developers Dropdown */}
             <DropdownMenu>
@@ -227,25 +286,74 @@ export default function Header() {
 
               {/* Mobile Navigation Links */}
               <nav className="flex-1 flex flex-col items-center justify-center gap-4 px-4 overflow-y-auto">
-                {navigationLinks.map((link, index) => (
-                  <Link
-                    key={link.href}
-                    href={getLocalizedHref(link.href)}
-                    className={cn(
-                      "text-xl font-semibold w-full text-center py-3 rounded-lg transition-all duration-300 whitespace-nowrap",
-                      link.href.startsWith("/") && normalizedPath === link.href
-                        ? "text-white bg-primary"
-                        : "text-gray-700 hover:text-primary hover:bg-gray-50"
-                    )}
-                    onClick={() => setIsOpen(false)}
-                    style={{
-                      animationDelay: `${index * 0.1}s`,
-                      animation: "fadeInUp 0.5s ease forwards",
-                    }}
-                  >
-                    {t(link.translationKey as NavigationKey)}
-                  </Link>
-                ))}
+                {navigationLinks.map((link, index) =>
+                  link.translationKey === "nav.solutions" ? (
+                    <div key={link.href} className="w-full">
+                      <Button
+                        variant="ghost"
+                        className="w-full text-xl font-semibold py-3 rounded-lg text-gray-700 hover:text-primary hover:bg-gray-50 transition-all duration-300 flex items-center justify-center gap-2"
+                        onClick={() => setSolutionsOpen(!solutionsOpen)}
+                        style={{
+                          animationDelay: `${index * 0.1}s`,
+                          animation: "fadeInUp 0.5s ease forwards",
+                        }}
+                      >
+                        {t(link.translationKey as NavigationKey)}
+                        <ChevronDown
+                          className={cn(
+                            "h-4 w-4 transition-transform",
+                            solutionsOpen && "rotate-180"
+                          )}
+                        />
+                      </Button>
+
+                      {solutionsOpen && (
+                        <div className="mt-2 space-y-2 px-4">
+                          {solutionsData.map((solution) => (
+                            <Link
+                              key={solution.id}
+                              href={getSolutionHref(solution.id)}
+                              className="block rounded-lg bg-gray-50 p-3 text-left transition-colors hover:bg-primary/5"
+                              onClick={() => {
+                                selectSolution(solution.id);
+                                setIsOpen(false);
+                              }}
+                            >
+                              <p className="text-sm font-bold text-gray-900">
+                                {t(`${solution.translationKey}.title` as any, {})}
+                              </p>
+                              <p className="mt-1 text-xs text-gray-500">
+                                {t(
+                                  `${solution.translationKey}.shortDescription` as any,
+                                  {}
+                                )}
+                              </p>
+                            </Link>
+                          ))}
+                        </div>
+                      )}
+                    </div>
+                  ) : (
+                    <Link
+                      key={link.href}
+                      href={getLocalizedHref(link.href)}
+                      className={cn(
+                        "text-xl font-semibold w-full text-center py-3 rounded-lg transition-all duration-300 whitespace-nowrap",
+                        link.href.startsWith("/") &&
+                          normalizedPath === link.href
+                          ? "text-white bg-primary"
+                          : "text-gray-700 hover:text-primary hover:bg-gray-50"
+                      )}
+                      onClick={() => setIsOpen(false)}
+                      style={{
+                        animationDelay: `${index * 0.1}s`,
+                        animation: "fadeInUp 0.5s ease forwards",
+                      }}
+                    >
+                      {t(link.translationKey as NavigationKey)}
+                    </Link>
+                  )
+                )}
 
                 {/* Mobile Developers Section */}
                 <div className="w-full">

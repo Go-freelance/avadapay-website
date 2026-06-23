@@ -84,6 +84,23 @@ export default {
         "Tarifs compétitifs et flexibles",
       ],
     },
+    avadaschool: {
+      title: "AvadaSchool",
+      shortDescription:
+        "Digitalisez les paiements scolaires et simplifiez la gestion entre parents et écoles",
+      description:
+        "Les paiements scolaires sont souvent lourds, manuels et chronophages entre la banque et l'école. Avada School propose une solution simple, digitale et utile pour aider les parents à payer à distance et les écoles à suivre les paiements plus rapidement.",
+      features: [
+        "Paiement scolaire à distance pour les parents",
+        "Gain de temps entre banque, parent et école",
+        "Preuves de paiement centralisées",
+        "Expérience simple pour les familles",
+        "Suivi digital des frais scolaires",
+        "Moins d'erreurs administratives",
+        "Gestion plus rapide pour les écoles",
+        "Relation parent-école simplifiée",
+      ],
+    },
   },
   "solutions.help.title": "Besoin d'aide ?",
   "solutions.help.description":

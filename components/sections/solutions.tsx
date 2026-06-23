@@ -9,12 +9,13 @@ import { solutionsData } from "@/data/solutions";
 import { useI18n } from "@/locales/client";
 import { FaCreditCard, FaArrowRight, FaChevronRight } from "react-icons/fa";
 import { TbUsersGroup } from "react-icons/tb";
-import { MdSmartphone } from "react-icons/md";
+import { MdSchool, MdSmartphone } from "react-icons/md";
 import { cn } from "@/lib/utils";
 
 interface Solution {
   id: string;
   translationKey: string;
+  image?: string;
   features?: string[];
 }
 
@@ -76,6 +77,8 @@ export default function Solutions() {
       solutionsData[0]
     );
   };
+
+  const activeSolutionData = getActiveSolution();
 
   const translate = (key: string) => t(key as any, {});
 
@@ -166,6 +169,16 @@ export default function Solutions() {
                         )}
                       />
                     )}
+                    {index === 3 && (
+                      <MdSchool
+                        className={cn(
+                          "h-5 w-5 sm:h-6 sm:w-6 flex-shrink-0",
+                          activeSolution === solution.id
+                            ? "text-white"
+                            : "text-primary"
+                        )}
+                      />
+                    )}
                   </div>
                   <div className="min-w-0 flex-1">
                     <h3 className="font-medium text-base sm:text-lg break-words">
@@ -223,18 +236,18 @@ export default function Solutions() {
               {/* En-tête avec dégradé */}
               <div className="bg-gradient-to-r from-primary/90 to-primary/70 p-6 sm:p-8 text-white">
                 <h3 className="text-xl sm:text-2xl font-bold mb-2 break-words">
-                  {translate(`${getActiveSolution().translationKey}.title`)}
+                  {translate(`${activeSolutionData.translationKey}.title`)}
                 </h3>
                 <p className="text-sm sm:text-base text-white/90 break-words">
-                  {translate(`${getActiveSolution().translationKey}.description`)}
+                  {translate(`${activeSolutionData.translationKey}.description`)}
                 </p>
               </div>
 
               <div className="relative h-[220px] sm:h-[350px] w-full bg-muted/30">
                 <Image
-                  src={`/images/${getActiveSolution().id}.jpg`}
+                  src={activeSolutionData.image || `/images/${activeSolutionData.id}.jpg`}
                   alt={String(
-                    translate(`${getActiveSolution().translationKey}.title`)
+                    translate(`${activeSolutionData.translationKey}.title`)
                   )}
                   className="object-cover"
                   fill

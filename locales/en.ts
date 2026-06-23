@@ -83,6 +83,23 @@ export default {
         "Competitive and flexible rates",
       ],
     },
+    avadaschool: {
+      title: "Avada School",
+      shortDescription:
+        "Digitize school payments and simplify management between parents and schools",
+      description:
+        "School payments are often manual, heavy, and time-consuming between banks and schools. Avada School offers a simple, digital, and useful solution that helps parents pay remotely while schools track payments faster.",
+      features: [
+        "Remote school fee payments for parents",
+        "Time saved between bank, parent, and school",
+        "Centralized payment proofs",
+        "Simple experience for families",
+        "Digital school fee tracking",
+        "Fewer administrative errors",
+        "Faster management for schools",
+        "Simplified parent-school relationship",
+      ],
+    },
   },
   "solutions.help.title": "Need Help?",
   "solutions.help.description":

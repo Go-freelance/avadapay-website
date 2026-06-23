@@ -51,7 +51,7 @@ export default function Benefits() {
       opacity: 1,
       transition: {
         duration: 0.4,
-        ease: [0.22, 1, 0.36, 1],
+        ease: [0.22, 1, 0.36, 1] as const,
       },
     },
   };
@@ -162,33 +162,41 @@ export default function Benefits() {
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6, delay: 0.3 }}
           viewport={{ once: true }}
-          className="bg-white rounded-lg p-5 sm:p-8 md:p-10 shadow-lg shadow-slate-950/5 border border-gray-100"
+          className="relative overflow-hidden rounded-lg border border-primary/10 bg-white shadow-lg shadow-slate-950/5"
         >
-          <div className="text-center mb-10">
-            <h3 className="text-xl md:text-2xl font-bold text-gray-900 mb-2">
-              {t("benefits.partners.title")}
-            </h3>
-            <div className="w-16 h-1 bg-primary mx-auto rounded-full"></div>
-          </div>
+          <div className="absolute inset-x-0 top-0 h-1 bg-gradient-to-r from-primary via-avada-400 to-primary" />
+          <div className="grid gap-6 p-5 sm:p-7 md:grid-cols-[0.85fr_1.4fr] md:items-center md:p-8 lg:p-10">
+            <div className="md:border-r md:border-gray-100 md:pr-8">
+              <h3 className="mt-4 text-2xl font-extrabold leading-tight text-gray-900 md:text-3xl">
+                {t("benefits.partners.title")}
+              </h3>
+              <p className="mt-3 max-w-sm text-sm leading-relaxed text-gray-500">
+                {t("benefits.partners.description")}
+              </p>
+            </div>
 
-          <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6 items-center">
-            {paymentPartners.map((partner, index) => (
-              <motion.div
-                key={index}
-                whileHover={{ scale: 1.05 }}
-                transition={{ duration: 0.2 }}
-                className="p-4 rounded-lg hover:bg-gray-100 transition-colors flex items-center justify-center h-16"
-              >
-                <Image
-                  src={partner.logo}
-                  alt={partner.name}
-                  width={80}
-                  height={40}
-                  sizes="(max-width: 768px) 45vw, (max-width: 1024px) 33vw, 80px"
-                  className="h-12 w-auto object-contain"
-                />
-              </motion.div>
-            ))}
+            <div className="grid grid-cols-2 gap-px overflow-hidden rounded-lg border border-gray-100 bg-gray-100 sm:grid-cols-3 lg:grid-cols-4">
+              {paymentPartners.map((partner, index) => (
+                <motion.div
+                  key={partner.name}
+                  initial={{ opacity: 0, y: 12 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  whileHover={{ y: -2 }}
+                  transition={{ duration: 0.25, delay: index * 0.03 }}
+                  viewport={{ once: true }}
+                  className="group flex h-20 items-center justify-center bg-white px-4 transition-colors sm:h-24"
+                >
+                  <Image
+                    src={partner.logo}
+                    alt={partner.name}
+                    width={112}
+                    height={56}
+                    sizes="(max-width: 640px) 45vw, (max-width: 1024px) 30vw, 112px"
+                    className="max-h-10 w-auto object-contain transition duration-300 sm:max-h-12"
+                  />
+                </motion.div>
+              ))}
+            </div>
           </div>
         </motion.div>
       </div>

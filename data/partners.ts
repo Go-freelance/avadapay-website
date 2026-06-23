@@ -8,4 +8,8 @@ export const paymentPartners = [
   // { name: "WesternUnion", logo: "/images/western.png" },
   { name: "Ecobank", logo: "/images/ecobank.png" },
   { name: "Equity BCDC", logo: "/images/equity.png" },
+  {name: "UBA", logo: "/images/uba.png"},
+  {name: "Sofibank", logo: "/images/sofibank.png"},
+  {name: "FBN Bank", logo: "/images/firstbank.jpg"},
+  {name: "RawBank", logo: "/images/rawbank.png"},
 ];

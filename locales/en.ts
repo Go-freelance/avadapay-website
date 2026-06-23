@@ -118,6 +118,9 @@ export default {
     "Discover how our payment solutions can transform your business and improve your customers' experience.",
   "benefits.badge": "Approved by the Central Bank of Congo",
   "benefits.partners.title": "Our payment partners",
+  "benefits.partners.eyebrow": "Payment network",
+  "benefits.partners.description":
+    "Mobile money, cards, and banks brought together in one payment journey for your customers.",
   "benefits.growth": "Growth",
   "benefits.items": {
     integration: {

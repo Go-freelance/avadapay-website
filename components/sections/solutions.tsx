@@ -30,7 +30,7 @@ export default function Solutions() {
   };
 
   return (
-    <section id="solutions" className="py-14 sm:py-20 md:py-24 overflow-hidden">
+    <section id="solutions" className="py-14 sm:py-20 md:py-24 overflow-hidden bg-white">
       <div className="absolute inset-0 -z-10 h-full w-full bg-white">
         <div className="absolute bottom-0 left-0 right-0 top-0 bg-[linear-gradient(to_right,#4f4f4f2e_1px,transparent_1px),linear-gradient(to_bottom,#4f4f4f2e_1px,transparent_1px)] bg-[size:14px_24px]"></div>
       </div>
@@ -51,7 +51,7 @@ export default function Solutions() {
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5, delay: 0.2 }}
             viewport={{ once: true }}
-            className="text-base sm:text-lg md:text-xl text-gray-600 font-bold max-w-2xl mt-4 sm:mt-6 mx-auto px-4 sm:px-0 break-words"
+            className="text-base sm:text-lg text-gray-500 font-semibold max-w-2xl mt-4 sm:mt-5 mx-auto px-4 sm:px-0 text-balance break-words"
           >
             {t("solutions.subtitle")}
           </motion.p>
@@ -69,10 +69,10 @@ export default function Solutions() {
                   viewport={{ once: true }}
                   onClick={() => setActiveSolution(solution.id)}
                   className={cn(
-                    "w-full text-left p-4 sm:p-5 rounded-lg transition-all duration-300 flex items-center gap-3 sm:gap-4 group",
+                    "w-full text-left p-4 sm:p-5 rounded-lg transition-all duration-300 flex items-center gap-3 sm:gap-4 group border border-transparent",
                     activeSolution === solution.id
                       ? "bg-primary text-white shadow-lg shadow-primary/20"
-                      : "hover:bg-primary/5"
+                      : "bg-white hover:bg-primary/5 hover:border-primary/10"
                   )}
                 >
                   <div
@@ -140,7 +140,7 @@ export default function Solutions() {
                 </motion.button>
               ))}
 
-              <div className="mt-8 p-4 sm:p-6 h-60 rounded-lg bg-primary/5 border border-primary/10 hidden lg:block">
+              <div className="mt-8 p-4 sm:p-6 rounded-lg bg-primary/5 border border-primary/10 hidden lg:block">
                 <h4 className="font-medium text-lg mb-2 break-words">
                   {t("solutions.help.title")}
                 </h4>
@@ -165,7 +165,7 @@ export default function Solutions() {
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.5 }}
-              className="bg-card rounded-2xl shadow-lg border border-border overflow-hidden"
+              className="bg-card rounded-lg shadow-lg shadow-slate-950/5 border border-border overflow-hidden"
             >
               {/* En-tête avec dégradé */}
               <div className="bg-gradient-to-r from-primary/90 to-primary/70 p-6 sm:p-8 text-white">
@@ -189,7 +189,7 @@ export default function Solutions() {
 
               {/* Caractéristiques */}
               <div className="p-6 sm:p-8">
-                <div className="grid sm:grid-cols-2 gap-4 mb-8">
+                <div className="grid sm:grid-cols-2 gap-3 mb-4">
                   {getActiveSolution().features &&
                     getActiveSolution().features.map((feature, idx) => (
                       <div
@@ -216,7 +216,7 @@ export default function Solutions() {
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.5 }}
           viewport={{ once: true }}
-          className="mt-16 sm:mt-20 bg-gradient-to-r from-primary to-primary/80 rounded-2xl p-6 sm:p-8 md:p-12 text-white text-center shadow-2xl border border-primary/20"
+          className="mt-14 sm:mt-16 bg-gradient-to-r from-primary to-primary/80 rounded-lg p-6 sm:p-8 md:p-10 text-white text-center shadow-xl shadow-primary/20 border border-primary/20"
         >
           <h3 className="text-xl sm:text-2xl md:text-3xl font-extrabold mb-4 text-white">
             {t("solutions.cta.title")}
@@ -225,7 +225,7 @@ export default function Solutions() {
             {t("solutions.cta.description")}
           </p>
           <Link href="#contact">
-            <Button className="bg-white text-primary font-bold hover:bg-white/95 hover:shadow-xl group px-6 sm:px-8 py-4 sm:py-5 h-auto text-base sm:text-lg rounded-xl transition-all duration-300 transform hover:scale-105 shadow-lg">
+            <Button className="bg-white text-primary font-extrabold hover:bg-white/95 hover:shadow-xl group px-6 sm:px-8 py-3.5 sm:py-4 h-auto text-sm sm:text-base rounded-lg transition-all duration-300 transform hover:scale-105 shadow-lg">
               {t("solutions.cta.button")}
               <FaArrowRight className="ml-2 h-4 w-4 transition-transform group-hover:translate-x-1" />
             </Button>

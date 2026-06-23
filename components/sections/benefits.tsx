@@ -59,7 +59,7 @@ export default function Benefits() {
   return (
     <section
       id="benefits"
-      className="py-14 sm:py-16 md:py-24 lg:py-32 bg-gradient-to-br from-gray-50 via-white to-gray-50 relative overflow-hidden"
+      className="py-14 sm:py-16 md:py-24 bg-gradient-to-br from-gray-50 via-white to-gray-50 relative overflow-hidden"
     >
       {/* Modern background elements */}
       <div className="hidden md:block absolute top-0 right-0 w-96 h-96 bg-primary/5 rounded-full blur-3xl -translate-y-1/2 translate-x-1/2"></div>
@@ -72,7 +72,7 @@ export default function Benefits() {
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6, ease: [0.22, 1, 0.36, 1] }}
           viewport={{ once: true, margin: "-100px" }}
-          className="text-center mb-10 sm:mb-16 md:mb-20"
+          className="text-center mb-10 sm:mb-14"
         >
           <h2 className="text-3xl md:text-4xl lg:text-5xl font-extrabold text-gray-900 max-w-4xl mx-auto leading-tight mb-6">
             {t("benefits.title")}{" "}
@@ -82,7 +82,7 @@ export default function Benefits() {
         </motion.div>
 
         {/* Main Content Grid */}
-        <div className="grid lg:grid-cols-2 gap-10 lg:gap-20 items-start mb-14 sm:mb-20">
+        <div className="grid lg:grid-cols-2 gap-10 lg:gap-16 items-start mb-14 sm:mb-16">
           {/* Image Section */}
           <motion.div
             initial={{ opacity: 0, x: -30 }}
@@ -93,7 +93,7 @@ export default function Benefits() {
           >
             <div className="relative group">
               {/* Main image container */}
-              <div className="relative rounded-2xl overflow-hidden shadow-lg bg-white p-2">
+              <div className="relative rounded-lg overflow-hidden shadow-lg shadow-slate-950/5 bg-white p-2 border border-gray-100">
                 <Image
                   src="/images/marchand.jpg"
                   alt={t("benefits.optimize.title")}
@@ -114,12 +114,12 @@ export default function Benefits() {
               </div>
 
               {/* Info card below image */}
-              <div className="mt-6 bg-white rounded-xl p-6 shadow-lg border border-gray-100">
+              <div className="mt-5 bg-white rounded-lg p-5 sm:p-6 shadow-sm border border-gray-100">
                 <div className="flex items-start gap-4">
-                  <div className="w-12 h-12 bg-primary/10 rounded-xl flex items-center justify-center flex-shrink-0">
+                  <div className="w-12 h-12 bg-primary/10 rounded-lg flex items-center justify-center flex-shrink-0">
                     <div className="w-6 h-6 bg-primary rounded-md"></div>
                   </div>
-                  <div>
+                  <div className="min-w-0">
                     <h3 className="text-lg font-bold mb-2 text-gray-900">
                       {t("benefits.optimize.title")}
                     </h3>
@@ -142,7 +142,7 @@ export default function Benefits() {
           >
             {benefitsData.map((benefit, index) => (
               <motion.div key={benefit.id} variants={itemVariants}>
-                <div className="group p-4 rounded-xl hover:bg-white hover:shadow-md transition-all duration-300 border border-transparent hover:border-gray-100">
+                <div className="group p-4 rounded-lg hover:bg-white hover:shadow-md transition-all duration-300 border border-transparent hover:border-gray-100">
                   <BenefitItem
                     icon={benefit.icon}
                     title={t(`${benefit.translationKey}.title` as BenefitKey)}
@@ -162,7 +162,7 @@ export default function Benefits() {
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6, delay: 0.3 }}
           viewport={{ once: true }}
-          className="bg-white rounded-2xl p-5 sm:p-8 md:p-12 shadow-lg border border-gray-100"
+          className="bg-white rounded-lg p-5 sm:p-8 md:p-10 shadow-lg shadow-slate-950/5 border border-gray-100"
         >
           <div className="text-center mb-10">
             <h3 className="text-xl md:text-2xl font-bold text-gray-900 mb-2">
@@ -177,7 +177,7 @@ export default function Benefits() {
                 key={index}
                 whileHover={{ scale: 1.05 }}
                 transition={{ duration: 0.2 }}
-                className=" p-4 rounded-xl hover:bg-gray-100 transition-colors flex items-center justify-center h-16"
+                className="p-4 rounded-lg hover:bg-gray-100 transition-colors flex items-center justify-center h-16"
               >
                 <Image
                   src={partner.logo}

@@ -11,7 +11,7 @@ export default function Hero() {
   const t = useI18n();
 
   return (
-    <section className="relative min-h-[620px] sm:min-h-[680px] lg:min-h-screen w-full overflow-hidden">
+    <section className="relative min-h-[600px] sm:min-h-[660px] lg:min-h-[760px] w-full overflow-hidden">
       {/* Image de fond avec overlay */}
       <div className="absolute inset-0 z-0">
         <div className="relative w-full h-full">
@@ -24,7 +24,7 @@ export default function Hero() {
             sizes="100vw"
           />
           <div
-            className="absolute inset-0 bg-gradient-to-r from-black/70 via-black/60 to-black/70"
+            className="absolute inset-0 bg-gradient-to-r from-black/80 via-black/60 to-black/75"
             style={{ mixBlendMode: "multiply" }}
           />
           <div
@@ -36,14 +36,14 @@ export default function Hero() {
 
       {/* Contenu principal */}
       <div className="relative z-10 h-full flex items-center">
-        <div className="container mt-36 sm:mt-26 px-4 sm:px-6 lg:px-8">
+        <div className="container mt-28 sm:mt-32 px-4 sm:px-6 lg:px-8">
           <div className="max-w-4xl mx-auto text-center">
             <motion.div
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6 }}
             >
-              <span className="inline-block px-3 py-1.5 sm:px-4 sm:py-2 rounded-full bg-primary/30 text-white text-xs sm:text-sm md:text-base font-semibold mb-6 sm:mb-8 backdrop-blur-md border border-primary/40 shadow-lg">
+              <span className="inline-block px-3 py-1.5 sm:px-4 sm:py-2 rounded-full bg-white/10 text-white text-xs sm:text-sm font-extrabold mb-5 sm:mb-7 backdrop-blur-md border border-white/15 shadow-lg">
                 {t("hero.badge")}
               </span>
             </motion.div>
@@ -52,7 +52,7 @@ export default function Hero() {
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6, delay: 0.2 }}
-              className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl mb-4 sm:mb-6 text-white font-extrabold leading-tight break-words"
+              className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl mb-4 sm:mb-6 text-white font-extrabold leading-tight text-balance break-words"
             >
               {t("hero.title")}
             </motion.h1>
@@ -61,7 +61,7 @@ export default function Hero() {
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6, delay: 0.4 }}
-              className="text-base sm:text-lg md:text-xl font-light text-white/90 mb-8 sm:mb-10 max-w-3xl mx-auto px-2 sm:px-0 leading-relaxed break-words"
+              className="text-base sm:text-lg md:text-xl font-medium text-white/85 mb-7 sm:mb-9 max-w-3xl mx-auto px-2 sm:px-0 leading-relaxed text-balance break-words"
             >
               {t("hero.subtitle")}
             </motion.p>
@@ -70,7 +70,7 @@ export default function Hero() {
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6, delay: 0.6 }}
-              className="flex flex-col sm:flex-row gap-4 sm:gap-6 justify-center items-center px-4 sm:px-0"
+              className="flex flex-col sm:flex-row gap-3 sm:gap-4 justify-center items-center px-4 sm:px-0"
             >
               <Link
                 href="#solutions"
@@ -78,7 +78,7 @@ export default function Hero() {
               >
                 <Button
                   size="lg"
-                  className="bg-primary hover:bg-primary/90 text-white px-6 sm:px-8 py-4 sm:py-5 h-auto text-base sm:text-lg font-bold w-full sm:w-auto rounded-xl shadow-lg hover:shadow-xl transition-all duration-300"
+                  className="bg-primary hover:bg-primary/90 text-white px-6 sm:px-7 py-3.5 sm:py-4 h-auto text-sm sm:text-base font-extrabold w-full sm:w-auto rounded-lg shadow-lg shadow-primary/25 hover:shadow-xl transition-all duration-300"
                 >
                   {t("hero.cta")}
                   <ChevronRight className="ml-2 h-4 w-4 sm:h-5 sm:w-5 transition-transform group-hover:translate-x-1" />
@@ -91,7 +91,7 @@ export default function Hero() {
                 <Button
                   size="lg"
                   variant="outline"
-                  className="border-2 border-white text-primary hover:bg-white hover:text-primary px-6 sm:px-8 py-4 sm:py-5 h-auto text-base sm:text-lg font-bold backdrop-blur-sm w-full sm:w-auto rounded-xl shadow-lg hover:shadow-xl transition-all duration-300"
+                  className="border border-white/60 bg-white/95 text-primary hover:bg-white hover:text-primary px-6 sm:px-7 py-3.5 sm:py-4 h-auto text-sm sm:text-base font-extrabold backdrop-blur-sm w-full sm:w-auto rounded-lg shadow-lg hover:shadow-xl transition-all duration-300"
                 >
                   {t("hero.contact")}
                 </Button>

@@ -14,7 +14,7 @@ export default function Contact() {
   return (
     <section
       id="contact"
-      className="py-14 sm:py-20 md:py-24 bg-muted/50 relative overflow-hidden section-with-graphic graphic-top-right graphic-bottom-left"
+      className="py-14 sm:py-20 md:py-24 bg-muted/40 relative overflow-hidden section-with-graphic graphic-top-right graphic-bottom-left"
     >
       {/* Modern background elements */}
       <div className="hidden md:block absolute top-0 right-0 w-96 h-96 bg-primary/5 rounded-full blur-3xl -translate-y-1/2 translate-x-1/2"></div>
@@ -33,7 +33,7 @@ export default function Contact() {
             <span className="gradient-text">{t("contact.title2")}</span>
           </h2>
           <div className="w-20 h-1 bg-avada-500 mx-auto rounded-full mb-6"></div>
-          <p className="text-xl text-muted-foreground max-w-2xl mx-auto break-words">
+          <p className="text-base sm:text-lg text-muted-foreground max-w-2xl mx-auto text-balance break-words">
             {t("contact.subtitle")}
           </p>
         </motion.div>
@@ -46,7 +46,7 @@ export default function Contact() {
             viewport={{ once: true }}
             className="lg:col-span-2"
           >
-            <div className="bg-card shadow-lg rounded-xl border border-border p-5 sm:p-8 relative overflow-hidden">
+            <div className="bg-card shadow-lg shadow-slate-950/5 rounded-lg border border-border p-5 sm:p-8 relative overflow-hidden">
               <div className="relative z-10">
                 <ContactForm />
               </div>
@@ -60,7 +60,7 @@ export default function Contact() {
             viewport={{ once: true }}
             className="space-y-8"
           >
-            <div className="bg-card shadow-lg rounded-xl border border-border p-5 sm:p-8">
+            <div className="bg-card shadow-lg shadow-slate-950/5 rounded-lg border border-border p-5 sm:p-8">
               <h3 className="text-xl font-bold mb-6 text-foreground break-words">
                 {t("contact.info.title")}
               </h3>

@@ -84,21 +84,21 @@ export default function Features() {
   return (
     <section
       id="features"
-      className="py-16 sm:py-24 md:py-32 bg-white relative overflow-hidden features-background"
+      className="py-14 sm:py-20 md:py-24 bg-[#fbfdfc] relative overflow-hidden features-background"
     >
       {/* Background decorative elements */}
       <div className="hidden md:block absolute top-0 right-0 w-64 h-64 bg-gradient-to-br from-primary/5 to-primary/10 rounded-full blur-3xl -z-10 transform translate-x-1/2 -translate-y-1/2"></div>
       <div className="hidden md:block absolute bottom-0 left-0 w-96 h-96 bg-gradient-to-tr from-primary/5 to-primary/10 rounded-full blur-3xl -z-10 transform -translate-x-1/2 translate-y-1/2"></div>
 
       <div className="container relative z-10">
-        <div className="text-center mb-10 sm:mb-16 md:mb-20">
+        <div className="text-center mb-10 sm:mb-14 md:mb-16">
           <motion.div
             initial="hidden"
             animate="visible"
             variants={titleVariants}
             className="inline-block"
           >
-            <h2 className="text-3xl md:text-4xl lg:text-5xl font-extrabold text-gray-900 max-w-3xl mx-auto leading-tight break-words">
+            <h2 className="text-3xl md:text-4xl lg:text-5xl font-extrabold text-gray-900 max-w-3xl mx-auto leading-tight text-balance break-words">
               {t("features.title")}{" "}
               <span className="gradient-text">{t("features.title2")}</span> ?
             </h2>
@@ -109,7 +109,7 @@ export default function Features() {
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             transition={{ duration: 0.6, delay: 0.2 }}
-            className="text-lg sm:text-xl text-gray-600 max-w-2xl mx-auto mt-4 sm:mt-6 font-bold px-4 sm:px-0 break-words"
+            className="text-base sm:text-lg text-gray-500 max-w-2xl mx-auto mt-4 sm:mt-5 font-semibold px-4 sm:px-0 text-balance break-words"
           >
             {t("features.subtitle")}
           </motion.p>
@@ -120,13 +120,13 @@ export default function Features() {
           variants={containerVariants}
           initial="hidden"
           animate={controls}
-          className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 md:gap-8"
+          className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 md:gap-5"
         >
           {features.map((feature, index) => (
             <motion.div
               key={index}
               variants={itemVariants}
-              className="feature-card bg-white rounded-xl p-5 sm:p-6 md:p-8 shadow-lg hover:shadow-xl border border-gray-100 relative overflow-hidden group"
+              className="feature-card bg-white rounded-lg p-5 sm:p-6 shadow-sm hover:shadow-lg border border-gray-100 relative overflow-hidden group"
               whileHover={{ y: -8, transition: { duration: 0.3 } }}
             >
               {/* Decorative corner accent */}
@@ -134,7 +134,7 @@ export default function Features() {
 
               <div className="mb-6 relative z-10">
                 <div
-                  className={`w-14 h-14 rounded-2xl bg-gradient-to-r ${feature.color} flex items-center justify-center text-white shadow-lg transform group-hover:scale-110 transition-transform duration-300`}
+                  className={`w-12 h-12 rounded-lg bg-gradient-to-r ${feature.color} flex items-center justify-center text-white shadow-lg transform group-hover:scale-105 transition-transform duration-300`}
                 >
                   {feature.icon}
                 </div>

@@ -164,12 +164,43 @@ p {
   }
 }
 
+@keyframes partnersMarquee {
+  from {
+    transform: translateX(0);
+  }
+  to {
+    transform: translateX(calc(-50% - 0.625rem));
+  }
+}
+
 .animate-fade-in-up {
   animation: fadeInUp 0.5s ease forwards;
 }
 
 .animate-slide-in-right {
   animation: slideInRight 0.3s ease forwards;
+}
+
+.partners-marquee {
+  position: relative;
+  overflow: hidden;
+}
+
+.partners-marquee-track {
+  animation: partnersMarquee 26s linear infinite;
+  padding-inline: 1rem;
+}
+
+.partners-marquee:hover .partners-marquee-track,
+.partners-marquee:focus-within .partners-marquee-track {
+  animation-play-state: paused;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .partners-marquee-track {
+    animation: none;
+    transform: none;
+  }
 }
 
 /* Éléments de la charte graphique */

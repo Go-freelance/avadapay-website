@@ -6,8 +6,15 @@ import { contactInfo } from "@/data/contact";
 import { navigationLinks, developerLinks } from "@/data/navigation";
 import { solutionsData } from "@/data/solutions";
 import { useCurrentLocale, useI18n } from "@/locales/client";
-import { FaCode, FaFileCode, FaExternalLinkAlt } from "react-icons/fa";
-import {FaInstagram, FaLinkedin,  FaFacebook} from "react-icons/fa6";
+import {
+  FaCode,
+  FaEnvelope,
+  FaExternalLinkAlt,
+  FaFileCode,
+  FaMapMarkerAlt,
+  FaPhoneAlt,
+} from "react-icons/fa";
+import { FaInstagram, FaLinkedin, FaFacebook } from "react-icons/fa6";
 
 export default function Footer() {
   const t = useI18n();
@@ -60,7 +67,7 @@ export default function Footer() {
               {solutionsData.map((solution) => (
                 <li key={solution.id} className="break-words">
                   <Link
-                    href={"#solutions"}
+                    href="#solutions"
                     className="text-gray-400 hover:text-avada-500 transition-colors"
                   >
                     {t(`solutions.items.${solution.id}.title` as any, {})}
@@ -70,7 +77,6 @@ export default function Footer() {
             </ul>
           </div>
 
-          {/* Section Développeurs */}
           <div className="min-w-0">
             <h3 className="text-lg font-semibold mb-4 break-words">
               <span className="flex items-center gap-2">
@@ -106,11 +112,11 @@ export default function Footer() {
             </h3>
             <ul className="space-y-3 text-gray-400">
               <li className="flex items-start">
-                <span className="mr-2 flex-shrink-0">📍</span>
+                <FaMapMarkerAlt className="mr-2 mt-1 h-4 w-4 flex-shrink-0 text-avada-500" />
                 <span className="break-words">{contactInfo.address}</span>
               </li>
               <li className="flex items-start">
-                <span className="mr-2 flex-shrink-0">✉️</span>
+                <FaEnvelope className="mr-2 mt-1 h-4 w-4 flex-shrink-0 text-avada-500" />
                 <a
                   href={`mailto:${contactInfo.email}`}
                   className="hover:text-avada-500 transition-colors break-words"
@@ -119,7 +125,7 @@ export default function Footer() {
                 </a>
               </li>
               <li className="flex items-start">
-                <span className="mr-2 flex-shrink-0">📞</span>
+                <FaPhoneAlt className="mr-2 mt-1 h-4 w-4 flex-shrink-0 text-avada-500" />
                 <a
                   href={`tel:${contactInfo.phone}`}
                   className="hover:text-avada-500 transition-colors break-words"
@@ -141,9 +147,7 @@ export default function Footer() {
               className="text-gray-500 hover:text-avada-500 flex-shrink-0 transition-colors"
             >
               <span className="sr-only">{t("footer.social.facebook")}</span>
-              <FaFacebook
-                className="h-6 w-6"
-              />
+              <FaFacebook className="h-6 w-6" />
             </Link>
             <Link
               href="https://www.instagram.com/avadapay_rdc/"
@@ -151,9 +155,7 @@ export default function Footer() {
               className="text-gray-500 hover:text-avada-500 flex-shrink-0 transition-colors"
             >
               <span className="sr-only">{t("footer.social.instagram")}</span>
-              <FaInstagram
-                className="h-6 w-6"
-              />
+              <FaInstagram className="h-6 w-6" />
             </Link>
             <Link
               href="https://www.linkedin.com/company/avadapayrdc"
@@ -161,9 +163,7 @@ export default function Footer() {
               className="text-gray-500 hover:text-avada-500 flex-shrink-0 transition-colors"
             >
               <span className="sr-only">{t("footer.social.linkedin")}</span>
-              <FaLinkedin
-                className="h-6 w-6"
-              />
+              <FaLinkedin className="h-6 w-6" />
             </Link>
           </div>
         </div>

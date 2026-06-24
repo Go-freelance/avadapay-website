@@ -85,11 +85,11 @@ export default {
       ],
     },
     avadaschool: {
-      title: "Avada School",
+      title: "AvadaSchool",
       shortDescription:
         "Digitize school payments and simplify management between parents and schools",
       description:
-        "School payments are often manual, heavy, and time-consuming between banks and schools. Avada School offers a simple, digital, and useful solution that helps parents pay remotely while schools track payments faster.",
+        "School payments are often manual, heavy, and time-consuming between banks and schools. AvadaSchool offers a simple, digital, and useful solution that helps parents pay remotely while schools track payments faster.",
       features: [
         "Remote school fee payments for parents",
         "Time saved between bank, parent, and school",
@@ -279,9 +279,9 @@ export default {
 
   // Blog
   "blog.hero.eyebrow": "AvadaPay Blog",
-  "blog.hero.title": "Resources to better manage your digital payments.",
+  "blog.hero.title": "AvadaPay news and resources.",
   "blog.hero.description":
-    "Insights, guidance and practical notes for businesses that want to integrate, monitor and secure their payment flows.",
+    "Follow our announcements, new partnerships, events and practical insights around digital payments in the DRC.",
   "blog.card.read": "Read article",
   "blog.card.minutes": "min read",
   "blog.empty.title": "No published article yet",

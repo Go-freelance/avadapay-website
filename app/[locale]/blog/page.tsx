@@ -28,10 +28,12 @@ export async function generateMetadata({
   const isFrench = locale === "fr";
 
   return {
-    title: isFrench ? "Blog | AvadaPay" : "Blog | AvadaPay",
+    title: isFrench
+      ? "Actualités et ressources | AvadaPay"
+      : "News and resources | AvadaPay",
     description: isFrench
-      ? "Analyses et conseils AvadaPay sur les paiements digitaux, le mobile money et les integrations en RDC."
-      : "AvadaPay insights on digital payments, mobile money and integrations in the DRC.",
+      ? "Annonces, partenariats, événements et conseils AvadaPay autour des paiements digitaux en RDC."
+      : "AvadaPay announcements, partnerships, events and insights around digital payments in the DRC.",
     alternates: {
       canonical: `${siteUrl}/${locale}/blog`,
       languages: {

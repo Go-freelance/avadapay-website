@@ -80,7 +80,7 @@ export default async function BlogPage({ params }: BlogPageProps) {
         <section className="bg-gray-50 py-12 sm:py-16 lg:py-20">
           <div className="container">
             {articles.length > 0 ? (
-              <div className="grid gap-6 md:grid-cols-2 xl:grid-cols-3">
+              <div className="grid max-w-6xl gap-5 md:grid-cols-2 xl:grid-cols-3">
                 {articles.map((article) => (
                   <BlogCard
                     key={article.slug}

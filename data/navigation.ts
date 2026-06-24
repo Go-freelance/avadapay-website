@@ -8,6 +8,10 @@ export const navigationLinks = [
     translationKey: "nav.team",
   },
   {
+    href: "/blog",
+    translationKey: "nav.blog",
+  },
+  {
     href: "#features",
     translationKey: "nav.benefits",
   },

@@ -30,6 +30,7 @@ type NavigationKey =
   | "nav.solutions"
   | "nav.benefits"
   | "nav.team"
+  | "nav.blog"
   | "nav.contact"
   | "nav.contactButton"
   | "nav.developers";
@@ -49,6 +50,9 @@ export default function Header() {
   const getLocalizedHref = (href: string) =>
     href.startsWith("#") ? `/${locale}${href}` : `/${locale}${href}`;
   const contactHref = `/${locale}#contact`;
+  const isActiveLink = (href: string) =>
+    href.startsWith("/") &&
+    (normalizedPath === href || normalizedPath.startsWith(`${href}/`));
   const getSolutionHref = (solutionId: string) =>
     `/${locale}?solution=${solutionId}#solutions`;
   const selectSolution = (solutionId: string) => {
@@ -170,7 +174,7 @@ export default function Header() {
                   href={getLocalizedHref(link.href)}
                   className={cn(
                     "relative px-4 py-2 text-base font-bold rounded-full transition-all duration-300 whitespace-nowrap",
-                    link.href.startsWith("/") && normalizedPath === link.href
+                    isActiveLink(link.href)
                       ? "text-white bg-primary shadow-md"
                       : "text-gray-700 hover:text-primary hover:bg-gray-100/80"
                   )}
@@ -339,8 +343,7 @@ export default function Header() {
                       href={getLocalizedHref(link.href)}
                       className={cn(
                         "text-xl font-semibold w-full text-center py-3 rounded-lg transition-all duration-300 whitespace-nowrap",
-                        link.href.startsWith("/") &&
-                          normalizedPath === link.href
+                        isActiveLink(link.href)
                           ? "text-white bg-primary"
                           : "text-gray-700 hover:text-primary hover:bg-gray-50"
                       )}

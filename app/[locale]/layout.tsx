@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { Mulish } from "next/font/google";
 import { getI18n } from "@/locales/server";
 import { I18nProviderClient } from "@/locales/client";
+import { setStaticParamsLocale } from "next-international/server";
 import Script from "next/script";
 import "../globals.css";
 import { Toaster } from "@/components/ui/toaster";
@@ -28,8 +29,9 @@ export default async function RootLayout({
   params: Promise<{ locale: string }>;
 }) {
   const { locale: rawLocale } = await params;
-  const t = await getI18n();
   const locale = rawLocale || "en";
+  setStaticParamsLocale(locale);
+  const t = await getI18n();
 
   return (
     <html lang={locale} className={`${mulish.variable} scroll-smooth`}>

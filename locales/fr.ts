@@ -4,6 +4,7 @@ export default {
   "nav.features": "Fonctionnalités",
   "nav.benefits": "Avantages",
   "nav.team": "Qui sommes-nous",
+  "nav.blog": "Blog",
   "nav.contact": "Contact",
   "nav.contactButton": "Nous contacter",
   "nav.developers": "Développeurs",
@@ -276,6 +277,18 @@ export default {
   "team.cta.description":
     "Présentez-nous votre besoin de paiement, de décaissement ou de communication et nous vous orienterons vers la solution adaptée.",
   "team.cta.button": "Contacter l'équipe",
+
+  // Blog
+  "blog.hero.eyebrow": "Blog AvadaPay",
+  "blog.hero.title": "Ressources pour mieux piloter vos paiements digitaux.",
+  "blog.hero.description":
+    "Conseils, analyses et retours d'expérience pour les entreprises qui veulent intégrer, suivre et fiabiliser leurs flux de paiement.",
+  "blog.card.read": "Lire l'article",
+  "blog.card.minutes": "min de lecture",
+  "blog.empty.title": "Aucun article publié pour le moment",
+  "blog.empty.description":
+    "Les prochains contenus AvadaPay apparaîtront ici dès qu'ils seront publiés.",
+  "blog.article.back": "Retour au blog",
 
   footer: {
     description:

@@ -4,6 +4,7 @@ export default {
   "nav.features": "Features",
   "nav.benefits": "Benefits",
   "nav.team": "About us",
+  "nav.blog": "Blog",
   "nav.partners": "Partners",
   "nav.contact": "Contact",
   "nav.contactButton": "Contact Us",
@@ -275,6 +276,18 @@ export default {
   "team.cta.description":
     "Tell us about your payment, payout, or communication need and we will guide you to the right solution.",
   "team.cta.button": "Contact the team",
+
+  // Blog
+  "blog.hero.eyebrow": "AvadaPay Blog",
+  "blog.hero.title": "Resources to better manage your digital payments.",
+  "blog.hero.description":
+    "Insights, guidance and practical notes for businesses that want to integrate, monitor and secure their payment flows.",
+  "blog.card.read": "Read article",
+  "blog.card.minutes": "min read",
+  "blog.empty.title": "No published article yet",
+  "blog.empty.description":
+    "Upcoming AvadaPay content will appear here as soon as it is published.",
+  "blog.article.back": "Back to blog",
 
   "solutions.items.online-payment.features.0":
     "Simple and fast API integration",

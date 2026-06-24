@@ -36,7 +36,7 @@ export default function Hero() {
 
       {/* Contenu principal */}
       <div className="relative z-10 h-full flex items-center">
-        <div className="container mt-28 sm:mt-32 px-4 sm:px-6 lg:px-8">
+        <div className="container mt-32 sm:mt-48 px-4 sm:px-6 lg:px-8">
           <div className="max-w-4xl mx-auto text-center">
             <motion.div
               initial={{ opacity: 0, y: 20 }}

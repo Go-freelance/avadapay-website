@@ -49,29 +49,51 @@ const teamValues = [
 
 const teamMembers = [
   {
-    name: "Grace Mbuyi",
-    roleKey: "team.members.grace.role",
+    name: "Ibrahim OMARI",
+    roleKey: "team.members.ibrahim.role",
+    photo: "/images/teams/ibrahim-omari.png",
   },
   {
-    name: "David Kanza",
-    roleKey: "team.members.david.role",
+    name: "Ansarry MULUMBA",
+    roleKey: "team.members.ansarry.role",
+    photo: "/images/teams/ansarry-mulumba.png",
   },
   {
-    name: "Nadine Ilunga",
-    roleKey: "team.members.nadine.role",
+    name: "Flore MAYELE",
+    roleKey: "team.members.flore.role",
+    photo: "/images/teams/flore-mayele.png",
   },
   {
-    name: "Jonathan Masudi",
-    roleKey: "team.members.jonathan.role",
+    name: "Raissa NGOYA",
+    roleKey: "team.members.raissa.role",
+    photo: "/images/teams/raissa-ngoya.png",
   },
   {
-    name: "Sarah Tshimanga",
-    roleKey: "team.members.sarah.role",
+    name: "Felix ZAMBA",
+    roleKey: "team.members.felix.role",
+    photo: "/images/teams/felix-zamba.png",
   },
   {
-    name: "Patrick Lwamba",
-    roleKey: "team.members.patrick.role",
+    name: "Raman KUMAR",
+    roleKey: "team.members.raman.role",
+    photo: "/images/teams/raman-kumar.png",
   },
+  {
+    name: "Krys BUKASA",
+    roleKey: "team.members.krys.role",
+    photo: "/images/teams/krys-bukasa.png",
+  },
+  {
+    name: "Bill-Simon MBUYI",
+    roleKey: "team.members.bill.role",
+    photo: "/images/teams/billsimon-mbuyi.png",
+  },
+  {
+    name: "Samuel KALONJI",
+    roleKey: "team.members.samuel.role",
+    photo: "/images/teams/samuel-kalonji.png",
+  },
+
 ];
 
 const teamStats = [
@@ -146,39 +168,42 @@ export default async function AboutPage({
           </div>
         </section>
 
-        <section className="bg-white py-12 sm:py-16 lg:py-20">
+        <section className="relative overflow-hidden bg-white py-14 sm:py-16 lg:py-24">
+          <div className="absolute inset-x-0 top-0 h-32 bg-gradient-to-b from-avada-500/[0.06] to-transparent" />
           <div className="container">
-            <div className="max-w-2xl">
-              <p className="text-sm font-bold uppercase tracking-[0.18em] text-avada-600">
-                {t("team.members.eyebrow" as any, {})}
-              </p>
-              <h2 className="mt-3 text-3xl font-extrabold text-gray-950 sm:text-4xl">
-                {t("team.members.title" as any, {})}
-              </h2>
+            <div className="relative max-w-2xl border-b border-gray-100 pb-7">
+              <div className="max-w-2xl">
+                <p className="inline-flex rounded-full bg-avada-500/10 px-4 py-2 text-xs font-extrabold uppercase text-avada-700">
+                  {t("team.members.eyebrow" as any, {})}
+                </p>
+                <h2 className="mt-4 text-3xl font-extrabold leading-tight text-gray-950 sm:text-4xl">
+                  {t("team.members.title" as any, {})}
+                </h2>
+              </div>
             </div>
 
-            <div className="mt-9 grid grid-cols-2 gap-x-3 gap-y-7 sm:grid-cols-3 sm:gap-x-4 lg:grid-cols-6">
+            <div className="mt-9 grid grid-cols-2 gap-4 sm:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5">
               {teamMembers.map((member) => (
                 <article
                   key={member.name}
-                  className="text-center"
+                  className="group overflow-hidden rounded-xl border border-gray-100 bg-white shadow-sm transition duration-300 hover:-translate-y-1 hover:border-avada-500/20 hover:shadow-lg hover:shadow-avada-900/10"
                 >
-                  <div className="relative overflow-hidden rounded-2xl border border-gray-100 bg-gray-50 shadow-sm">
-                    <div className="relative aspect-[4/5] w-full">
-                      <Image
-                        src="/images/avatar.png"
-                        alt={member.name}
-                        fill
-                        sizes="(max-width: 640px) 45vw, (max-width: 1024px) 30vw, 170px"
-                        className="object-cover"
-                      />
-                    </div>
+                  <div className="relative aspect-[4/4.8] overflow-hidden bg-gradient-to-b from-gray-50 to-gray-100">
+                    <Image
+                      src={member.photo}
+                      alt={member.name}
+                      fill
+                      sizes="(max-width: 640px) 45vw, (max-width: 1024px) 30vw, 210px"
+                      className="object-cover object-top transition duration-500 group-hover:scale-[1.02]"
+                    />
+                    <div className="absolute inset-x-0 bottom-0 h-16 bg-gradient-to-t from-gray-950/50 to-transparent opacity-70" />
                   </div>
-                  <div className="mt-3 px-1">
-                    <h3 className="text-base font-extrabold leading-6 text-gray-950">
+
+                  <div className="p-4">
+                    <h3 className="text-sm font-extrabold leading-5 text-gray-950 sm:text-base">
                       {member.name}
                     </h3>
-                    <p className="mt-1 text-xs font-bold uppercase leading-5 tracking-[0.1em] text-avada-600">
+                    <p className="mt-1.5 text-xs font-bold leading-5 text-avada-600">
                       {t(member.roleKey as any, {})}
                     </p>
                   </div>

@@ -4,21 +4,23 @@ import Footer from "@/components/layout/footer";
 import { BlogCard } from "@/components/blog/blog-card";
 import { setStaticParamsLocale } from "next-international/server";
 import {
-  blogLocales,
   getPublishedArticles,
   isBlogLocale,
 } from "@/lib/blog/articles";
+import { getNewsIndexPath } from "@/lib/blog/paths";
 import { getI18n } from "@/locales/server";
 import { notFound } from "next/navigation";
 
-const siteUrl = "https://www.avadapay.com";
+const siteUrl = "https://www.avadapay.cd";
 
 type BlogPageProps = {
   params: Promise<{ locale: string }>;
 };
 
+export const dynamicParams = false;
+
 export function generateStaticParams() {
-  return blogLocales.map((locale) => ({ locale }));
+  return [{ locale: "en" }];
 }
 
 export async function generateMetadata({
@@ -35,10 +37,10 @@ export async function generateMetadata({
       ? "Annonces, partenariats, événements et conseils AvadaPay autour des paiements digitaux en RDC."
       : "AvadaPay announcements, partnerships, events and insights around digital payments in the DRC.",
     alternates: {
-      canonical: `${siteUrl}/${locale}/blog`,
+      canonical: `${siteUrl}${getNewsIndexPath("en")}`,
       languages: {
-        fr: `${siteUrl}/fr/blog`,
-        en: `${siteUrl}/en/blog`,
+        fr: `${siteUrl}${getNewsIndexPath("fr")}`,
+        en: `${siteUrl}${getNewsIndexPath("en")}`,
       },
     },
   };
@@ -47,7 +49,7 @@ export async function generateMetadata({
 export default async function BlogPage({ params }: BlogPageProps) {
   const { locale: rawLocale } = await params;
 
-  if (!isBlogLocale(rawLocale)) {
+  if (!isBlogLocale(rawLocale) || rawLocale !== "en") {
     notFound();
   }
 

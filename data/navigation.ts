@@ -8,7 +8,11 @@ export const navigationLinks = [
     translationKey: "nav.team",
   },
   {
-    href: "/blog",
+    href: "/actualites",
+    hrefByLocale: {
+      fr: "/actualites",
+      en: "/news",
+    },
     translationKey: "nav.blog",
   },
   {

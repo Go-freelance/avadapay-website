@@ -20,8 +20,11 @@ export default function Footer() {
   const t = useI18n();
   const locale = useCurrentLocale();
   const iconMap = { FaCode, FaFileCode };
-  const getLocalizedHref = (href: string) =>
-    href.startsWith("#") ? `/${locale}${href}` : `/${locale}${href}`;
+  const getNavigationHref = (link: (typeof navigationLinks)[number]) => {
+    const href = link.hrefByLocale?.[locale as keyof typeof link.hrefByLocale] ?? link.href;
+
+    return href.startsWith("#") ? `/${locale}${href}` : `/${locale}${href}`;
+  };
 
   return (
     <footer className="bg-gray-900 text-white py-16 overflow-hidden relative">
@@ -49,7 +52,7 @@ export default function Footer() {
               {navigationLinks.map((link) => (
                 <li key={link.href} className="break-words">
                   <Link
-                    href={getLocalizedHref(link.href)}
+                    href={getNavigationHref(link)}
                     className="text-gray-400 hover:text-avada-500 transition-colors"
                   >
                     {t(link.translationKey as any, {})}

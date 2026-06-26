@@ -3,6 +3,7 @@ import Link from "next/link";
 import { ArrowRight, Clock } from "lucide-react";
 import type { BlogArticleMeta, BlogLocale } from "@/types/blog";
 import { formatArticleDate } from "@/lib/blog/format";
+import { getNewsArticlePath } from "@/lib/blog/paths";
 
 interface BlogCardProps {
   article: BlogArticleMeta;
@@ -17,9 +18,11 @@ export function BlogCard({
   readLabel,
   minuteLabel,
 }: BlogCardProps) {
+  const articlePath = getNewsArticlePath(locale, article.slug);
+
   return (
     <article className="group overflow-hidden rounded-lg border border-gray-100 bg-white shadow-sm transition duration-300 hover:-translate-y-1 hover:border-avada-500/20 hover:shadow-lg hover:shadow-avada-900/10">
-      <Link href={`/${locale}/blog/${article.slug}`} className="block">
+      <Link href={articlePath} className="block">
         <div className="relative aspect-[16/8.5] overflow-hidden bg-gray-100">
           <Image
             src={article.coverImage}
@@ -55,7 +58,7 @@ export function BlogCard({
 
         <h2 className="mt-4 text-lg font-extrabold leading-snug text-gray-950 sm:text-xl">
           <Link
-            href={`/${locale}/blog/${article.slug}`}
+            href={articlePath}
             className="transition-colors hover:text-avada-700"
           >
             {article.title}
@@ -66,7 +69,7 @@ export function BlogCard({
         </p>
 
         <Link
-          href={`/${locale}/blog/${article.slug}`}
+          href={articlePath}
           className="mt-4 inline-flex items-center gap-2 text-sm font-extrabold text-avada-700 transition hover:gap-3 hover:text-avada-800"
         >
           {readLabel}

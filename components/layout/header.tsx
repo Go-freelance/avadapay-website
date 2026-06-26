@@ -47,12 +47,20 @@ export default function Header() {
   const locale = useCurrentLocale();
   const pathname = usePathname();
   const normalizedPath = pathname.replace(/^\/(fr|en)/, "") || "/";
-  const getLocalizedHref = (href: string) =>
-    href.startsWith("#") ? `/${locale}${href}` : `/${locale}${href}`;
+  const getNavigationHref = (link: (typeof navigationLinks)[number]) => {
+    const href = link.hrefByLocale?.[locale as keyof typeof link.hrefByLocale] ?? link.href;
+
+    return href.startsWith("#") ? `/${locale}${href}` : `/${locale}${href}`;
+  };
   const contactHref = `/${locale}#contact`;
-  const isActiveLink = (href: string) =>
-    href.startsWith("/") &&
-    (normalizedPath === href || normalizedPath.startsWith(`${href}/`));
+  const isActiveLink = (link: (typeof navigationLinks)[number]) => {
+    const href = link.hrefByLocale?.[locale as keyof typeof link.hrefByLocale] ?? link.href;
+
+    return (
+      href.startsWith("/") &&
+      (normalizedPath === href || normalizedPath.startsWith(`${href}/`))
+    );
+  };
   const getSolutionHref = (solutionId: string) =>
     `/${locale}?solution=${solutionId}#solutions`;
   const selectSolution = (solutionId: string) => {
@@ -171,10 +179,10 @@ export default function Header() {
               ) : (
                 <Link
                   key={link.href}
-                  href={getLocalizedHref(link.href)}
+                  href={getNavigationHref(link)}
                   className={cn(
                     "relative px-4 py-2 text-base font-bold rounded-full transition-all duration-300 whitespace-nowrap",
-                    isActiveLink(link.href)
+                    isActiveLink(link)
                       ? "text-white bg-primary shadow-md"
                       : "text-gray-700 hover:text-primary hover:bg-gray-100/80"
                   )}
@@ -340,10 +348,10 @@ export default function Header() {
                   ) : (
                     <Link
                       key={link.href}
-                      href={getLocalizedHref(link.href)}
+                      href={getNavigationHref(link)}
                       className={cn(
                         "text-xl font-semibold w-full text-center py-3 rounded-lg transition-all duration-300 whitespace-nowrap",
-                        isActiveLink(link.href)
+                        isActiveLink(link)
                           ? "text-white bg-primary"
                           : "text-gray-700 hover:text-primary hover:bg-gray-50"
                       )}

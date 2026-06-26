@@ -4,7 +4,7 @@ export default {
   "nav.features": "Fonctionnalités",
   "nav.benefits": "Avantages",
   "nav.team": "Qui sommes-nous",
-  "nav.blog": "Blog",
+  "nav.blog": "Actualités",
   "nav.contact": "Contact",
   "nav.contactButton": "Nous contacter",
   "nav.developers": "Développeurs",
@@ -282,7 +282,7 @@ export default {
   "team.cta.button": "Contacter l'équipe",
 
   // Blog
-  "blog.hero.eyebrow": "Blog AvadaPay",
+  "blog.hero.eyebrow": "Actualités AvadaPay",
   "blog.hero.title": "Actualités et ressources AvadaPay.",
   "blog.hero.description":
     "Suivez nos annonces, nouveaux partenariats, événements et conseils pratiques autour des paiements digitaux en RDC.",
@@ -291,7 +291,7 @@ export default {
   "blog.empty.title": "Aucun article publié pour le moment",
   "blog.empty.description":
     "Les prochains contenus AvadaPay apparaîtront ici dès qu'ils seront publiés.",
-  "blog.article.back": "Retour au blog",
+  "blog.article.back": "Retour aux actualités",
 
   footer: {
     description:

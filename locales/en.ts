@@ -4,7 +4,7 @@ export default {
   "nav.features": "Features",
   "nav.benefits": "Benefits",
   "nav.team": "About us",
-  "nav.blog": "Blog",
+  "nav.blog": "News",
   "nav.partners": "Partners",
   "nav.contact": "Contact",
   "nav.contactButton": "Contact Us",
@@ -282,7 +282,7 @@ export default {
   "team.cta.button": "Contact the team",
 
   // Blog
-  "blog.hero.eyebrow": "AvadaPay Blog",
+  "blog.hero.eyebrow": "AvadaPay News",
   "blog.hero.title": "AvadaPay news and resources.",
   "blog.hero.description":
     "Follow our announcements, new partnerships, events and practical insights around digital payments in the DRC.",
@@ -291,7 +291,7 @@ export default {
   "blog.empty.title": "No published article yet",
   "blog.empty.description":
     "Upcoming AvadaPay content will appear here as soon as it is published.",
-  "blog.article.back": "Back to blog",
+  "blog.article.back": "Back to news",
 
   "solutions.items.online-payment.features.0":
     "Simple and fast API integration",

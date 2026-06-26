@@ -11,10 +11,11 @@ import {
   isBlogLocale,
 } from "@/lib/blog/articles";
 import { formatArticleDate } from "@/lib/blog/format";
+import { getNewsArticlePath, getNewsIndexPath } from "@/lib/blog/paths";
 import { getI18n } from "@/locales/server";
 import { notFound } from "next/navigation";
 
-const siteUrl = "https://www.avadapay.com";
+const siteUrl = "https://www.avadapay.cd";
 
 type BlogArticlePageProps = {
   params: Promise<{
@@ -26,7 +27,7 @@ type BlogArticlePageProps = {
 export const dynamicParams = false;
 
 export function generateStaticParams() {
-  return getArticleStaticParams();
+  return getArticleStaticParams().filter((params) => params.locale === "fr");
 }
 
 export async function generateMetadata({
@@ -48,10 +49,10 @@ export async function generateMetadata({
     title: `${article.title} | AvadaPay`,
     description: article.excerpt,
     alternates: {
-      canonical: `${siteUrl}/${locale}/blog/${article.slug}`,
+      canonical: `${siteUrl}${getNewsArticlePath("fr", article.slug)}`,
       languages: {
-        fr: `${siteUrl}/fr/blog/${article.slug}`,
-        en: `${siteUrl}/en/blog/${article.slug}`,
+        fr: `${siteUrl}${getNewsArticlePath("fr", article.slug)}`,
+        en: `${siteUrl}${getNewsArticlePath("en", article.slug)}`,
       },
     },
     openGraph: {
@@ -59,7 +60,7 @@ export async function generateMetadata({
       description: article.excerpt,
       type: "article",
       publishedTime: article.publishedAt,
-      url: `${siteUrl}/${locale}/blog/${article.slug}`,
+      url: `${siteUrl}${getNewsArticlePath("fr", article.slug)}`,
       images: [
         {
           url: `${siteUrl}${article.coverImage}`,
@@ -81,7 +82,7 @@ export default async function BlogArticlePage({
 }: BlogArticlePageProps) {
   const { locale: rawLocale, slug } = await params;
 
-  if (!isBlogLocale(rawLocale)) {
+  if (!isBlogLocale(rawLocale) || rawLocale !== "fr") {
     notFound();
   }
 
@@ -105,7 +106,7 @@ export default async function BlogArticlePage({
             <div className="absolute inset-x-0 top-0 h-28 bg-gradient-to-b from-avada-500/10 to-transparent" />
             <div className="container relative pb-12 pt-8 sm:pb-16 lg:pb-20">
               <Link
-                href={`/${rawLocale}/blog`}
+                href={getNewsIndexPath(rawLocale)}
                 className="inline-flex items-center gap-2 text-sm font-extrabold text-avada-700 transition hover:text-avada-800"
               >
                 <ArrowLeft className="h-4 w-4" />

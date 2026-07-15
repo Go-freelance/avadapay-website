@@ -3,10 +3,10 @@ export const navigationLinks = [
     href: "#solutions",
     translationKey: "nav.solutions",
   },
-  {
-    href: "/qui-sommes-nous",
-    translationKey: "nav.team",
-  },
+  // {
+  //   href: "/qui-sommes-nous",
+  //   translationKey: "nav.team",
+  // },
   {
     href: "/actualites",
     hrefByLocale: {

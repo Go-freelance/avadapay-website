@@ -4,6 +4,12 @@ import PaymentDrcEn, {
 import PaymentDrcFr, {
   article as paymentDrcFrMeta,
 } from "@/content/blog/paiements-digitaux-rdc/fr.mdx";
+import AvadaschoolLaunchEn, {
+  article as avadaschoolLaunchEnMeta,
+} from "@/content/blog/lancement-avadaschool/en.mdx";
+import AvadaschoolLaunchFr, {
+  article as avadaschoolLaunchFrMeta,
+} from "@/content/blog/lancement-avadaschool/fr.mdx";
 import SecurePaymentEn, {
   article as securePaymentEnMeta,
 } from "@/content/blog/securiser-parcours-paiement/en.mdx";
@@ -13,6 +19,14 @@ import SecurePaymentFr, {
 import type { BlogArticle, BlogArticleMeta, BlogLocale } from "@/types/blog";
 
 const articleSources: BlogArticle[] = [
+  {
+    ...avadaschoolLaunchFrMeta,
+    Content: AvadaschoolLaunchFr,
+  },
+  {
+    ...avadaschoolLaunchEnMeta,
+    Content: AvadaschoolLaunchEn,
+  },
   {
     ...paymentDrcFrMeta,
     Content: PaymentDrcFr,

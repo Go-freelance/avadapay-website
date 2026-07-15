@@ -30,7 +30,7 @@ export const solutionsData = [
   {
     id: "avadaschool",
     translationKey: "solutions.items.avadaschool",
-    image: "/images/avadaschool.png",
+    image: "/images/phone.png",
     features: [
       "solutions.items.avadaschool.features.0",
       "solutions.items.avadaschool.features.1",

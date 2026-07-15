@@ -23,6 +23,17 @@ export default {
     "We offer digital solutions that simplify financial transactions for businesses and consumers.",
   "hero.cta": "Discover our solutions",
   "hero.contact": "Contact us",
+  "hero.carouselLabel": "AvadaPay solutions",
+  "hero.slideNavigation": "Choose a solution to display",
+  "hero.slideOneLabel": "AvadaPay, slide 1 of 2",
+  "hero.slideTwoLabel": "AvadaSchool, slide 2 of 2",
+  "hero.previousSlide": "Show previous slide",
+  "hero.nextSlide": "Show next slide",
+  "hero.school.badge": "AvadaSchool, powered by AvadaPay",
+  "hero.school.title": "School payments, finally simplified",
+  "hero.school.subtitle":
+    "One platform that lets parents pay remotely and helps schools track tuition payments more easily.",
+  "hero.school.cta": "Discover AvadaSchool",
 
   // Features Section
   "features.title": "Why",

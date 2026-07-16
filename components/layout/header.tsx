@@ -275,8 +275,8 @@ export default function Header() {
         {isOpen &&
           typeof window !== "undefined" &&
           ReactDOM.createPortal(
-            <div className="fixed inset-0 z-[9999] bg-white flex flex-col md:hidden overflow-hidden">
-              <div className="flex items-center justify-between h-16 px-4 border-b bg-white">
+            <div className="fixed inset-0 z-[9999] flex h-[100dvh] flex-col overflow-hidden bg-white md:hidden">
+              <div className="flex h-16 shrink-0 items-center justify-between border-b bg-white px-4">
                 <Image
                   src="/images/logo.png"
                   alt="AvadaPay Logo"
@@ -297,14 +297,17 @@ export default function Header() {
               </div>
 
               {/* Mobile Navigation Links */}
-              <nav className="flex-1 flex flex-col items-center justify-center gap-4 px-4 overflow-y-auto">
+              <nav className="flex min-h-0 flex-1 flex-col items-center justify-start gap-4 overflow-y-auto overscroll-contain px-4 py-4 pb-6 [&>*]:shrink-0">
                 {navigationLinks.map((link, index) =>
                   link.translationKey === "nav.solutions" ? (
                     <div key={link.href} className="w-full">
                       <Button
                         variant="ghost"
                         className="w-full text-xl font-semibold py-3 rounded-lg text-gray-700 hover:text-primary hover:bg-gray-50 transition-all duration-300 flex items-center justify-center gap-2"
-                        onClick={() => setSolutionsOpen(!solutionsOpen)}
+                        onClick={() => {
+                          setSolutionsOpen((current) => !current);
+                          setDevelopersOpen(false);
+                        }}
                         style={{
                           animationDelay: `${index * 0.1}s`,
                           animation: "fadeInUp 0.5s ease forwards",
@@ -371,7 +374,10 @@ export default function Header() {
                   <Button
                     variant="ghost"
                     className="w-full text-xl font-semibold py-3 rounded-lg text-gray-700 hover:text-primary hover:bg-gray-50/80 hover:shadow-md transition-all duration-300 flex items-center justify-center gap-2"
-                    onClick={() => setDevelopersOpen(!developersOpen)}
+                    onClick={() => {
+                      setDevelopersOpen((current) => !current);
+                      setSolutionsOpen(false);
+                    }}
                     style={{
                       animationDelay: `${navigationLinks.length * 0.1}s`,
                       animation: "fadeInUp 0.5s ease forwards",
@@ -420,7 +426,7 @@ export default function Header() {
 
                 <Link
                   href={contactHref}
-                  className="mt-6 w-full btn-avada text-center py-4 rounded-lg text-white font-bold whitespace-nowrap shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-105 border border-primary/20"
+                  className="btn-avada mt-6 flex min-h-14 w-full shrink-0 items-center justify-center whitespace-nowrap rounded-lg border border-primary/20 py-4 text-center font-bold text-white shadow-lg transition-all duration-300 hover:scale-[1.02] hover:shadow-xl"
                   onClick={() => setIsOpen(false)}
                   style={{
                     animation: "fadeInUp 0.5s 0.4s ease forwards",
@@ -432,7 +438,7 @@ export default function Header() {
               </nav>
 
               {/* Mobile Footer */}
-              <div className="p-6 border-t flex justify-center">
+              <div className="flex shrink-0 justify-center border-t bg-white p-4 sm:p-6">
                 <LanguageSwitcher />
               </div>
             </div>,

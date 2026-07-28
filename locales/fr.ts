@@ -113,6 +113,20 @@ export default {
         "Relation parent-école simplifiée",
       ],
     },
+    avadachurch: {
+      title: "AvadaChurch",
+      shortDescription:
+        "Digitalisez les contributions et simplifiez la gestion de votre église",
+      description:
+        "AvadaChurch accompagne les églises avec une solution digitale conçue pour faciliter les contributions des fidèles, centraliser leur suivi et simplifier la gestion quotidienne des responsables.",
+      features: [
+        "Contributions digitales pour les fidèles",
+        "Suivi centralisé des versements",
+        "Historique clair des contributions",
+        "Gestion simplifiée pour les responsables",
+      ],
+      websiteCta: "Découvrir AvadaChurch",
+    },
   },
   "solutions.help.title": "Besoin d'aide ?",
   "solutions.help.description":

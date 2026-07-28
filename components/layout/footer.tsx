@@ -70,7 +70,13 @@ export default function Footer() {
               {solutionsData.map((solution) => (
                 <li key={solution.id} className="break-words">
                   <Link
-                    href="#solutions"
+                    href={solution.externalUrl || "#solutions"}
+                    target={solution.externalUrl ? "_blank" : undefined}
+                    rel={
+                      solution.externalUrl
+                        ? "noopener noreferrer"
+                        : undefined
+                    }
                     className="text-gray-400 hover:text-avada-500 transition-colors"
                   >
                     {t(`solutions.items.${solution.id}.title` as any, {})}

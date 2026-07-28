@@ -5,19 +5,18 @@ import Image from "next/image";
 import Link from "next/link";
 import { motion } from "framer-motion";
 import { Button } from "@/components/ui/button";
-import { solutionsData } from "@/data/solutions";
+import { solutionsData, type SolutionData } from "@/data/solutions";
 import { useI18n } from "@/locales/client";
-import { FaCreditCard, FaArrowRight, FaChevronRight } from "react-icons/fa";
+import {
+  FaArrowRight,
+  FaChevronRight,
+  FaChurch,
+  FaCreditCard,
+  FaExternalLinkAlt,
+} from "react-icons/fa";
 import { TbUsersGroup } from "react-icons/tb";
 import { MdSchool, MdSmartphone } from "react-icons/md";
 import { cn } from "@/lib/utils";
-
-interface Solution {
-  id: string;
-  translationKey: string;
-  image?: string;
-  features?: string[];
-}
 
 export default function Solutions() {
   const [activeSolution, setActiveSolution] = useState(solutionsData[0].id);
@@ -116,7 +115,7 @@ export default function Solutions() {
         <div className="flex flex-col lg:flex-row gap-6 lg:gap-8 mb-14 sm:mb-16">
           <div className="lg:w-1/3">
             <div className="lg:sticky lg:top-24 space-y-2 flex flex-col">
-              {solutionsData.map((solution: Solution, index: number) => (
+              {solutionsData.map((solution: SolutionData, index: number) => (
                 <motion.button
                   key={solution.id}
                   initial={{ opacity: 0, x: -20 }}
@@ -173,6 +172,16 @@ export default function Solutions() {
                       <MdSchool
                         className={cn(
                           "h-5 w-5 sm:h-6 sm:w-6 flex-shrink-0",
+                          activeSolution === solution.id
+                            ? "text-white"
+                            : "text-primary"
+                        )}
+                      />
+                    )}
+                    {index === 4 && (
+                      <FaChurch
+                        className={cn(
+                          "h-5 w-5 flex-shrink-0 sm:h-6 sm:w-6",
                           activeSolution === solution.id
                             ? "text-white"
                             : "text-primary"
@@ -273,6 +282,20 @@ export default function Solutions() {
                       </div>
                     ))}
                 </div>
+
+                {activeSolutionData.externalUrl && (
+                  <a
+                    href={activeSolutionData.externalUrl}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="mt-6 inline-flex items-center rounded-lg bg-primary px-5 py-3 text-sm font-bold text-white shadow-lg shadow-primary/20 transition-colors hover:bg-primary/90 sm:text-base"
+                  >
+                    {translate(
+                      `${activeSolutionData.translationKey}.websiteCta`
+                    )}
+                    <FaExternalLinkAlt className="ml-2 h-3.5 w-3.5" />
+                  </a>
+                )}
               </div>
             </motion.div>
           </div>

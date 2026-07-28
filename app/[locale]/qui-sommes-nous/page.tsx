@@ -51,12 +51,12 @@ const teamMembers = [
   {
     name: "Ibrahim OMARI",
     roleKey: "team.members.ibrahim.role",
-    photo: "/images/teams/ibrahim-omari.png",
+    photo: "/images/teams/ibrahim-omari.jpg",
   },
   {
     name: "Ansarry MULUMBA",
     roleKey: "team.members.ansarry.role",
-    photo: "/images/teams/ansarry-mulumba.png",
+    photo: "/images/teams/ansarry-mulumba.jpg",
   },
   {
     name: "Flore MAYELE",
@@ -66,32 +66,27 @@ const teamMembers = [
   {
     name: "Raissa NGOYA",
     roleKey: "team.members.raissa.role",
-    photo: "/images/teams/raissa-ngoya.png",
+    photo: "/images/teams/raissa-ngoya.jpg",
   },
   {
     name: "Felix ZAMBA",
     roleKey: "team.members.felix.role",
-    photo: "/images/teams/felix-zamba.png",
+    photo: "/images/teams/felix-zamba.jpg",
   },
   {
     name: "Raman KUMAR",
     roleKey: "team.members.raman.role",
-    photo: "/images/teams/raman-kumar.png",
+    photo: "/images/teams/raman-kumar.jpg",
   },
   {
     name: "Krys BUKASA",
     roleKey: "team.members.krys.role",
-    photo: "/images/teams/krys-bukasa.png",
+    photo: "/images/teams/krys-bukasa.jpg",
   },
   {
     name: "Bill-Simon MBUYI",
     roleKey: "team.members.bill.role",
-    photo: "/images/teams/billsimon-mbuyi.png",
-  },
-  {
-    name: "Samuel KALONJI",
-    roleKey: "team.members.samuel.role",
-    photo: "/images/teams/samuel-kalonji.png",
+    photo: "/images/teams/billsimon-mbuyi.jpg",
   },
 
 ];
@@ -182,7 +177,7 @@ export default async function AboutPage({
               </div>
             </div>
 
-            <div className="mt-9 grid grid-cols-2 gap-4 sm:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5">
+            <div className="mt-9 grid grid-cols-2 gap-4 sm:grid-cols-3 lg:grid-cols-4">
               {teamMembers.map((member) => (
                 <article
                   key={member.name}

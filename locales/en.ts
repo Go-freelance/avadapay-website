@@ -112,6 +112,20 @@ export default {
         "Simplified parent-school relationship",
       ],
     },
+    avadachurch: {
+      title: "AvadaChurch",
+      shortDescription:
+        "Digitize contributions and simplify your church management",
+      description:
+        "AvadaChurch supports churches with a digital solution designed to make member contributions easier, centralize their tracking, and simplify day-to-day management for church leaders.",
+      features: [
+        "Digital contributions for members",
+        "Centralized payment tracking",
+        "Clear contribution history",
+        "Simplified management for church leaders",
+      ],
+      websiteCta: "Discover AvadaChurch",
+    },
   },
   "solutions.help.title": "Need Help?",
   "solutions.help.description":

@@ -1,4 +1,12 @@
-export const solutionsData = [
+export interface SolutionData {
+  id: string;
+  translationKey: string;
+  image?: string;
+  externalUrl?: string;
+  features: string[];
+}
+
+export const solutionsData: SolutionData[] = [
   {
     id: "online-payment",
     translationKey: "solutions.items.online-payment",
@@ -40,6 +48,18 @@ export const solutionsData = [
       "solutions.items.avadaschool.features.5",
       "solutions.items.avadaschool.features.6",
       "solutions.items.avadaschool.features.7",
+    ],
+  },
+  {
+    id: "avadachurch",
+    translationKey: "solutions.items.avadachurch",
+    image: "/images/avadachurch.png",
+    externalUrl: "https://www.avadachurch.com/",
+    features: [
+      "solutions.items.avadachurch.features.0",
+      "solutions.items.avadachurch.features.1",
+      "solutions.items.avadachurch.features.2",
+      "solutions.items.avadachurch.features.3",
     ],
   },
 ];

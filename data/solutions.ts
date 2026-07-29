@@ -39,6 +39,7 @@ export const solutionsData: SolutionData[] = [
     id: "avadaschool",
     translationKey: "solutions.items.avadaschool",
     image: "/images/phone.png",
+    externalUrl: "https://www.avadaschool.com/",
     features: [
       "solutions.items.avadaschool.features.0",
       "solutions.items.avadaschool.features.1",

@@ -61,8 +61,9 @@ export default function Header() {
       (normalizedPath === href || normalizedPath.startsWith(`${href}/`))
     );
   };
-  const getSolutionHref = (solutionId: string) =>
-    `/${locale}?solution=${solutionId}#solutions`;
+  const getSolutionHref = (solution: (typeof solutionsData)[number]) =>
+    solution.externalUrl ??
+    `/${locale}?solution=${solution.id}#solutions`;
   const selectSolution = (solutionId: string) => {
     window.dispatchEvent(
       new CustomEvent("avadapay:solution-change", {
@@ -155,8 +156,12 @@ export default function Header() {
                         className="p-0"
                       >
                         <Link
-                          href={getSolutionHref(solution.id)}
-                          onClick={() => selectSolution(solution.id)}
+                          href={getSolutionHref(solution)}
+                          onClick={() => {
+                            if (!solution.externalUrl) {
+                              selectSolution(solution.id);
+                            }
+                          }}
                           className="flex items-start gap-3 p-3 rounded-lg hover:bg-primary/5 transition-colors cursor-pointer group"
                         >
                           <div className="mt-1 h-2.5 w-2.5 rounded-full bg-primary/50 group-hover:bg-primary flex-shrink-0" />
@@ -327,10 +332,12 @@ export default function Header() {
                           {solutionsData.map((solution) => (
                             <Link
                               key={solution.id}
-                              href={getSolutionHref(solution.id)}
+                              href={getSolutionHref(solution)}
                               className="block rounded-lg bg-gray-50 p-3 text-left transition-colors hover:bg-primary/5"
                               onClick={() => {
-                                selectSolution(solution.id);
+                                if (!solution.externalUrl) {
+                                  selectSolution(solution.id);
+                                }
                                 setIsOpen(false);
                               }}
                             >

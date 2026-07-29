@@ -59,10 +59,11 @@ const teamMembers = [
     photo: "/images/teams/ansarry-mulumba.jpg",
   },
   {
-    name: "Marrion NTUMBA",
-    roleKey: "team.members.marion.role",
-    photo: "/images/teams/marion.jpg",
+    name: "Bill-Simon MBUYI",
+    roleKey: "team.members.bill.role",
+    photo: "/images/teams/billsimon-mbuyi.jpg",
   },
+
   {
     name: "Raissa NGOYA",
     roleKey: "team.members.raissa.role",
@@ -84,9 +85,9 @@ const teamMembers = [
     photo: "/images/teams/krys-bukasa.jpg",
   },
   {
-    name: "Bill-Simon MBUYI",
-    roleKey: "team.members.bill.role",
-    photo: "/images/teams/billsimon-mbuyi.jpg",
+    name: "Marrion NTUMBA",
+    roleKey: "team.members.marion.role",
+    photo: "/images/teams/marion.jpg",
   },
 
 ];

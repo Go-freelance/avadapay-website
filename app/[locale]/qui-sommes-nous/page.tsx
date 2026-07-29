@@ -59,9 +59,9 @@ const teamMembers = [
     photo: "/images/teams/ansarry-mulumba.jpg",
   },
   {
-    name: "Flore MAYELE",
-    roleKey: "team.members.flore.role",
-    photo: "/images/teams/flore-mayele.png",
+    name: "Marrion NTUMBA",
+    roleKey: "team.members.marion.role",
+    photo: "/images/teams/marion.jpg",
   },
   {
     name: "Raissa NGOYA",

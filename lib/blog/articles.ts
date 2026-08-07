@@ -16,9 +16,23 @@ import SecurePaymentEn, {
 import SecurePaymentFr, {
   article as securePaymentFrMeta,
 } from "@/content/blog/securiser-parcours-paiement/fr.mdx";
+import SanjolaEn, {
+  article as sanjolaEnMeta,
+} from "@/content/blog/sanjola-en-choeur-2026/en.mdx";
+import SanjolaFr, {
+  article as sanjolaFrMeta,
+} from "@/content/blog/sanjola-en-choeur-2026/fr.mdx";
 import type { BlogArticle, BlogArticleMeta, BlogLocale } from "@/types/blog";
 
 const articleSources: BlogArticle[] = [
+  {
+    ...sanjolaFrMeta,
+    Content: SanjolaFr,
+  },
+  {
+    ...sanjolaEnMeta,
+    Content: SanjolaEn,
+  },
   {
     ...avadaschoolLaunchFrMeta,
     Content: AvadaschoolLaunchFr,

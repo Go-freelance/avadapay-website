@@ -1,4 +1,4 @@
-import PaymentDrcEn, {
+﻿import PaymentDrcEn, {
   article as paymentDrcEnMeta,
 } from "@/content/blog/paiements-digitaux-rdc/en.mdx";
 import PaymentDrcFr, {
@@ -22,9 +22,23 @@ import SanjolaEn, {
 import SanjolaFr, {
   article as sanjolaFrMeta,
 } from "@/content/blog/sanjola-en-choeur-2026/fr.mdx";
+import FintechRdcEn, {
+  article as fintechRdcEnMeta,
+} from "@/content/blog/fintech-en-rdc/en.mdx";
+import FintechRdcFr, {
+  article as fintechRdcFrMeta,
+} from "@/content/blog/fintech-en-rdc/fr.mdx";
 import type { BlogArticle, BlogArticleMeta, BlogLocale } from "@/types/blog";
 
 const articleSources: BlogArticle[] = [
+  {
+    ...fintechRdcFrMeta,
+    Content: FintechRdcFr,
+  },
+  {
+    ...fintechRdcEnMeta,
+    Content: FintechRdcEn,
+  },
   {
     ...sanjolaFrMeta,
     Content: SanjolaFr,

@@ -28,9 +28,23 @@ import FintechRdcEn, {
 import FintechRdcFr, {
   article as fintechRdcFrMeta,
 } from "@/content/blog/fintech-en-rdc/fr.mdx";
+import AvadapayMyriadEn, {
+  article as avadapayMyriadEnMeta,
+} from "@/content/blog/avadapay-myriad-financial-inclusion/en.mdx";
+import AvadapayMyriadFr, {
+  article as avadapayMyriadFrMeta,
+} from "@/content/blog/avadapay-myriad-financial-inclusion/fr.mdx";
 import type { BlogArticle, BlogArticleMeta, BlogLocale } from "@/types/blog";
 
 const articleSources: BlogArticle[] = [
+  {
+    ...avadapayMyriadFrMeta,
+    Content: AvadapayMyriadFr,
+  },
+  {
+    ...avadapayMyriadEnMeta,
+    Content: AvadapayMyriadEn,
+  },
   {
     ...fintechRdcFrMeta,
     Content: FintechRdcFr,

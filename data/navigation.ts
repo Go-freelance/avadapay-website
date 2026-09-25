@@ -38,7 +38,7 @@ export const developerLinks: DeveloperLink[] = [
   {
     titleKey: "nav.developer.api.title",
     descriptionKey: "nav.developer.api.description",
-    href: "https://docs.unipesa.tech/",
+    href: "https://docs.avadapay.tech/",
     icon: "FaCode",
   },
   {

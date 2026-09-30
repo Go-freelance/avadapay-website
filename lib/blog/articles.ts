@@ -34,9 +34,23 @@ import AvadapayMyriadEn, {
 import AvadapayMyriadFr, {
   article as avadapayMyriadFrMeta,
 } from "@/content/blog/avadapay-myriad-financial-inclusion/fr.mdx";
+import YouthBusinessConferenceEn, {
+  article as youthBusinessConferenceEnMeta,
+} from "@/content/blog/avadapay-youth-business-conference/en.mdx";
+import YouthBusinessConferenceFr, {
+  article as youthBusinessConferenceFrMeta,
+} from "@/content/blog/avadapay-youth-business-conference/fr.mdx";
 import type { BlogArticle, BlogArticleMeta, BlogLocale } from "@/types/blog";
 
 const articleSources: BlogArticle[] = [
+  {
+    ...youthBusinessConferenceFrMeta,
+    Content: YouthBusinessConferenceFr,
+  },
+  {
+    ...youthBusinessConferenceEnMeta,
+    Content: YouthBusinessConferenceEn,
+  },
   {
     ...avadapayMyriadFrMeta,
     Content: AvadapayMyriadFr,

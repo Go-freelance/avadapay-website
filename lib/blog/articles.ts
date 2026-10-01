@@ -40,9 +40,23 @@ import YouthBusinessConferenceEn, {
 import YouthBusinessConferenceFr, {
   article as youthBusinessConferenceFrMeta,
 } from "@/content/blog/avadapay-youth-business-conference/fr.mdx";
+import EastAfricaCeoForumEn, {
+  article as eastAfricaCeoForumEnMeta,
+} from "@/content/blog/avadapay-east-africa-ceo-investment-forum/en.mdx";
+import EastAfricaCeoForumFr, {
+  article as eastAfricaCeoForumFrMeta,
+} from "@/content/blog/avadapay-east-africa-ceo-investment-forum/fr.mdx";
 import type { BlogArticle, BlogArticleMeta, BlogLocale } from "@/types/blog";
 
 const articleSources: BlogArticle[] = [
+  {
+    ...eastAfricaCeoForumFrMeta,
+    Content: EastAfricaCeoForumFr,
+  },
+  {
+    ...eastAfricaCeoForumEnMeta,
+    Content: EastAfricaCeoForumEn,
+  },
   {
     ...youthBusinessConferenceFrMeta,
     Content: YouthBusinessConferenceFr,

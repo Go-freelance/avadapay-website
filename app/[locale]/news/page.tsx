@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import Header from "@/components/layout/header";
 import Footer from "@/components/layout/footer";
-import { BlogCard } from "@/components/blog/blog-card";
+import { BlogGrid } from "@/components/blog/blog-grid";
 import { JsonLd } from "@/components/seo/json-ld";
 import { setStaticParamsLocale } from "next-international/server";
 import {
@@ -136,17 +136,13 @@ export default async function BlogPage({ params }: BlogPageProps) {
               </p>
             </div>
             {articles.length > 0 ? (
-              <div className="grid max-w-6xl gap-5 md:grid-cols-2 xl:grid-cols-3">
-                {articles.map((article) => (
-                  <BlogCard
-                    key={article.slug}
-                    article={article}
-                    locale={rawLocale}
-                    readLabel={t("blog.card.read" as any, {})}
-                    minuteLabel={t("blog.card.minutes" as any, {})}
-                  />
-                ))}
-              </div>
+              <BlogGrid
+                articles={articles}
+                locale={rawLocale}
+                readLabel={t("blog.card.read" as any, {})}
+                minuteLabel={t("blog.card.minutes" as any, {})}
+                showMoreLabel={t("blog.list.showMore" as any, {})}
+              />
             ) : (
               <div className="rounded-xl border border-gray-100 bg-white p-8 text-center shadow-sm">
                 <h2 className="text-2xl font-extrabold text-gray-950">

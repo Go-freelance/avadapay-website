@@ -312,6 +312,7 @@ export default {
     "Suivez nos annonces, nouveaux partenariats, événements et conseils pratiques autour des paiements digitaux en RDC.",
   "blog.card.read": "Lire l'article",
   "blog.card.minutes": "min de lecture",
+  "blog.list.showMore": "Voir plus",
   "blog.empty.title": "Aucun article publié pour le moment",
   "blog.empty.description":
     "Les prochains contenus AvadaPay apparaîtront ici dès qu'ils seront publiés.",

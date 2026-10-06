@@ -21,20 +21,20 @@ export function BlogCard({
   const articlePath = getNewsArticlePath(locale, article.slug);
 
   return (
-    <article className="group overflow-hidden rounded-lg border border-gray-100 bg-white shadow-sm transition duration-300 hover:-translate-y-1 hover:border-avada-500/20 hover:shadow-lg hover:shadow-avada-900/10">
+    <article className="group flex h-full flex-col overflow-hidden rounded-lg border border-gray-100 bg-white shadow-sm transition duration-300 hover:-translate-y-1 hover:border-avada-500/20 hover:shadow-lg hover:shadow-avada-900/10">
       <Link href={articlePath} className="block">
         <div className="relative aspect-[16/8.5] overflow-hidden bg-gray-100">
           <Image
             src={article.coverImage}
             alt={article.coverAlt}
             fill
-            sizes="(max-width: 768px) 100vw, (max-width: 1280px) 45vw, 360px"
+            sizes="(max-width: 640px) 100vw, (max-width: 1280px) 50vw, 25vw"
             className="object-cover transition duration-500 group-hover:scale-[1.03]"
           />
         </div>
       </Link>
 
-      <div className="p-4 sm:p-5">
+      <div className="flex flex-1 flex-col p-4 sm:p-5">
         <div className="flex flex-wrap items-center gap-2.5 text-xs font-semibold text-gray-500">
           <time dateTime={article.publishedAt}>
             {formatArticleDate(locale, article.publishedAt)}
@@ -56,7 +56,7 @@ export function BlogCard({
           ))}
         </div>
 
-        <h2 className="mt-4 text-lg font-extrabold leading-snug text-gray-950 sm:text-xl">
+        <h2 className="mt-4 line-clamp-3 text-lg font-extrabold leading-snug text-gray-950 sm:text-xl">
           <Link
             href={articlePath}
             className="transition-colors hover:text-avada-700"
@@ -70,7 +70,7 @@ export function BlogCard({
 
         <Link
           href={articlePath}
-          className="mt-4 inline-flex items-center gap-2 text-sm font-extrabold text-avada-700 transition hover:gap-3 hover:text-avada-800"
+          className="mt-auto inline-flex items-center gap-2 pt-4 text-sm font-extrabold text-avada-700 transition hover:gap-3 hover:text-avada-800"
         >
           {readLabel}
           <ArrowRight className="h-4 w-4" />

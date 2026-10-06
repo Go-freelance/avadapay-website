@@ -312,6 +312,7 @@ export default {
     "Follow our announcements, new partnerships, events and practical insights around digital payments in the DRC.",
   "blog.card.read": "Read article",
   "blog.card.minutes": "min read",
+  "blog.list.showMore": "Show more",
   "blog.empty.title": "No published article yet",
   "blog.empty.description":
     "Upcoming AvadaPay content will appear here as soon as it is published.",

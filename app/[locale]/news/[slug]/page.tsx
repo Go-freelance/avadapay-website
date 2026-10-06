@@ -4,6 +4,7 @@ import Link from "next/link";
 import { ArrowLeft, Clock } from "lucide-react";
 import Header from "@/components/layout/header";
 import Footer from "@/components/layout/footer";
+import { JsonLd } from "@/components/seo/json-ld";
 import { setStaticParamsLocale } from "next-international/server";
 import {
   getArticle,
@@ -45,14 +46,22 @@ export async function generateMetadata({
     return {};
   }
 
+  const url = `${siteUrl}${getNewsArticlePath("en", article.slug)}`;
+
   return {
-    title: `${article.title} | AvadaPay`,
+    title: article.seoTitle ?? article.title,
     description: article.excerpt,
+    authors: [{ name: "AvadaPay DRC", url: siteUrl }],
+    creator: "AvadaPay DRC",
+    publisher: "AvadaPay DRC",
+    category: "Digital payments",
+    keywords: article.tags,
     alternates: {
-      canonical: `${siteUrl}${getNewsArticlePath("en", article.slug)}`,
+      canonical: url,
       languages: {
         fr: `${siteUrl}${getNewsArticlePath("fr", article.slug)}`,
         en: `${siteUrl}${getNewsArticlePath("en", article.slug)}`,
+        "x-default": `${siteUrl}${getNewsArticlePath("fr", article.slug)}`,
       },
     },
     openGraph: {
@@ -60,7 +69,11 @@ export async function generateMetadata({
       description: article.excerpt,
       type: "article",
       publishedTime: article.publishedAt,
-      url: `${siteUrl}${getNewsArticlePath("en", article.slug)}`,
+      authors: ["AvadaPay DRC"],
+      tags: article.tags,
+      url,
+      siteName: "AvadaPay",
+      locale: "en_CD",
       images: [
         {
           url: `${siteUrl}${article.coverImage}`,
@@ -74,6 +87,7 @@ export async function generateMetadata({
       description: article.excerpt,
       images: [`${siteUrl}${article.coverImage}`],
     },
+    robots: { index: true, follow: true },
   };
 }
 
@@ -96,9 +110,51 @@ export default async function BlogArticlePage({
 
   const t = await getI18n();
   const { Content } = article;
+  const articleUrl = `${siteUrl}${getNewsArticlePath(rawLocale, article.slug)}`;
+  const structuredData = {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "NewsArticle",
+        headline: article.title,
+        description: article.excerpt,
+        image: [`${siteUrl}${article.coverImage}`],
+        datePublished: article.publishedAt,
+        dateModified: article.publishedAt,
+        inLanguage: "en-CD",
+        mainEntityOfPage: { "@type": "WebPage", "@id": articleUrl },
+        author: { "@type": "Organization", name: "AvadaPay DRC", url: siteUrl },
+        publisher: {
+          "@type": "Organization",
+          name: "AvadaPay DRC",
+          url: siteUrl,
+          logo: { "@type": "ImageObject", url: `${siteUrl}/images/logo.png` },
+        },
+        keywords: article.tags.join(", "),
+      },
+      {
+        "@type": "BreadcrumbList",
+        itemListElement: [
+          {
+            "@type": "ListItem",
+            position: 1,
+            name: "News",
+            item: `${siteUrl}${getNewsIndexPath(rawLocale)}`,
+          },
+          {
+            "@type": "ListItem",
+            position: 2,
+            name: article.title,
+            item: articleUrl,
+          },
+        ],
+      },
+    ],
+  };
 
   return (
     <div className="flex min-h-screen flex-col bg-white text-gray-950">
+      <JsonLd data={structuredData} />
       <Header />
       <main className="flex-1">
         <article>

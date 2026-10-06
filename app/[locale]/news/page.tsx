@@ -2,12 +2,13 @@ import type { Metadata } from "next";
 import Header from "@/components/layout/header";
 import Footer from "@/components/layout/footer";
 import { BlogCard } from "@/components/blog/blog-card";
+import { JsonLd } from "@/components/seo/json-ld";
 import { setStaticParamsLocale } from "next-international/server";
 import {
   getPublishedArticles,
   isBlogLocale,
 } from "@/lib/blog/articles";
-import { getNewsIndexPath } from "@/lib/blog/paths";
+import { getNewsArticlePath, getNewsIndexPath } from "@/lib/blog/paths";
 import { getI18n } from "@/locales/server";
 import { notFound } from "next/navigation";
 
@@ -24,25 +25,46 @@ export function generateStaticParams() {
 }
 
 export async function generateMetadata({
-  params,
+  params: _params,
 }: BlogPageProps): Promise<Metadata> {
-  const { locale } = await params;
-  const isFrench = locale === "fr";
+  await _params;
+  const title = "Digital payment news in the DRC | AvadaPay";
+  const description =
+    "Follow AvadaPay news in the DRC, including payment security, mobile money, fintech innovation, partnerships and resources for businesses.";
+  const url = `${siteUrl}${getNewsIndexPath("en")}`;
 
   return {
-    title: isFrench
-      ? "Actualités et ressources | AvadaPay"
-      : "News and resources | AvadaPay",
-    description: isFrench
-      ? "Annonces, partenariats, événements et conseils AvadaPay autour des paiements digitaux en RDC."
-      : "AvadaPay announcements, partnerships, events and insights around digital payments in the DRC.",
+    title,
+    description,
     alternates: {
-      canonical: `${siteUrl}${getNewsIndexPath("en")}`,
+      canonical: url,
       languages: {
         fr: `${siteUrl}${getNewsIndexPath("fr")}`,
         en: `${siteUrl}${getNewsIndexPath("en")}`,
+        "x-default": `${siteUrl}${getNewsIndexPath("fr")}`,
       },
     },
+    openGraph: {
+      title,
+      description,
+      type: "website",
+      url,
+      siteName: "AvadaPay",
+      locale: "en_CD",
+      images: [
+        {
+          url: `${siteUrl}/images/hero-banner.png`,
+          alt: "AvadaPay news and resources in the DRC",
+        },
+      ],
+    },
+    twitter: {
+      card: "summary_large_image",
+      title,
+      description,
+      images: [`${siteUrl}/images/hero-banner.png`],
+    },
+    robots: { index: true, follow: true },
   };
 }
 
@@ -59,9 +81,32 @@ export default async function BlogPage({ params }: BlogPageProps) {
     Promise.resolve(getPublishedArticles(rawLocale)),
     getI18n(),
   ]);
+  const pageUrl = `${siteUrl}${getNewsIndexPath(rawLocale)}`;
+  const structuredData = {
+    "@context": "https://schema.org",
+    "@type": "CollectionPage",
+    name: "Digital payment news in the DRC",
+    description:
+      "AvadaPay news, insights and resources about digital payments in the Democratic Republic of the Congo.",
+    url: pageUrl,
+    inLanguage: "en-CD",
+    mainEntity: {
+      "@type": "ItemList",
+      itemListOrder: "https://schema.org/ItemListOrderDescending",
+      numberOfItems: articles.length,
+      itemListElement: articles.map((article, index) => ({
+        "@type": "ListItem",
+        position: index + 1,
+        url: `${siteUrl}${getNewsArticlePath(rawLocale, article.slug)}`,
+        name: article.title,
+        image: `${siteUrl}${article.coverImage}`,
+      })),
+    },
+  };
 
   return (
     <div className="flex min-h-screen flex-col bg-white text-gray-950">
+      <JsonLd data={structuredData} />
       <Header />
       <main className="flex-1">
         <section className="relative overflow-hidden border-b border-gray-100 bg-white pt-28 sm:pt-32 lg:pt-36">
@@ -81,6 +126,15 @@ export default async function BlogPage({ params }: BlogPageProps) {
 
         <section className="bg-gray-50 py-12 sm:py-16 lg:py-20">
           <div className="container">
+            <div className="mb-8 max-w-2xl">
+              <h2 className="text-2xl font-extrabold text-gray-950 sm:text-3xl">
+                Latest news
+              </h2>
+              <p className="mt-3 leading-7 text-gray-600">
+                Explore AvadaPay announcements and insights on security,
+                innovation and the evolution of payments in the DRC.
+              </p>
+            </div>
             {articles.length > 0 ? (
               <div className="grid max-w-6xl gap-5 md:grid-cols-2 xl:grid-cols-3">
                 {articles.map((article) => (

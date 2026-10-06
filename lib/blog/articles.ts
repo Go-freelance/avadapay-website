@@ -46,9 +46,23 @@ import EastAfricaCeoForumEn, {
 import EastAfricaCeoForumFr, {
   article as eastAfricaCeoForumFrMeta,
 } from "@/content/blog/avadapay-east-africa-ceo-investment-forum/fr.mdx";
+import PaymentSecurityPciDssEn, {
+  article as paymentSecurityPciDssEnMeta,
+} from "@/content/blog/securite-paiements-pci-dss-visa/en.mdx";
+import PaymentSecurityPciDssFr, {
+  article as paymentSecurityPciDssFrMeta,
+} from "@/content/blog/securite-paiements-pci-dss-visa/fr.mdx";
 import type { BlogArticle, BlogArticleMeta, BlogLocale } from "@/types/blog";
 
 const articleSources: BlogArticle[] = [
+  {
+    ...paymentSecurityPciDssFrMeta,
+    Content: PaymentSecurityPciDssFr,
+  },
+  {
+    ...paymentSecurityPciDssEnMeta,
+    Content: PaymentSecurityPciDssEn,
+  },
   {
     ...eastAfricaCeoForumFrMeta,
     Content: EastAfricaCeoForumFr,

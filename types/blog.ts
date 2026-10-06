@@ -6,6 +6,7 @@ export interface BlogArticleMeta {
   slug: string;
   locale: BlogLocale;
   title: string;
+  seoTitle?: string;
   excerpt: string;
   publishedAt: string;
   published: boolean;
